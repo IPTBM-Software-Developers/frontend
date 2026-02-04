@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/*Landing-Home Page*/
+.swiper-pagination {
+  position: static !important;
+  margin-top: 12px;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #cbd5e1; /* slate-300 */
+  opacity: 0.6;
+  margin: 0 6px !important;
+  transition: all 0.4s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #3b82f6; /* blue-500 */
+  animation: expandSlide 0.4s ease forwards;
+}
+
+@keyframes expandSlide {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
