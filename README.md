@@ -1,16 +1,17 @@
-# Welcome, backend developers!
+# Welcome, frontend developers!
 
-This repository contains the server-side logic, APIs, database configurations, and core business logic for our application. Your expertise is crucial in building robust, scalable, and efficient systems.
+This repository contains the client-side application built with Vite + React. Your creativity and technical skills are essential in crafting beautiful, responsive, and intuitive user experiences.
 
 ---
 
 ## Tech Stack
 
-- Runtime: Node.js (LTS version)
-- Framework: Laravel
-- Database: MySQL
-- Authentication: JWT / OAuth2
-- Other: Redis, Docker
+- Build Tool: Vite
+- Framework: React 18+
+- Language: JavaScript
+- Styling: Tailwind CSS / [Your CSS Framework]
+- Routing: Javascript SWC
+- Deployment: Netlify
 
 --- 
 
