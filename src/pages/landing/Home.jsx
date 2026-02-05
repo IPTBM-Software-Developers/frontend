@@ -13,7 +13,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import Iptbm from "../../assets/Iptbm.jpg";
 import LspuImage1 from "../../assets/LspuImage1.png";
 import LspuImage2 from "../../assets/LspuImage2.jpg";
-import Shield from "../../assets/shield.png";
+import Shield from "../../assets/Shield.png";
 import Badge from "../../assets/Badge.png";
 
 // Swiper
