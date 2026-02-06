@@ -1,5 +1,6 @@
 // Components
 import NavBar from "../../components/landing/NavBar";
+
 // Link
 import {Link} from "react-router-dom";
 
@@ -8,6 +9,7 @@ import About from "./About";
 
 // icons
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { Award } from "lucide-react";
 
 // Images
 import Iptbm from "../../assets/Iptbm.jpg";
@@ -28,19 +30,20 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <main className="bg-gray-50">
+      <main className="bg-gray-50 py-8">
         <div className="flex items-center justify-evenly h-screen w-full " >
 
           {/*Text Section*/}
           <section className="flex flex-col gap-8">
               <div>
-                <div className="flex items-center justify-center text-sm font-medium w-55 h-7 bg-gray-100 rounded-lg">
-                  <img src={Shield} alt="" className="w-5 h-5"/>
+                <div className="inline-flex gap-2 items-center text-xs font-medium bg-gray-200 px-2 py-1 rounded-lg mb-6">
+                  <img src={Shield} alt="" className="w-4 h-4"/>
                   <p>Trusted by 500+ Institutions</p>
                 </div>
+
                 <h1 className="text-6xl font-bold">Secure & Manage</h1>
-                <h1 className="text-6xl font-bold">Your <span className="text-blue-600">Intellectual</span></h1>
-                <h1 className="text-6xl font-bold text-blue-600">Property <span className="text-black">Assets</span></h1>
+                <h1 className="text-6xl font-bold">Your <span className="text-blue-700">Intellectual</span></h1>
+                <h1 className="text-6xl font-bold text-blue-700">Property <span className="text-black">Assets</span></h1>
               </div>
               <p className="text-gray-500 text-lg max-w-xl leading-relaxed">
                 IPTBM provides enterprise-grade solutions for protecting, managing,
@@ -48,44 +51,56 @@ const Home = () => {
                 and compliance frameworks.
               </p>
               
-              <div className="flex gap-4">
-                <button className="group px-4 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm transition-transform duration-100 flex items-center gap-2">
+              <div className="flex gap-4 pb-4">
+                <button className="group px-4 py-3 bg-blue-700 text-white font-medium rounded-lg hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm transition-transform duration-100 flex items-center gap-2">
                   Get Started
                   <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </button>
-                <button className="px-6 py-3 border border-blue-600 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition cursor-pointer  active:scale-95 active:shadow-sm transition-transform duration-100">
+                <button className="px-6 py-3 border border-blue-700 bg-white text-blue-700 font-medium rounded-lg hover:bg-blue-700 hover:text-white transition cursor-pointer  active:scale-95 active:shadow-sm transition-transform duration-100">
                   Learn More
                 </button>
               </div>
               
               {/*Awards & Recognition*/}
               <div className="flex flex-col gap-2 ">
-                <h1 className="flex gap-2 text-gray-500 font-medium">Awards & Recognitions <span><Link to="/about" className="text-blue-700 underline">view more</Link></span></h1>
-                <div className="flex gap-4"> 
-                  <div className="flex items-center justify-center w-50 h-20 border-1 border-gray-200 rounded-xl shadow-md">
-                    <img src={Badge} alt="" className="w-10 h-10"/>
-                    <div>
-                      <h1 className="text-sm font-medium">Research Excellence</h1>
-                      <p className="text-sm text-gray-500 ">2022</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-center w-50 h-20 border-1 border-gray-200 rounded-xl shadow-md">
-                    <img src={Badge} alt="" className="w-10 h-10"/>
-                    <div>
-                      <h1 className="text-sm font-medium">Best IP Management</h1>
-                      <p className="text-sm text-gray-500 ">2022</p>
+                <h1 className="flex gap-2 text-gray-500 font-medium">Awards & Recognitions</h1>
+
+                <div className="flex gap-4">
+                  <div className="flex gap-4"> 
+                    <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm">
+                      <div className="p-2 bg-blue-100 rounded-full">
+                        <Award className="w-6 h-6 text-blue-700"/>
+                      </div>
+                      <div>
+                        <h1 className="text-sm font-semibold">Research Excellence</h1>
+                        <p className="text-xs text-gray-500 ">2022</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-center w-50 h-20 border-1 border-gray-200 rounded-xl shadow-md">
-                    <img src={Badge} alt="" className="w-10 h-10"/>
-                    <div>
-                      <h1 className="text-sm font-medium">Excellence Award</h1>
-                      <p className="text-sm text-gray-500 ">2022</p>
+                  <div className="flex gap-4"> 
+                    <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm">
+                      <div className="p-2 bg-blue-100 rounded-full">
+                        <Award className="w-6 h-6 text-blue-700"/>
+                      </div>
+                      <div>
+                        <h1 className="text-sm font-semibold">Academic Partner</h1>
+                        <p className="text-xs text-gray-500 ">2020</p>
+                      </div>
                     </div>
                   </div>
-                  
+
+                  <div className="flex gap-4"> 
+                    <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm">
+                      <div className="p-2 bg-blue-100 rounded-full">
+                        <Award className="w-6 h-6 text-blue-700"/>
+                      </div>
+                      <div>
+                        <h1 className="text-sm font-semibold">Innovation Award</h1>
+                        <p className="text-xs text-gray-500 ">2026</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
           </section>
