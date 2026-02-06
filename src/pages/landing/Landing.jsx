@@ -2,7 +2,7 @@
 import Home from "./Home";
 import About from "./About";
 import Announcement from "./Announcement";
-import Technologies from "./technologies";
+import Technologies from "./Technologies";
 import Contact from "./Contact";
 // Components
 import NavBar from "../../components/landing/NavBar";
