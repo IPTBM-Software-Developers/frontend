@@ -44,7 +44,6 @@ const About = () => {
 
   return (
     <>
-      <NavBar />
       <main className="flex flex-col gap-8 justify-center items-center bg-gray-50 h-auto w-full px-36 py-8">
 
         {/* Text */}

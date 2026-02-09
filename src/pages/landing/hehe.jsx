@@ -25,9 +25,10 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const Home = () => {
+const Hehe = () => {
   return (
     <>
+    <NavBar />
       <main className="flex flex-cols flex-wrap items-center justify-center gap-8 h-screen w-full bg-gray-50">
 
         {/*Text Section*/}
@@ -185,4 +186,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Hehe;

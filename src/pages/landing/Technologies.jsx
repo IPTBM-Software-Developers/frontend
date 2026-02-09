@@ -64,7 +64,6 @@ const Technologies = () => {
 
   return (
     <>
-      <NavBar />
       <main className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center px-40 py-8 gap-6">
 
         {/* Text */}

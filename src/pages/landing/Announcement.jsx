@@ -16,7 +16,6 @@ import { Bell } from "lucide-react"
 const Announcement = () => {
   return (
     <>
-      <NavBar />
       <main className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center px-40 py-8 gap-6">
         <section className="flex items-center justify-center gap-2">
           <div className="p-2 rounded-lg bg-blue-100">

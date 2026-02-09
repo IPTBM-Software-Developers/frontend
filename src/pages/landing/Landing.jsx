@@ -11,7 +11,7 @@ const Landing = () => {
   return (
     <>
       <NavBar />
-      <Home />
+      <Home />  
       <About />
       <Announcement />
       <Technologies />

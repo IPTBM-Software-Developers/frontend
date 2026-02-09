@@ -44,24 +44,52 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-/*Landing-Home Page*/
 .swiper-pagination {
-  position: static !important;
-  margin-top: 12px;
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 1rem !important;
+  width: 100% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  background: #cbd5e1; /* slate-300 */
-  opacity: 0.6;
+  width: 8px !important;
+  height: 8px !important;
+  background: #cbd5e1 !important;
+  opacity: 0.6 !important;
   margin: 0 6px !important;
-  transition: all 0.4s ease;
+  transition: all 0.4s ease !important;
+  display: inline-block !important;
+  border-radius: 50% !important;
 }
 
 .swiper-pagination-bullet-active {
-  background: #3b82f6; /* blue-500 */
-  animation: expandSlide 0.4s ease forwards;
+  background: #3b82f6 !important;
+  opacity: 1 !important;
+  animation: expandSlide 0.4s ease forwards !important;
+}
+
+/* Fix for Swiper awards section alignment */
+.swiper-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Ensure proper centering for mobile */
+@media (max-width: 639px) {
+  .swiper-slide {
+    justify-content: center !important;
+  }
+}
+
+/* Optional: Add if you still see spacing issues in the main container */
+main.flex-cols {
+  min-height: 100vh;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 @keyframes expandSlide {

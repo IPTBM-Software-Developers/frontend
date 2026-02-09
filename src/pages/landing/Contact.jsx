@@ -7,7 +7,6 @@ import { ArrowRight, CircleCheck, Shield, Mail, Phone, MapPin } from "lucide-rea
 const Contact = () => {
   return (
     <>
-      <NavBar />
       <main className="bg-gray-50 h-screen w-full">
 
         {/* Start of contact */}
