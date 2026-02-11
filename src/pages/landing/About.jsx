@@ -14,7 +14,7 @@ import { Layers } from "lucide-react";
 import { Quote } from "lucide-react";
 import { UserRound } from "lucide-react";
 
-const About = () => {
+const About = ({id}) => {
 
   const cards = [
     {
@@ -45,7 +45,7 @@ const About = () => {
 
   return (
     <>
-      <main className="flex flex-col gap-8 justify-center items-center bg-gray-50 h-auto w-full py-8 px-[3%]">
+      <main id={id} className="flex flex-col gap-8 justify-center items-center bg-gray-50 h-auto w-full py-8 px-[3%]">
 
         {/* Text */}
         <section className="flex flex-col gap-4 items-center text-center">

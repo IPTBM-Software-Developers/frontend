@@ -13,10 +13,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Bell } from "lucide-react"
 
-const Announcement = () => {
+const Announcement = ({id}) => {
   return (
     <>
-      <main className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-8 px-[3%] gap-6">
+      <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-8 px-[3%] gap-6">
         <section className="flex items-center justify-center gap-2">
           <div className="p-2 rounded-lg bg-blue-100">
             <Bell className="text-blue-700 "/>

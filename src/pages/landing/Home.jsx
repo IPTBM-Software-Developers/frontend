@@ -70,10 +70,10 @@ const awardCards = [
   },
 ];
 
-const Home = () => {
+const Home = ({id}) => {
   return (
     <>
-      <main className="flex flex-wrap items-center justify-center gap-8 h-screen w-full bg-gray-50">
+      <main id={id} className="flex flex-wrap items-center justify-center gap-8 h-screen w-full bg-gray-50">
 
         {/*Text Section*/}
         <section className="flex flex-col flex-wrap 

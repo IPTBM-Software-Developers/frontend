@@ -12,11 +12,11 @@ const Landing = () => {
     <>
       <main className="h-auto">
         <NavBar />
-        <Home />  
-        <About />
-        <Announcement />
-        <Technologies />
-        <Contact />
+        <Home id="home" />  
+        <About id="about"/>
+        <Announcement id="announcement"/>
+        <Technologies id="technologies"/>
+        <Contact id="contact"/>
       </main>
     </>
   );

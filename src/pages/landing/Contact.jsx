@@ -4,10 +4,10 @@ import NavBar from "../../components/landing/NavBar";
 // Icons
 import { ArrowRight, CircleCheck, Shield, Mail, Phone, MapPin } from "lucide-react";
 
-const Contact = () => {
+const Contact = ({id}) => {
   return (
     <>
-      <main className="bg-gray-50 h-screen w-full">
+      <main id={id} className="bg-gray-50 h-screen w-full">
 
         {/* Start of contact */}
           <section className="w-full bg-blue-700">

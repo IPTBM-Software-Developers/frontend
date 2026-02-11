@@ -22,7 +22,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Bell } from "lucide-react"
 
-const Technologies = () => {
+const Technologies = ({id}) => {
   const cards = [
     {
       icon: <Shield className="w-8 h-8 text-blue-700"/>,
@@ -64,7 +64,7 @@ const Technologies = () => {
 
   return (
     <>
-      <main className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-8 px-[3%] gap-6">
+      <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-8 px-[3%] gap-6">
 
         {/* Text */}
         <section className="flex flex-col gap-4 items-center justify-center">
