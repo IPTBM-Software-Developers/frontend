@@ -25,162 +25,99 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import LoopLogo from "@/components/landing/LoopLogo";
+
+
+const awardCards = [
+  {
+    node: (
+      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
+        <div className="p-2 bg-blue-100 rounded-full">
+          <Award className="w-6 h-6 text-blue-700"/>
+        </div>
+        <div>
+          <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
+            Research Excellence
+          </h1>
+          <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2022</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    node: (
+      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
+        <div className="p-2 bg-blue-100 rounded-full">
+          <Award className="w-6 h-6 text-blue-700"/>
+        </div>
+        <div>
+          <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
+            Academic Partner
+          </h1>
+          <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2020</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    node: (
+      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
+        <div className="p-2 bg-blue-100 rounded-full">
+          <Award className="w-6 h-6 text-blue-700"/>
+        </div>
+        <div>
+          <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
+            Innovation Award
+          </h1>
+          <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2026</p>
+        </div>
+      </div>
+    )
+  },
+];
 const Hehe = () => {
   return (
     <>
-    <NavBar />
-      <main className="flex flex-cols flex-wrap items-center justify-center gap-8 h-screen w-full bg-gray-50">
-
-        {/*Text Section*/}
-        <section className="flex flex-col flex-wrap w-3xl gap-8 p-4 items-center text-center md:items-start md:text-left">
-
-          <div className=" flex flex-col gap-2">
-            {/* Icon */}
-            <div className="inline-flex w-fit gap-2 items-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1  mx-auto md:mx-0">
-              <img src={Shield} alt="" className="w-4 h-4"/>
-              <p>Trusted by 500+ Institutions</p>
+      <main className="flex flex-wrap justify-center items-center w-full border border-red-500 h-screen px-[3%]">
+        <div className="border border-blue-500
+          w-full 
+          sm:max-w-xl
+          md:max-w-3xl
+          lg:max-w-7xl
+          xl:max-w-[1736px] 
+          h-50
+          overflow-hidden">
+            {/* Awards & Recogitions */}
+            <div className="
+              w-full
+              bg-white p-4 rounded-xl shadow-sm border border-red-500">
+              <h1 className="text-gray-500 font-medium text-[clamp(0.9rem,1vw,1rem)]">
+                Awards & Recognitions
+              </h1>
+  
+              <LoopLogo
+                logos={awardCards}   // array of award card nodes
+                speed={100}          // horizontal speed
+                direction="left"
+                logoHeight={0}     // approximate height of your cards
+                gap={24}             // spacing between cards
+                hoverSpeed={0}       // stop movement on hover
+                scaleOnHover={false}         // optional scaling effect
+                fadeOut              // fade cards at edges
+                fadeOutColor="#ffffff"
+                useCustomRender={true} // needed for React nodes
+                ariaLabel="Awards & Recognitions"
+              />
             </div>
-
-            {/* Title */}
-            <div className="flex flex-col gap-8">
-              <div className="leading-none">
-                <h1 className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold">Secure & Manage</h1>
-                <h1 className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold">
-                  Your <span className="text-blue-700">Intellectual</span>
-                </h1>
-                <h1 className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold text-blue-700">
-                  Property <span className="text-black">Assets</span>
-                </h1>
-              </div>
-
-              {/* Description */}
-              <p className="text-gray-500 text-[clamp(0.90rem,1.2vw,1.1rem)] max-w-full md:max-w-[70%] mx-auto md:mx-0">
-                IPTBM provides enterprise-grade solutions for protecting, managing,
-                and monetizing intellectual property with cutting-edge technology 
-                and compliance frameworks.
-              </p>
-            </div>
-          </div>
-          
-          {/* Buttons */}
-          <div className="flex gap-4 pb-4 justify-center md:justify-start flex-wrap">
-            <button className="group px-4 py-3 bg-blue-700 text-white text-[clamp(0.9rem,1vw,1rem)] font-medium rounded-lg hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm transition-transform duration-100 flex items-center gap-2">
-              Get Started
-              <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </button>
-
-            <button className="px-6 py-3 border border-blue-700 bg-white text-blue-700 text-[clamp(0.9rem,1vw,1rem)] font-medium rounded-lg hover:bg-blue-700 hover:text-white transition cursor-pointer active:scale-95 active:shadow-sm transition-transform duration-100">
-              Learn More
-            </button>
-          </div>
-          
-          {/* Awards */}
-          <div className="flex flex-col gap-2">
-            <h1 className="flex gap-2 text-gray-500 font-medium text-[clamp(0.9rem,1vw,1rem)]">
-              Awards & Recognitions
-            </h1>
-
-            {/* Card */}
-            <div className="flex flex-wrap gap-4 max-w-[100%]">
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit
-">
-                <div className="p-2 bg-blue-100 rounded-full">
-                  <Award className="w-6 h-6 text-blue-700"/>
-                </div>
-                <div>
-                  <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-                    Research Excellence
-                  </h1>
-                  <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2022</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit
-">
-                <div className="p-2 bg-blue-100 rounded-full">
-                  <Award className="w-6 h-6 text-blue-700"/>
-                </div>
-                <div>
-                  <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-                    Academic Partner
-                  </h1>
-                  <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2020</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit
-">
-                <div className="p-2 bg-blue-100 rounded-full">
-                  <Award className="w-6 h-6 text-blue-700"/>
-                </div>
-                <div>
-                  <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-                    Innovation Award
-                  </h1>
-                  <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2026</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-
-        {/* Carousel Section */}
-        <section className="flex flex-col items-center justify-center w-[90%] max-w-3xl">
-          <div className="w-full">
-            <Swiper
-              modules={[Autoplay, Pagination]}
-              slidesPerView={1}
-              autoplay={{ delay: 2000, disableOnInteraction: false }}
-              pagination={{
-                clickable: true,
-                el: '.swiper-pagination',
-                type: 'bullets',
-                bulletClass: 'swiper-pagination-bullet',
-                bulletActiveClass: 'swiper-pagination-bullet-active',
-              }}
-              loop
-              className="w-full rounded-xl cursor-pointer"
-            >
-              <SwiperSlide>
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
-                  <img
-                    src={Iptbm}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/35 via-blue-500/15 to-transparent" />
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
-                  <img
-                    src={LspuImage1}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/35 via-blue-500/15 to-transparent" />
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
-                  <img
-                    src={LspuImage2}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/35 via-blue-500/15 to-transparent" />
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-          
-          {/* Add a custom pagination container */}
-          <div className="swiper-pagination !relative !mt-4 !flex !justify-center !items-center !w-full"></div>
-        </section>
+        </div>
+        <div className="border border-blue-500
+          w-lg 
+          sm:max-w-xl
+          md:max-w-3xl
+          lg:max-w-7xl
+          xl:max-w-[1536px] 
+          h-50">
+        </div>
       </main>
     </>
   );

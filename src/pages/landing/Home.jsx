@@ -1,11 +1,8 @@
 // Components
 import NavBar from "../../components/landing/NavBar";
+import LoopLogo from "@/components/landing/LoopLogo";
 
-// Link
-import {Link} from "react-router-dom";
-
-// Links
-import About from "./About";
+import { motion } from "framer-motion";
 
 // icons
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
@@ -25,13 +22,67 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+const awardCards = [
+  {
+    node: (
+      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
+        <div className="p-2 bg-blue-100 rounded-full">
+          <Award className="w-6 h-6 text-blue-700"/>
+        </div>
+        <div>
+          <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
+            Research Excellence
+          </h1>
+          <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2022</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    node: (
+      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
+        <div className="p-2 bg-blue-100 rounded-full">
+          <Award className="w-6 h-6 text-blue-700"/>
+        </div>
+        <div>
+          <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
+            Academic Partner
+          </h1>
+          <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2020</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    node: (
+      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
+        <div className="p-2 bg-blue-100 rounded-full">
+          <Award className="w-6 h-6 text-blue-700"/>
+        </div>
+        <div>
+          <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
+            Innovation Award
+          </h1>
+          <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2026</p>
+        </div>
+      </div>
+    )
+  },
+];
+
 const Home = () => {
   return (
     <>
-      <main className="flex flex-cols flex-wrap items-center justify-center gap-8 h-auto w-full bg-gray-50">
+      <main className="flex flex-wrap items-center justify-center gap-8 h-screen w-full bg-gray-50">
 
         {/*Text Section*/}
-        <section className="flex flex-col flex-wrap w-3xl gap-8 p-4 ">
+        <section className="flex flex-col flex-wrap 
+          w-full 
+          sm:max-w-2xl
+          lg:max-w-3xl
+          h-auto
+          overflow-hidden
+          gap-8 p-4">
 
           <div className=" flex flex-col gap-2">
             {/* Icon */}
@@ -73,57 +124,36 @@ const Home = () => {
             </button>
           </div>
           
-          {/* Awards */}
-          <div className="flex flex-col gap-2 bg-white">
-            <h1 className="flex gap-2 text-gray-500 font-medium text-[clamp(0.9rem,1vw,1rem)]">
+          {/* Awards & Recogitions */}
+          <div className="w-full">
+            <h1 className="text-gray-500 font-medium text-[clamp(0.9rem,1vw,1rem)]">
               Awards & Recognitions
             </h1>
 
-            {/* Card */}
-            <div className="flex flex-wrap gap-4 max-w-[100%]">
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
-                <div className="p-2 bg-blue-100 rounded-full">
-                  <Award className="w-6 h-6 text-blue-700"/>
-                </div>
-                <div>
-                  <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-                    Research Excellence
-                  </h1>
-                  <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2022</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
-                <div className="p-2 bg-blue-100 rounded-full">
-                  <Award className="w-6 h-6 text-blue-700"/>
-                </div>
-                <div>
-                  <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-                    Academic Partner
-                  </h1>
-                  <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2020</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
-                <div className="p-2 bg-blue-100 rounded-full">
-                  <Award className="w-6 h-6 text-blue-700"/>
-                </div>
-                <div>
-                  <h1 className="text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-                    Innovation Award
-                  </h1>
-                  <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-gray-500">2026</p>
-                </div>
-              </div>
-
-            </div>
+            <LoopLogo
+              logos={awardCards}   // array of award card nodes
+              speed={100}          // horizontal speed
+              direction="left"
+              logoHeight={0}     // approximate height of your cards
+              gap={24}             // spacing between cards
+              scaleOnHover={false}         // optional scaling effect
+              fadeOut              // fade cards at edges
+              fadeOutColor="#ffffff"
+              useCustomRender={true} // needed for React nodes
+              ariaLabel="Awards & Recognitions"
+              
+            />
           </div>
         </section>
 
 
         {/* Carousel Section */}
-        <section className="flex flex-col items-center justify-center w-[90%] max-w-3xl">
+        <section className="flex flex-col flex-wrap 
+          w-full 
+          sm:max-w-2xl
+          lg:max-w-3xl
+          h-auto
+          gap-8 p-4">
           <div className="w-full">
             <Swiper
               modules={[Autoplay, Pagination]}

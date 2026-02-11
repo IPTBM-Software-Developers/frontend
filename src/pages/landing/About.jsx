@@ -1,6 +1,7 @@
 // Components
 import NavBar from "../../components/landing/NavBar";
 import { Card, CardContent } from "@/components/ui/card"
+import ScrollFloat from "../../components/landing/ScrollFloat";
 
 // Icons
 import { Shield } from "lucide-react";
@@ -17,24 +18,24 @@ const About = () => {
 
   const cards = [
     {
-      iconA: <Quote className="w-8 h-8 text-blue-300"/>,
-      iconB: <UserRound className="w-8 h-8 text-blue-700"/>,
+      iconA: <Quote className="w-8 h-8 text-gray-400"/>,
+      iconB: <UserRound className="w-8 h-8 text-blue-400"/>,
       comment: "IPTBM has transformed how we manage our research patents. The platform is intuitive and the support team is exceptional.",
       name: "Dr. Maria Santos",
       position: "Research Director",
       university: "University Research Center"
     },
     {
-      iconA: <Quote className="w-8 h-8 text-blue-300"/>,
-      iconB: <UserRound className="w-8 h-8 text-blue-700"/>,
+      iconA: <Quote className="w-8 h-8 text-gray-400"/>,
+      iconB: <UserRound className="w-8 h-8 text-blue-400"/>,
       comment: "The compliance tools have saved us countless hours of manual work. Highly recommended for any institution dealing with IP management.",
       name: "Prof. Juan dela Cruz",
       position: "IP Office Head",
       university: "State University"
     },
     {
-      iconA: <Quote className="w-8 h-8 text-blue-300"/>,
-      iconB: <UserRound className="w-8 h-8 text-blue-700"/>,
+     iconA: <Quote className="w-8 h-8 text-gray-400"/>,
+      iconB: <UserRound className="w-8 h-8 text-blue-400"/>,
       comment: "Finally, a platform that understands the unique needs of academic institutions. The analytics features are particularly valuable.",
       name: "Dr. Ana Reyes",
       position: "Technology Transfer Officer",
@@ -128,14 +129,15 @@ const About = () => {
               </p>
             </div>
         </section>
+      </main>
 
-        {/* Review Section */}
-        <section className="flex flex-col gap-4 items-center justify-center py-16">
-            <h1 className="text-black font-bold text-4xl text-center">
+      {/* Review Section */}
+        <section className="flex flex-col gap-4 items-center justify-center py-16 bg-blue-700 px-[3%]">
+            <h1 className="text-white font-bold text-4xl text-center">
               Trusted by Leading Institutions
             </h1>
 
-            <p className="text-gray-500 max-w-xl leading-relaxed text-center">
+            <p className="text-white max-w-lg leading-relaxed text-center">
               See what our partners have to say about their experience with IPTBM.
             </p>
             {/* Comments */}
@@ -164,7 +166,7 @@ const About = () => {
                   </div>
 
                   {/* Profile */}
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-4">
                     <figure className="p-2 bg-blue-100 rounded-full">
                       {card.iconB}
                     </figure>
@@ -186,7 +188,6 @@ const About = () => {
             ))}
           </div>
         </section>
-      </main>
 
     </>
   )
