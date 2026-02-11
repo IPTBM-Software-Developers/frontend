@@ -16,7 +16,7 @@ import { Bell } from "lucide-react"
 const Announcement = () => {
   return (
     <>
-      <main className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center px-40 py-8 gap-6">
+      <main className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-8 px-[3%] gap-6">
         <section className="flex items-center justify-center gap-2">
           <div className="p-2 rounded-lg bg-blue-100">
             <Bell className="text-blue-700 "/>
@@ -38,7 +38,14 @@ const Announcement = () => {
         </section>
 
         {/* GRID */}
-        <section className="w-full max-w-8xl grid grid-cols-1 md:grid-cols-2 gap-6">
+        <section className="
+          grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2
+          max-w-lg
+          sm:max-w-xl
+          md:max-w-3xl
+          lg:max-w-7xl
+          xl:max-w-[1536px]
+          mx-auto py-8">
           {/* CARD 1 */}
           <Card className="flex justify-center items-center w-full rounded-2xl border bg-gray-50 shadow-sm">
             <CardContent className="p-6 space-y-4">
@@ -204,7 +211,7 @@ const Announcement = () => {
           </Card>
 
         </section>
-        <Link className="flex items-center justify-center gap-2 text-blue-700 underline text-sm">
+        <Link className="w-fit py-2 px-4 bg-blue-700 text-white font-medium rounded-lg hover:bg-blue-800 transition cursor-pointer flex items-center justify-center gap-2">
           view all announcement
           <span>
             <ArrowRight className="w-4 h-4" />

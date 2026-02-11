@@ -10,12 +10,14 @@ import NavBar from "../../components/landing/NavBar";
 const Landing = () => {
   return (
     <>
-      <NavBar />
-      <Home />  
-      <About />
-      <Announcement />
-      <Technologies />
-      <Contact />
+      <main className="h-auto">
+        <NavBar />
+        <Home />  
+        <About />
+        <Announcement />
+        <Technologies />
+        <Contact />
+      </main>
     </>
   );
 

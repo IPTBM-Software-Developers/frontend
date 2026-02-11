@@ -44,18 +44,24 @@ const About = () => {
 
   return (
     <>
-      <main className="flex flex-col gap-8 justify-center items-center bg-gray-50 h-auto w-full px-36 py-8">
+      <main className="flex flex-col gap-8 justify-center items-center bg-gray-50 h-auto w-full py-8 px-[3%]">
 
         {/* Text */}
-        <section className="flex flex-col gap-4 items-center">
+        <section className="flex flex-col gap-4 items-center text-center">
           <h1 className="text-black font-bold text-4xl">Why Choose IPTBM?</h1>
           <p className="flex text-gray-500 max-w-xl leading-relaxed text-center ">Our platform offers comprehensive tools and services to help you protect, manage, and monetize your intellectual property assets.</p>
         </section>
 
         {/* Cards */}
-        <section className="max-w-8xl mx-auto py-8">
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            
+        <section className="
+          grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
+          max-w-lg
+          sm:max-w-xl
+          md:max-w-3xl
+          lg:max-w-7xl
+          xl:max-w-[1536px]
+          mx-auto py-8">     
+                 
             {/* First Card */}
             <div className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm">
               <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
@@ -121,7 +127,6 @@ const About = () => {
                 Data-driven insights to optimize your IP strategy and monetization.
               </p>
             </div>
-          </div>
         </section>
 
         {/* Review Section */}
@@ -134,7 +139,14 @@ const About = () => {
               See what our partners have to say about their experience with IPTBM.
             </p>
             {/* Comments */}
-        <div className="w-full p-8 max-w-8xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="
+          grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
+          max-w-lg
+          sm:max-w-xl
+          md:max-w-3xl
+          lg:max-w-7xl
+          xl:max-w-[1536px]
+          mx-auto py-8">
             {cards.map((card, i) => (
               <Card key={i} className="w-full rounded-2xl border bg-gray-50 shadow-sm">
                 <CardContent className="px-6 py-12 flex flex-col gap-6">

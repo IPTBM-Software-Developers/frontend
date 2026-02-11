@@ -64,7 +64,7 @@ const Technologies = () => {
 
   return (
     <>
-      <main className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center px-40 py-8 gap-6">
+      <main className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-8 px-[3%] gap-6">
 
         {/* Text */}
         <section className="flex flex-col gap-4 items-center justify-center">
@@ -88,7 +88,14 @@ const Technologies = () => {
         </section>
 
         {/* Cards  */}
-          <section className="w-full max-w-8xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <section className="
+          grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
+          max-w-lg
+          sm:max-w-xl
+          md:max-w-3xl
+          lg:max-w-7xl
+          xl:max-w-[1536px]
+          mx-auto py-8">
 
             {cards.map((card, i) => (
               <Card key={i} className="w-full rounded-2xl border bg-gray-50 shadow-sm">

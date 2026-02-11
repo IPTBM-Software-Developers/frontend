@@ -28,14 +28,14 @@ import "swiper/css/pagination";
 const Home = () => {
   return (
     <>
-      <main className="flex flex-cols flex-wrap items-center justify-center gap-8 h-screen w-full bg-gray-50">
+      <main className="flex flex-cols flex-wrap items-center justify-center gap-8 h-auto w-full bg-gray-50">
 
         {/*Text Section*/}
-        <section className="flex flex-col flex-wrap w-3xl gap-8 p-4 items-center text-center md:items-start md:text-left">
+        <section className="flex flex-col flex-wrap w-3xl gap-8 p-4 ">
 
           <div className=" flex flex-col gap-2">
             {/* Icon */}
-            <div className="inline-flex w-fit gap-2 items-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1  mx-auto md:mx-0">
+            <div className="inline-flex w-fit gap-2 items-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1">
               <img src={Shield} alt="" className="w-4 h-4"/>
               <p>Trusted by 500+ Institutions</p>
             </div>
@@ -53,7 +53,7 @@ const Home = () => {
               </div>
 
               {/* Description */}
-              <p className="text-gray-500 text-[clamp(0.90rem,1.2vw,1.1rem)] max-w-full md:max-w-[70%] mx-auto md:mx-0">
+              <p className="text-gray-500 text-[clamp(0.85rem,1.2vw,1.1rem)] max-w-[70%] md:max-w-[70%]">
                 IPTBM provides enterprise-grade solutions for protecting, managing,
                 and monetizing intellectual property with cutting-edge technology 
                 and compliance frameworks.
@@ -62,7 +62,7 @@ const Home = () => {
           </div>
           
           {/* Buttons */}
-          <div className="flex gap-4 pb-4 justify-center md:justify-start flex-wrap">
+          <div className="flex gap-4 flex-wrap">
             <button className="group px-4 py-3 bg-blue-700 text-white text-[clamp(0.9rem,1vw,1rem)] font-medium rounded-lg hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm transition-transform duration-100 flex items-center gap-2">
               Get Started
               <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -74,15 +74,14 @@ const Home = () => {
           </div>
           
           {/* Awards */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 bg-white">
             <h1 className="flex gap-2 text-gray-500 font-medium text-[clamp(0.9rem,1vw,1rem)]">
               Awards & Recognitions
             </h1>
 
             {/* Card */}
             <div className="flex flex-wrap gap-4 max-w-[100%]">
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit
-">
+              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
                 <div className="p-2 bg-blue-100 rounded-full">
                   <Award className="w-6 h-6 text-blue-700"/>
                 </div>
@@ -94,8 +93,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit
-">
+              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
                 <div className="p-2 bg-blue-100 rounded-full">
                   <Award className="w-6 h-6 text-blue-700"/>
                 </div>
@@ -107,8 +105,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit
-">
+              <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-sm w-full md:w-fit">
                 <div className="p-2 bg-blue-100 rounded-full">
                   <Award className="w-6 h-6 text-blue-700"/>
                 </div>
