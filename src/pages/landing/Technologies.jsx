@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import { useState, useEffect } from "react";
 
 // Icons
 import { Layers } from "lucide-react";
@@ -12,6 +13,7 @@ import { Globe } from "lucide-react";
 
 // Components
 import NavBar from "../../components/landing/NavBar";
+import AnimatedContent from "@/components/landing/AnimatedContent";
 
 // Icons
 import { ArrowRight } from "lucide-react";
@@ -23,6 +25,12 @@ import { Badge } from "@/components/ui/badge"
 import { Bell } from "lucide-react"
 
 const Technologies = ({id}) => {
+  const [pageVisit, setPageVisit] = useState(0);
+
+  useEffect(() => {
+    setPageVisit(v => v + 1);
+  }, []); // increment on mount
+
   const cards = [
     {
       icon: <Shield className="w-8 h-8 text-blue-700"/>,
@@ -64,9 +72,21 @@ const Technologies = ({id}) => {
 
   return (
     <>
-      <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-8 px-[3%] gap-6">
-
-        {/* Text */}
+      <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-16 px-[5%] gap-6 scroll-mt-20">
+        <AnimatedContent
+          key={pageVisit}          // 🔑 forces remount
+          distance={300}
+          direction="vertical"
+          reverse={false}
+          duration={3}
+          ease="power3.out"
+          initialOpacity={0}
+          animateOpacity
+          scale={1}
+          threshold={0.1}
+          delay={0}
+        >
+          {/* Text */}
         <section className="flex flex-col gap-4 items-center justify-center">
             <div className="p-2 rounded-lg bg-blue-100">
               <Layers className="text-blue-700" />
@@ -137,6 +157,9 @@ const Technologies = ({id}) => {
             Explore Our Platform
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </button>
+        </AnimatedContent>
+
+        
       </main>
     </>
   )

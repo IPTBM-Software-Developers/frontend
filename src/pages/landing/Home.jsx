@@ -73,18 +73,19 @@ const awardCards = [
 const Home = ({id}) => {
   return (
     <>
-      <main id={id} className="flex flex-wrap items-center justify-center gap-8 h-screen w-full bg-gray-50">
+      <main id={id} className="flex flex-wrap items-center justify-center gap-8 h-auto w-full bg-gray-50 py-16 xl:py-34 px-[3%] lg:px-0 scroll-mt-20">
 
         {/*Text Section*/}
-        <section className="flex flex-col flex-wrap 
+        <section className="flex flex-col flex-wrap justify-center items-center xl:justify-start xl:items-start
           w-full 
           sm:max-w-2xl
           lg:max-w-3xl
           h-auto
           overflow-hidden
-          gap-8 p-4">
+          gap-8
+          ">
 
-          <div className=" flex flex-col gap-2">
+          <div className=" flex flex-col gap-2 justify-center items-center xl:justify-start xl:items-start">
             {/* Icon */}
             <div className="inline-flex w-fit gap-2 items-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1">
               <img src={Shield} alt="" className="w-4 h-4"/>
@@ -92,8 +93,8 @@ const Home = ({id}) => {
             </div>
 
             {/* Title */}
-            <div className="flex flex-col gap-8">
-              <div className="leading-none">
+            <div className="flex flex-col gap-8 justify-center items-center xl:justify-start xl:items-start">
+              <div className="leading-none text-center xl:text-start">
                 <h1 className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold">Secure & Manage</h1>
                 <h1 className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold">
                   Your <span className="text-blue-700">Intellectual</span>
@@ -104,7 +105,7 @@ const Home = ({id}) => {
               </div>
 
               {/* Description */}
-              <p className="text-gray-500 text-[clamp(0.85rem,1.2vw,1.1rem)] max-w-[70%] md:max-w-[70%]">
+              <p className="text-gray-500 text-[clamp(0.85rem,1.2vw,1.1rem)] max-w-[100%] md:max-w-[80%] text-center xl:text-start">
                 IPTBM provides enterprise-grade solutions for protecting, managing,
                 and monetizing intellectual property with cutting-edge technology 
                 and compliance frameworks.
@@ -148,12 +149,14 @@ const Home = ({id}) => {
 
 
         {/* Carousel Section */}
-        <section className="flex flex-col flex-wrap 
+        <section className="flex flex-col flex-wrap
           w-full 
           sm:max-w-2xl
           lg:max-w-3xl
           h-auto
-          gap-8 p-4">
+          gap-8 
+          px-4
+          ">
           <div className="w-full">
             <Swiper
               modules={[Autoplay, Pagination]}

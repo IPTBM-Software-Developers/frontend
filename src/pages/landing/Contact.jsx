@@ -1,15 +1,35 @@
 // Components
 import NavBar from "../../components/landing/NavBar";
+import { useState, useEffect } from "react";
+import AnimatedContent from "@/components/landing/AnimatedContent";
 
 // Icons
 import { ArrowRight, CircleCheck, Shield, Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = ({id}) => {
+  const [pageVisit, setPageVisit] = useState(0);
+
+  useEffect(() => {
+    setPageVisit(v => v + 1);
+  }, []); // increment on mount
+
   return (
     <>
-      <main id={id} className="bg-gray-50 h-screen w-full">
-
-        {/* Start of contact */}
+      <main id={id} className="bg-gray-50 h-screen w-full scroll-mt-20">
+        <AnimatedContent
+          key={pageVisit}          // 🔑 forces remount
+          distance={300}
+          direction="vertical"
+          reverse={false}
+          duration={3}
+          ease="power3.out"
+          initialOpacity={0}
+          animateOpacity
+          scale={1}
+          threshold={0.1}
+          delay={0}
+        >
+          {/* Start of contact */}
           <section className="w-full bg-blue-700">
             <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-2 md:grid-cols-4 text-center gap-10">
               
@@ -206,6 +226,9 @@ const Contact = ({id}) => {
 
             </div>
           </footer>
+        </AnimatedContent>
+
+        
       </main>
     </>
   )
