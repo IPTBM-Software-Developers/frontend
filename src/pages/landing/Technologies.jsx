@@ -118,7 +118,7 @@ const Technologies = ({id}) => {
           mx-auto py-8">
 
             {cards.map((card, i) => (
-              <Card key={i} className="w-full rounded-2xl border bg-gray-50 shadow-sm">
+              <Card key={i} className="w-full rounded-2xl border  bg-white shadow-sm">
                 <CardContent className="p-6 flex flex-col gap-4">
 
                   {/* icon stays same */}

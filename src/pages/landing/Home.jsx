@@ -25,7 +25,7 @@ import "swiper/css/pagination";
 const awardCards = [
   {
     node: (
-      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
+      <div className="flex gap-4 items-center justify-center p-4 bg-white border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
         <div className="p-2 bg-blue-100 rounded-full">
           <Award className="w-6 h-6 text-blue-700"/>
         </div>
@@ -40,7 +40,7 @@ const awardCards = [
   },
   {
     node: (
-      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
+      <div className="flex gap-4 items-center justify-center p-4 bg-white border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
         <div className="p-2 bg-blue-100 rounded-full">
           <Award className="w-6 h-6 text-blue-700"/>
         </div>
@@ -55,7 +55,7 @@ const awardCards = [
   },
   {
     node: (
-      <div className="flex gap-4 items-center justify-center p-4 border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
+      <div className="flex gap-4 items-center justify-center p-4 bg-white border border-gray-200 rounded-xl shadow-xs w-full md:w-fit">
         <div className="p-2 bg-blue-100 rounded-full">
           <Award className="w-6 h-6 text-blue-700"/>
         </div>

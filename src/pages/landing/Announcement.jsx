@@ -68,7 +68,7 @@ const Announcement = ({id}) => {
             xl:max-w-[1536px]
             mx-auto py-8">
             {/* CARD 1 */}
-            <Card className="flex justify-center items-center w-full rounded-2xl border bg-gray-50 shadow-sm">
+            <Card className="flex justify-center items-center w-full rounded-2xl border bg-white shadow-sm">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -109,7 +109,7 @@ const Announcement = ({id}) => {
             </Card>
 
             {/* CARD 2 */}
-            <Card className="flex justify-center items-center w-full rounded-2xl border bg-gray-50 shadow-sm">
+            <Card className="flex justify-center items-center w-full rounded-2xl border  bg-white shadow-sm">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -150,7 +150,7 @@ const Announcement = ({id}) => {
             </Card>
 
             {/* CARD 3 */}
-            <Card className="flex justify-center items-center w-full rounded-2xl border bg-gray-50 shadow-sm">
+            <Card className="flex justify-center items-center w-full rounded-2xl border  bg-white shadow-sm">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -191,7 +191,7 @@ const Announcement = ({id}) => {
             </Card>
 
             {/* CARD 4 */}
-            <Card className="flex justify-center items-center w-full rounded-2xl border bg-gray-50 shadow-sm">
+            <Card className="flex justify-center items-center w-full rounded-2xl border  bg-white shadow-sm">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">

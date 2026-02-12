@@ -185,7 +185,7 @@ const About = ({id}) => {
               xl:max-w-[1536px]
               mx-auto py-8">
                 {cards.map((card, i) => (
-                  <Card key={i} className="w-full rounded-2xl border bg-gray-50 shadow-sm">
+                  <Card key={i} className="w-full rounded-2xl border bg-white shadow-sm">
                     <CardContent className="px-6 py-12 flex flex-col gap-6">
 
                       {/* Icon */}
