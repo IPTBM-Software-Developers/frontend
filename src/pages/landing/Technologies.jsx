@@ -13,7 +13,7 @@ import { Globe } from "lucide-react";
 
 // Components
 import NavBar from "../../components/landing/NavBar";
-import AnimatedContent from "@/components/landing/AnimatedContent";
+import { motion } from "framer-motion";
 
 // Icons
 import { ArrowRight } from "lucide-react";
@@ -30,6 +30,32 @@ const Technologies = ({id}) => {
   useEffect(() => {
     setPageVisit(v => v + 1);
   }, []); // increment on mount
+
+  // Animation Variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    })
+  };
+
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
 
   const cards = [
     {
@@ -73,60 +99,62 @@ const Technologies = ({id}) => {
   return (
     <>
       <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-16 px-[5%] gap-6 scroll-mt-20">
-        <AnimatedContent
-          key={pageVisit}          // 🔑 forces remount
-          distance={300}
-          direction="vertical"
-          reverse={false}
-          duration={3}
-          ease="power3.out"
-          initialOpacity={0}
-          animateOpacity
-          scale={1}
-          threshold={0.1}
-          delay={0}
+        
+        {/* Text Section */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={fadeUpVariants}
+          className="flex flex-col gap-4 items-center justify-center"
         >
-          {/* Text */}
-        <section className="flex flex-col gap-4 items-center justify-center">
-            <div className="p-2 rounded-lg bg-blue-100">
-              <Layers className="text-blue-700" />
-            </div>
+          <div className="p-2 rounded-lg bg-blue-100">
+            <Layers className="text-blue-700" />
+          </div>
 
-            <div className="bg-gray-100 rounded-lg px-2 py-1">
-              <p className="text-xs font-medium">
-                Latest Update
-              </p>
-            </div>
-
-            <h1 className="text-black font-bold text-4xl text-center">
-              Technologies We Use
-            </h1>
-
-            <p className="text-gray-500 max-w-xl leading-relaxed text-center">
-              Our platform leverages the latest technologies to provide secure, efficient, and innovative IP management solutions.
+          <div className="bg-gray-100 rounded-lg px-2 py-1">
+            <p className="text-xs font-medium">
+              Latest Update
             </p>
-        </section>
+          </div>
 
-        {/* Cards  */}
-          <section className="
+          <h1 className="text-black font-bold text-4xl text-center">
+            Technologies We Use
+          </h1>
+
+          <p className="text-gray-500 max-w-xl leading-relaxed text-center">
+            Our platform leverages the latest technologies to provide secure, efficient, and innovative IP management solutions.
+          </p>
+        </motion.section>
+
+        {/* Cards Section */}
+        <section className="
           grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
           max-w-lg
           sm:max-w-xl
           md:max-w-3xl
           lg:max-w-7xl
           xl:max-w-[1536px]
-          mx-auto py-8">
-
-            {cards.map((card, i) => (
-              <Card key={i} className="w-full rounded-2xl border  bg-white shadow-sm">
+          mx-auto py-8"
+        >
+          {cards.map((card, i) => (
+            <motion.div
+              key={i}
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={cardVariants}
+            >
+              <Card className="w-full rounded-2xl border bg-white shadow-sm justify-evenly">
                 <CardContent className="p-6 flex flex-col gap-4">
 
-                  {/* icon stays same */}
+                  {/* Icon stays same */}
                   <div className="inline-flex w-fit p-4 rounded-lg bg-blue-100">
                     {card.icon}
                   </div>
 
-                  {/* text */}
+                  {/* Text */}
                   <div className="space-y-2">
                     <h3 className="text-lg font-semibold">{card.title}</h3>
                     <p className="text-gray-600 leading-relaxed break-words">
@@ -134,7 +162,7 @@ const Technologies = ({id}) => {
                     </p>
                   </div>
 
-                  {/* badges */}
+                  {/* Badges */}
                   <div className="flex flex-wrap gap-2">
                     {card.badges.map((badge, b) => (
                       <Badge
@@ -149,20 +177,26 @@ const Technologies = ({id}) => {
 
                 </CardContent>
               </Card>
-            ))}
-          </section>
+            </motion.div>
+          ))}
+        </section>
 
-          {/* Button */}
-          <button className="group px-4 py-2 bg-blue-700 text-white text-sm font-medium rounded-sm hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm transition-transform duration-100 flex items-center gap-2">
+        {/* Button */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={fadeUpVariants}
+        >
+          <button className="group px-4 py-2 bg-blue-700 text-white text-sm font-medium rounded-sm hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm flex items-center gap-2">
             Explore Our Platform
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </button>
-        </AnimatedContent>
-
+        </motion.div>
         
       </main>
     </>
   )
 }
 
-export default Technologies
+export default Technologies;

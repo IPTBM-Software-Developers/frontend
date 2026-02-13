@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 // Components
 import NavBar from "../../components/landing/NavBar";
 import { Card, CardContent } from "@/components/ui/card"
-import AnimatedContent from "@/components/landing/AnimatedContent";
+import StaggeredText from '@/components/landing/StaggeredText';
+import { motion } from "framer-motion";
 
 // Icons
 import { Shield } from "lucide-react";
@@ -23,6 +24,33 @@ const About = ({id}) => {
   useEffect(() => {
     setPageVisit(v => v + 1);
   }, []); // increment on mount
+
+  // Animation Variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    })
+  };
+
+  const testimonialVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: (i) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
 
   const cards = [
     {
@@ -54,155 +82,210 @@ const About = ({id}) => {
   return (
     <>
       <main id={id} className="flex flex-col gap-8 justify-center items-center bg-gray-50 h-auto w-full py-16 px-[5%] scroll-mt-20">
+        {/* Text */}
+        <section className="flex flex-col gap-4 items-center text-center">
+          <StaggeredText 
+            el="h1" 
+            className="text-black font-bold text-4xl"
+            duration={0.5}        // duration of each character animation
+            staggerDelay={0.03}   // delay between each character
+          >
+            Why Choose IPTBM?
+          </StaggeredText>
 
-        <AnimatedContent
-          key={pageVisit}          // 🔑 forces remount
-          distance={300}
-          direction="vertical"
-          reverse={false}
-          duration={3}
-          ease="power3.out"
-          initialOpacity={0}
-          animateOpacity
-          scale={1}
-          threshold={0.1}
-          delay={0}
-        >
-          {/* Text */}
-          <section className="flex flex-col gap-4 items-center text-center">
-            <h1 className="text-black font-bold text-4xl">Why Choose IPTBM?</h1>
-            <p className="flex text-gray-500 max-w-xl leading-relaxed text-center ">Our platform offers comprehensive tools and services to help you protect, manage, and monetize your intellectual property assets.</p>
-          </section>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="text-gray-500 text-[clamp(0.85rem,1.2vw,1.1rem)] max-w-[100%] md:max-w-[80%] text-center"
+          >
+            Our platform offers comprehensive tools and services to help you protect, manage, and monetize your intellectual property assets.
+          </motion.p>
+        </section>
 
-          {/* Cards */}
-          <section className="
+        {/* Cards */}
+        <section className="
+          grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
+          max-w-lg
+          sm:max-w-xl
+          md:max-w-3xl
+          lg:max-w-7xl
+          xl:max-w-[1536px]
+          mx-auto py-8">     
+                
+            {/* First Card */}
+            <motion.div 
+              custom={0}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={cardVariants}
+              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
+            >
+              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
+                <Shield className="text-blue-700"/>
+              </figure>
+              <h3 className="font-semibold text-lg mb-1">IP Protection</h3>
+              <p className="text-gray-500 break-words">
+                Comprehensive protection for patents, trademarks, copyrights, and trade secrets.
+              </p>
+            </motion.div>
+
+            {/* Second Card */}
+            <motion.div 
+              custom={1}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={cardVariants}
+              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
+            >
+              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
+                <BriefcaseBusiness className="text-blue-700"/>
+              </figure>
+              <h3 className="font-semibold text-lg mb-1">Portfolio Management</h3>
+              <p className="text-gray-500 break-words">
+                Centralized dashboard to track and manage all your intellectual property assets.
+              </p>
+            </motion.div>
+
+            {/* Third Card */}
+            <motion.div 
+              custom={2}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={cardVariants}
+              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
+            >
+              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
+                <Scale className="text-blue-700"/>
+              </figure>
+              <h3 className="font-semibold text-lg mb-1">Legal Compliance</h3>
+              <p className="text-gray-500 break-words">
+                Stay compliant with local and international IP laws and regulations.
+              </p>
+            </motion.div>
+
+            {/* Fourth Card */}
+            <motion.div 
+              custom={3}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={cardVariants}
+              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
+            >
+              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
+                <Globe className="text-blue-700"/>
+              </figure>
+              <h3 className="font-semibold text-lg mb-1">Global Coverage</h3>
+              <p className="text-gray-500 break-words">
+                Comprehensive protection for patents, trademarks, copyrights, and trade secrets.
+              </p>
+            </motion.div>
+
+            {/* Fifth Card */}
+            <motion.div 
+              custom={4}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={cardVariants}
+              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
+            >
+              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
+                <Lock className="text-blue-700"/>
+              </figure>
+              <h3 className="font-semibold text-lg mb-1">Secure Platform</h3>
+              <p className="text-gray-500 break-words">
+                Enterprise-grade security with encrypted data storage and access controls.
+              </p>
+            </motion.div>
+
+            {/* Sixth Card */}
+            <motion.div 
+              custom={5}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={cardVariants}
+              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
+            >
+              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
+                <ChartColumnIncreasing className="text-blue-700"/>
+              </figure>
+              <h3 className="font-semibold text-lg mb-1">Analytics & Insights</h3>
+              <p className="text-gray-500 break-words">
+                Data-driven insights to optimize your IP strategy and monetization.
+              </p>
+            </motion.div>
+        </section>    
+      </main>
+
+      {/* Review Section with Blue Background - Now contains both title and comments */}
+      <section className="w-full bg-blue-700 py-16 px-[3%]">
+        <div className="w-full mx-auto flex flex-col gap-12">
+          
+          {/* Review Title Section */}
+          <div className="flex flex-col gap-4 items-center justify-center">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="text-white font-bold text-4xl text-center"
+            >
+              Trusted by Leading Institutions
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: false }}
+              className="text-white max-w-lg leading-relaxed text-center"
+            >
+              See what our partners have to say about their experience with IPTBM.
+            </motion.p>
+          </div>
+
+          {/* Comments Cards - Now inside blue background with equal heights */}
+          <div className="
             grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
             max-w-lg
             sm:max-w-xl
             md:max-w-3xl
             lg:max-w-7xl
             xl:max-w-[1536px]
-            mx-auto py-8">     
-                  
-              {/* First Card */}
-              <div className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm">
-                <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                  <Shield className="text-blue-700"/>
-                </figure>
-                <h3 className="font-semibold text-lg mb-1">IP Protection</h3>
-                <p className="text-gray-500 break-words">
-                  Comprehensive protection for patents, trademarks, copyrights, and trade secrets.
-                </p>
-              </div>
-
-              {/* Second Card */}
-              <div className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm">
-                <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                  <BriefcaseBusiness className="text-blue-700"/>
-                </figure>
-                <h3 className="font-semibold text-lg mb-1">Portfolio Management</h3>
-                <p className="text-gray-500 break-words">
-                  Centralized dashboard to track and manage all your intellectual property assets.
-                </p>
-              </div>
-
-              {/* Third Card */}
-              <div className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm">
-                <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                  <Scale className="text-blue-700"/>
-                </figure>
-                <h3 className="font-semibold text-lg mb-1">Legal Compliance</h3>
-                <p className="text-gray-500 break-words">
-                  Stay compliant with local and international IP laws and regulations.
-                </p>
-              </div>
-
-              {/* Fourth Card */}
-              <div className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm">
-                <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                  <Globe className="text-blue-700"/>
-                </figure>
-                <h3 className="font-semibold text-lg mb-1">Global Coverage</h3>
-                <p className="text-gray-500 break-words">
-                  Comprehensive protection for patents, trademarks, copyrights, and trade secrets.
-                </p>
-              </div>
-
-              {/* Fifth Card */}
-              <div className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm">
-                <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                  <Lock className="text-blue-700"/>
-                </figure>
-                <h3 className="font-semibold text-lg mb-1">Secure Platform</h3>
-                <p className="text-gray-500 break-words">
-                  Enterprise-grade security with encrypted data storage and access controls.
-                </p>
-              </div>
-
-              {/* Sixth Card */}
-              <div className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm">
-                <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                  <ChartColumnIncreasing className="text-blue-700"/>
-                </figure>
-                <h3 className="font-semibold text-lg mb-1">Analytics & Insights</h3>
-                <p className="text-gray-500 break-words">
-                  Data-driven insights to optimize your IP strategy and monetization.
-                </p>
-              </div>
-          </section>
-        </AnimatedContent>
-      </main>
-
-      {/* Review Section */}
-        <AnimatedContent
-          key={pageVisit}          // 🔑 forces remount
-          distance={300}
-          direction="vertical"
-          reverse={false}
-          duration={3}
-          ease="power3.out"
-          initialOpacity={0}
-          animateOpacity
-          scale={1}
-          threshold={0.1}
-          delay={0}
-        >
-          <section className="flex flex-col gap-4 items-center justify-center py-16 bg-blue-700 px-[3%]">
-            <h1 className="text-white font-bold text-4xl text-center">
-              Trusted by Leading Institutions
-            </h1>
-
-            <p className="text-white max-w-lg leading-relaxed text-center">
-              See what our partners have to say about their experience with IPTBM.
-            </p>
-            {/* Comments */}
-            <div className="
-              grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
-              max-w-lg
-              sm:max-w-xl
-              md:max-w-3xl
-              lg:max-w-7xl
-              xl:max-w-[1536px]
-              mx-auto py-8">
-                {cards.map((card, i) => (
-                  <Card key={i} className="w-full rounded-2xl border bg-white shadow-sm">
-                    <CardContent className="px-6 py-12 flex flex-col gap-6">
-
+            mx-auto auto-rows-fr">
+            {cards.map((card, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+                variants={testimonialVariants}
+                className="h-full"
+              >
+                <Card className="w-full rounded-2xl border bg-white shadow-sm h-full">
+                  <CardContent className="px-6 py-12 flex flex-col gap-6 h-full">
+                    <div className="flex flex-col gap-6 flex-1">
                       {/* Icon */}
                       <div className="inline-flex w-fit">
                         {card.iconA}
                       </div>
 
                       {/* Text */}
-                      <div className="space-y-2">
+                      <div className="space-y-2 flex-1">
                         <p className="text-gray-600 leading-relaxed break-words">
                           "{card.comment}"
                         </p>
                       </div>
 
-                      {/* Profile */}
-                      <div className="flex items-center gap-4">
-                        <figure className="p-2 bg-blue-100 rounded-full">
+                      {/* Profile - pushed to bottom with margin-top auto */}
+                      <div className="flex items-center gap-4 mt-auto">
+                        <figure className="p-2 bg-blue-100 rounded-full flex-shrink-0">
                           {card.iconB}
                         </figure>
                         <div className="flex flex-col leading-tight">
@@ -217,17 +300,16 @@ const About = ({id}) => {
                           </p>
                         </div>
                       </div>
-
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
-        </AnimatedContent>
-        
-
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   )
 }
 
-export default About
+export default About;

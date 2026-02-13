@@ -1,7 +1,6 @@
 // Components
-import NavBar from "../../components/landing/NavBar";
 import LoopLogo from "@/components/landing/LoopLogo";
-
+import StaggeredText from "@/components/landing/StaggeredText";
 import { motion } from "framer-motion";
 
 // icons
@@ -22,6 +21,24 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+// Animations
+// Page entrance
+const pageEnter = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" }
+  }
+};
+
+// Carousel fade
+const fadeImage = {
+  hidden: { opacity: 0, scale: 1.05 },
+  show: { opacity: 1, scale: 1 }
+};
+
+// Awards Data
 const awardCards = [
   {
     node: (
@@ -70,148 +87,120 @@ const awardCards = [
   },
 ];
 
-const Home = ({id}) => {
+const Home = ({ id }) => {
   return (
-    <>
-      <main id={id} className="flex flex-wrap items-center justify-center gap-8 h-auto w-full bg-gray-50 py-16 xl:py-34 px-[3%] lg:px-0 scroll-mt-20">
+    <motion.main
+      id={id}
+      variants={pageEnter}
+      initial="hidden"
+      animate="show"
+      className="flex flex-wrap items-center justify-center gap-8 h-auto w-full bg-gray-50 py-16 xl:py-34 px-[3%] lg:px-0 scroll-mt-20"
+    >
 
-        {/*Text Section*/}
-        <section className="flex flex-col flex-wrap justify-center items-center xl:justify-start xl:items-start
-          w-full 
-          sm:max-w-2xl
-          lg:max-w-3xl
-          h-auto
-          overflow-hidden
-          gap-8
-          ">
+      {/* ================= TEXT SECTION ================= */}
+      <section className="flex flex-col flex-wrap justify-center items-center md:justify-start md:items-start
+        w-full sm:max-w-2xl lg:max-w-3xl gap-8">
 
-          <div className=" flex flex-col gap-2 justify-center items-center xl:justify-start xl:items-start">
-            {/* Icon */}
-            <div className="inline-flex w-fit gap-2 items-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1">
-              <img src={Shield} alt="" className="w-4 h-4"/>
-              <p>Trusted by 500+ Institutions</p>
-            </div>
+        {/* Trusted badge */}
+        <div className="inline-flex w-fit gap-2 items-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1">
+          <img src={Shield} alt="" className="w-4 h-4"/>
+          <p>Trusted by 500+ Institutions</p>
+        </div>
 
-            {/* Title */}
-            <div className="flex flex-col gap-8 justify-center items-center xl:justify-start xl:items-start">
-              <div className="leading-none text-center xl:text-start">
-                <h1 className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold">Secure & Manage</h1>
-                <h1 className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold">
-                  Your <span className="text-blue-700">Intellectual</span>
-                </h1>
-                <h1 className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold text-blue-700">
-                  Property <span className="text-black">Assets</span>
-                </h1>
-              </div>
+        {/* ===== TITLE ===== */}
+        <div className="leading-none text-center md:text-start flex flex-col w-full">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold text-center md:text-start flex flex-col"
+          >
+            <span>Secure and Manage</span>
+            <span>your <span className="text-blue-700">Intellectual</span> </span>
+            <span className="text-blue-700"> Property <span className="text-black">assets</span> </span>
+          </motion.h1>
+        </div>
 
-              {/* Description */}
-              <p className="text-gray-500 text-[clamp(0.85rem,1.2vw,1.1rem)] max-w-[100%] md:max-w-[80%] text-center xl:text-start">
-                IPTBM provides enterprise-grade solutions for protecting, managing,
-                and monetizing intellectual property with cutting-edge technology 
-                and compliance frameworks.
-              </p>
-            </div>
-          </div>
-          
-          {/* Buttons */}
-          <div className="flex gap-4 flex-wrap">
-            <button className="group px-4 py-3 bg-blue-700 text-white text-[clamp(0.9rem,1vw,1rem)] font-medium rounded-lg hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm transition-transform duration-100 flex items-center gap-2">
-              Get Started
-              <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </button>
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-gray-500 text-[clamp(0.85rem,1.2vw,1.1rem)] max-w-[100%] md:max-w-[80%] text-center md:text-start"
+        >
+          IPTBM provides enterprise-grade solutions for protecting, managing,
+          and monetizing intellectual property with cutting-edge technology 
+          and compliance frameworks.
+        </motion.p>
 
-            <button className="px-6 py-3 border border-blue-700 bg-white text-blue-700 text-[clamp(0.9rem,1vw,1rem)] font-medium rounded-lg hover:bg-blue-700 hover:text-white transition cursor-pointer active:scale-95 active:shadow-sm transition-transform duration-100">
-              Learn More
-            </button>
-          </div>
-          
-          {/* Awards & Recogitions */}
-          <div className="w-full">
-            <h1 className="text-gray-500 font-medium text-[clamp(0.9rem,1vw,1rem)]">
-              Awards & Recognitions
-            </h1>
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex gap-4 flex-wrap"
+        >
+          <button className="group px-4 py-3 bg-blue-700 text-white rounded-lg flex items-center gap-2">
+            Get Started
+            <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </button>
 
-            <LoopLogo
-              logos={awardCards}   // array of award card nodes
-              speed={100}          // horizontal speed
-              direction="left"
-              logoHeight={0}     // approximate height of your cards
-              gap={24}             // spacing between cards
-              scaleOnHover={false}         // optional scaling effect
-              fadeOut              // fade cards at edges
-              fadeOutColor="#ffffff"
-              useCustomRender={true} // needed for React nodes
-              ariaLabel="Awards & Recognitions"
-              
-            />
-          </div>
-        </section>
+          <button className="px-6 py-3 border border-blue-700 bg-white text-blue-700 rounded-lg">
+            Learn More
+          </button>
+        </motion.div>
+
+        {/* Awards */}
+        <div className="w-full">
+          <h1 className="text-gray-500 font-medium text-[clamp(0.9rem,1vw,1rem)]">
+            Awards & Recognitions
+          </h1>
+
+          <LoopLogo
+            logos={awardCards}
+            speed={100}
+            direction="left"
+            gap={24}
+            scaleOnHover={false}
+            fadeOut
+            fadeOutColor="#ffffff"
+            useCustomRender={true}
+            ariaLabel="Awards & Recognitions"
+          />
+        </div>
+      </section>
 
 
-        {/* Carousel Section */}
-        <section className="flex flex-col flex-wrap
-          w-full 
-          sm:max-w-2xl
-          lg:max-w-3xl
-          h-auto
-          gap-8 
-          px-4
-          ">
-          <div className="w-full">
-            <Swiper
-              modules={[Autoplay, Pagination]}
-              slidesPerView={1}
-              autoplay={{ delay: 2000, disableOnInteraction: false }}
-              pagination={{
-                clickable: true,
-                el: '.swiper-pagination',
-                type: 'bullets',
-                bulletClass: 'swiper-pagination-bullet',
-                bulletActiveClass: 'swiper-pagination-bullet-active',
-              }}
-              loop
-              className="w-full rounded-xl cursor-pointer"
-            >
-              <SwiperSlide>
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
-                  <img
-                    src={Iptbm}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/35 via-blue-500/15 to-transparent" />
-                </div>
-              </SwiperSlide>
+      {/* ================= CAROUSEL ================= */}
+      <section className="flex flex-col w-full sm:max-w-2xl lg:max-w-3xl gap-8 px-4">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          slidesPerView={1}
+          autoplay={{ delay: 2500 }}
+          pagination={{ clickable: true }}
+          loop
+          className="w-full rounded-xl"
+        >
 
-              <SwiperSlide>
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
-                  <img
-                    src={LspuImage1}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/35 via-blue-500/15 to-transparent" />
-                </div>
-              </SwiperSlide>
+          {[Iptbm, LspuImage1, LspuImage2].map((img, i) => (
+            <SwiperSlide key={i}>
+              <motion.div
+                variants={fadeImage}
+                initial="hidden"
+                animate="show"
+                transition={{ duration: 0.8 }}
+                className="relative w-full aspect-[16/9] overflow-hidden rounded-xl"
+              >
+                <img src={img} className="w-full h-full object-cover"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-500/35 via-blue-500/15 to-transparent"/>
+              </motion.div>
+            </SwiperSlide>
+          ))}
 
-              <SwiperSlide>
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
-                  <img
-                    src={LspuImage2}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/35 via-blue-500/15 to-transparent" />
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-          
-          {/* Add a custom pagination container */}
-          <div className="swiper-pagination !relative !mt-4 !flex !justify-center !items-center !w-full"></div>
-        </section>
-      </main>
-    </>
+        </Swiper>
+      </section>
+
+    </motion.main>
   );
 };
 
