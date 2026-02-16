@@ -7,7 +7,7 @@ import Announcement from "../pages/landing/Announcement";
 import Technologies from "../pages/landing/Technologies";
 import Contact from "../pages/landing/Contact";
 import Landing from "../pages/landing/Landing";
-import Hehe from "@/pages/landing/hehe";
+import ViewAllAnnouncement from "@/pages/landing/ViewAllAnnouncement";
 
 // Components
 import NavBar from "../components/landing/NavBar";
@@ -22,7 +22,7 @@ function LandingRoutes() {
         <Route path="/technologies" element={<Technologies />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/landing" element={<Landing />} /> 
-        <Route path="/hehe" element={<Hehe />} />
+        <Route path="/viewallannouncement" element={<ViewAllAnnouncement />} />
       </Routes> 
     </>  
   );

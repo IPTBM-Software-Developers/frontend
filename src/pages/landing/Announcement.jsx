@@ -101,7 +101,16 @@ const Announcement = ({id}) => {
             viewport={{ once: false, amount: 0.2 }}
             variants={cardVariants}
           >
-            <Card className="flex justify-center items-center w-full rounded-2xl border bg-white shadow-sm">
+            <Card className="group relative overflow-hidden
+              flex justify-center items-center w-full
+              rounded-2xl border border-gray-200
+              bg-gradient-to-b from-white to-blue-50/30
+              shadow-sm
+              transition-all duration-300
+              hover:-translate-y-2 hover:shadow-2xl">
+              <div className="absolute top-0 left-0 w-full h-[3px] 
+                bg-gradient-to-r from-blue-500 to-indigo-500
+                opacity-0 group-hover:opacity-100 transition"/>
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -148,7 +157,16 @@ const Announcement = ({id}) => {
             viewport={{ once: false, amount: 0.2 }}
             variants={cardVariants}
           >
-            <Card className="flex justify-center items-center w-full rounded-2xl border bg-white shadow-sm">
+            <Card className="group relative overflow-hidden
+              flex justify-center items-center w-full
+              rounded-2xl border border-gray-200
+              bg-gradient-to-b from-white to-blue-50/30
+              shadow-sm
+              transition-all duration-300
+              hover:-translate-y-2 hover:shadow-2xl">
+              <div className="absolute top-0 left-0 w-full h-[3px] 
+                bg-gradient-to-r from-blue-500 to-indigo-500
+                opacity-0 group-hover:opacity-100 transition"/>
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -195,7 +213,16 @@ const Announcement = ({id}) => {
             viewport={{ once: false, amount: 0.2 }}
             variants={cardVariants}
           >
-            <Card className="flex justify-center items-center w-full rounded-2xl border bg-white shadow-sm">
+            <Card className="group relative overflow-hidden
+              flex justify-center items-center w-full
+              rounded-2xl border border-gray-200
+              bg-gradient-to-b from-white to-blue-50/30
+              shadow-sm
+              transition-all duration-300
+              hover:-translate-y-2 hover:shadow-2xl">
+              <div className="absolute top-0 left-0 w-full h-[3px] 
+                bg-gradient-to-r from-blue-500 to-indigo-500
+                opacity-0 group-hover:opacity-100 transition"/>
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -242,7 +269,16 @@ const Announcement = ({id}) => {
             viewport={{ once: false, amount: 0.2 }}
             variants={cardVariants}
           >
-            <Card className="flex justify-center items-center w-full rounded-2xl border bg-white shadow-sm">
+            <Card className="group relative overflow-hidden
+              flex justify-center items-center w-full
+              rounded-2xl border border-gray-200
+              bg-gradient-to-b from-white to-blue-50/30
+              shadow-sm
+              transition-all duration-300
+              hover:-translate-y-2 hover:shadow-2xl">
+              <div className="absolute top-0 left-0 w-full h-[3px] 
+                bg-gradient-to-r from-blue-500 to-indigo-500
+                opacity-0 group-hover:opacity-100 transition"/>
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -270,10 +306,7 @@ const Announcement = ({id}) => {
                   your intellectual property.
                 </p>
 
-                <Link
-                  to="/"
-                  className="flex gap-2 underline text-blue-700 font-semibold"
-                >
+                <Link to="/" className="flex gap-2 underline text-blue-700 font-semibold">
                   read more
                   <ArrowRight className="w-5 h-5" />
                 </Link>
@@ -289,7 +322,7 @@ const Announcement = ({id}) => {
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeUpVariants}
         >
-          <Link className="w-fit py-2 px-4 bg-blue-700 text-white font-medium rounded-lg hover:bg-blue-800 transition cursor-pointer flex items-center justify-center gap-2">
+          <Link to="/viewallannouncement" className="w-fit py-2 px-4 bg-blue-700 text-white font-medium rounded-lg hover:bg-blue-800 transition cursor-pointer flex items-center justify-center gap-2">
             view all announcement
             <span>
               <ArrowRight className="w-4 h-4" />

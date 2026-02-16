@@ -2,6 +2,7 @@
 import LoopLogo from "@/components/landing/LoopLogo";
 import StaggeredText from "@/components/landing/StaggeredText";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 // icons
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
@@ -88,7 +89,8 @@ const awardCards = [
 ];
 
 const Home = ({ id }) => {
-  return (
+
+  return ( 
     <motion.main
       id={id}
       variants={pageEnter}
@@ -98,8 +100,8 @@ const Home = ({ id }) => {
     >
 
       {/* ================= TEXT SECTION ================= */}
-      <section className="flex flex-col flex-wrap justify-center items-center md:justify-start md:items-start
-        w-full sm:max-w-2xl lg:max-w-3xl gap-8">
+      <section className="flex flex-col flex-wrap justify-center items-center xl:justify-start xl:items-start
+        w-full sm:max-w-5xl xl:max-w-xl 2xl:max-w-2xl gap-8">
 
         {/* Trusted badge */}
         <div className="inline-flex w-fit gap-2 items-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1">
@@ -108,12 +110,12 @@ const Home = ({ id }) => {
         </div>
 
         {/* ===== TITLE ===== */}
-        <div className="leading-none text-center md:text-start flex flex-col w-full">
+        <div className="leading-none text-center xl:text-start flex flex-col w-full">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold text-center md:text-start flex flex-col"
+            className="text-[clamp(2.6rem,5vw,3.75rem)] font-bold text-center xl:text-start flex flex-col"
           >
             <span>Secure and Manage</span>
             <span>your <span className="text-blue-700">Intellectual</span> </span>
@@ -126,7 +128,7 @@ const Home = ({ id }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-gray-500 text-[clamp(0.85rem,1.2vw,1.1rem)] max-w-[100%] md:max-w-[80%] text-center md:text-start"
+          className="text-gray-500 text-[clamp(0.85rem,1.2vw,1.1rem)] max-w-[100%] sm:max-w-[70%] text-center xl:text-start"
         >
           IPTBM provides enterprise-grade solutions for protecting, managing,
           and monetizing intellectual property with cutting-edge technology 
@@ -172,7 +174,7 @@ const Home = ({ id }) => {
 
 
       {/* ================= CAROUSEL ================= */}
-      <section className="flex flex-col w-full sm:max-w-2xl lg:max-w-3xl gap-8 px-4">
+      <section className="flex flex-col w-full sm:max-w-5xl xl:max-w-xl 2xl:max-w-2xl gap-8 px-4">
         <Swiper
           modules={[Autoplay, Pagination]}
           slidesPerView={1}
@@ -199,7 +201,6 @@ const Home = ({ id }) => {
 
         </Swiper>
       </section>
-
     </motion.main>
   );
 };

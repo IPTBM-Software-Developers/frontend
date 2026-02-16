@@ -19,6 +19,8 @@ const NavBar = () => {
     { to: "#contact", label: "Contact", icon: CircleUserRound  },
   ];
 
+  const Links = navLinks.map(link => (link.to));
+
   const scrollToSection = (hash) => {
     const id = hash.replace("#", "");
     const el = document.getElementById(id);

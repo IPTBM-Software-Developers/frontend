@@ -111,115 +111,132 @@ const About = ({id}) => {
           md:max-w-3xl
           lg:max-w-7xl
           xl:max-w-[1536px]
-          mx-auto py-8">     
-                
-            {/* First Card */}
-            <motion.div 
-              custom={0}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              variants={cardVariants}
-              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
-            >
-              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                <Shield className="text-blue-700"/>
-              </figure>
-              <h3 className="font-semibold text-lg mb-1">IP Protection</h3>
-              <p className="text-gray-500 break-words">
+          mx-auto py-8">
+
+          {/* Card 1 */}
+          <motion.div
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            variants={cardVariants}
+            className="group relative"
+          >
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden">
+
+              {/* top accent */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
+
+              {/* icon */}
+              <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <Shield className="w-6 h-6"/>
+              </div>
+
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                IP Protection
+              </h3>
+
+              <p className="text-gray-500 leading-relaxed">
                 Comprehensive protection for patents, trademarks, copyrights, and trade secrets.
               </p>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Second Card */}
-            <motion.div 
-              custom={1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              variants={cardVariants}
-              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
-            >
-              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                <BriefcaseBusiness className="text-blue-700"/>
-              </figure>
-              <h3 className="font-semibold text-lg mb-1">Portfolio Management</h3>
-              <p className="text-gray-500 break-words">
+          {/* Card 2 */}
+          <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
+
+              <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <BriefcaseBusiness className="w-6 h-6"/>
+              </div>
+
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                Portfolio Management
+              </h3>
+
+              <p className="text-gray-500 leading-relaxed">
                 Centralized dashboard to track and manage all your intellectual property assets.
               </p>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Third Card */}
-            <motion.div 
-              custom={2}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              variants={cardVariants}
-              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
-            >
-              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                <Scale className="text-blue-700"/>
-              </figure>
-              <h3 className="font-semibold text-lg mb-1">Legal Compliance</h3>
-              <p className="text-gray-500 break-words">
+          {/* Card 3 */}
+          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
+
+              <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <Scale className="w-6 h-6"/>
+              </div>
+
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                Legal Compliance
+              </h3>
+
+              <p className="text-gray-500 leading-relaxed">
                 Stay compliant with local and international IP laws and regulations.
               </p>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Fourth Card */}
-            <motion.div 
-              custom={3}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              variants={cardVariants}
-              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
-            >
-              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                <Globe className="text-blue-700"/>
-              </figure>
-              <h3 className="font-semibold text-lg mb-1">Global Coverage</h3>
-              <p className="text-gray-500 break-words">
-                Comprehensive protection for patents, trademarks, copyrights, and trade secrets.
+          {/* Card 4 */}
+          <motion.div custom={3} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
+
+              <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <Globe className="w-6 h-6"/>
+              </div>
+
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                Global Coverage
+              </h3>
+
+              <p className="text-gray-500 leading-relaxed">
+                Protection and tracking across multiple jurisdictions worldwide.
               </p>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Fifth Card */}
-            <motion.div 
-              custom={4}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              variants={cardVariants}
-              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
-            >
-              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                <Lock className="text-blue-700"/>
-              </figure>
-              <h3 className="font-semibold text-lg mb-1">Secure Platform</h3>
-              <p className="text-gray-500 break-words">
-                Enterprise-grade security with encrypted data storage and access controls.
+          {/* Card 5 */}
+          <motion.div custom={4} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
+
+              <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <Lock className="w-6 h-6"/>
+              </div>
+
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                Secure Platform
+              </h3>
+
+              <p className="text-gray-500 leading-relaxed">
+                Enterprise-grade security with encrypted data storage and role-based access.
               </p>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Sixth Card */}
-            <motion.div 
-              custom={5}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              variants={cardVariants}
-              className="bg-white rounded-xl border border-gray-100 px-6 py-12 shadow-sm h-full"
-            >
-              <figure className="inline-flex rounded-lg p-4 bg-blue-100 mb-3">
-                <ChartColumnIncreasing className="text-blue-700"/>
-              </figure>
-              <h3 className="font-semibold text-lg mb-1">Analytics & Insights</h3>
-              <p className="text-gray-500 break-words">
+          {/* Card 6 */}
+          <motion.div custom={5} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
+
+              <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <ChartColumnIncreasing className="w-6 h-6"/>
+              </div>
+
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                Analytics & Insights
+              </h3>
+
+              <p className="text-gray-500 leading-relaxed">
                 Data-driven insights to optimize your IP strategy and monetization.
               </p>
-            </motion.div>
+            </div>
+          </motion.div>
+
         </section>    
       </main>
 

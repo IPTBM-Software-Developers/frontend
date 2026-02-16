@@ -96,6 +96,7 @@ const Technologies = ({id}) => {
     },
   ];
 
+
   return (
     <>
       <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-16 px-[5%] gap-6 scroll-mt-20">
