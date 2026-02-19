@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Icons
 import { ArrowRightIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
@@ -77,9 +78,13 @@ const NavBar = () => {
 
           {/* Desktop Buttons (XL and above) */}
           <div className="hidden xl:flex gap-3 xl:gap-4">
-            <button className="px-4 border border-gray-300 bg-white text-sm text-black font-medium rounded-lg hover:bg-blue-700 hover:text-white transition cursor-pointer active:scale-95 active:shadow-sm duration-100">
+            <Link 
+              to="/login" 
+              className="px-4 py-2 border border-gray-300 bg-white text-sm text-black font-medium rounded-lg hover:bg-blue-700 hover:text-white transition cursor-pointer active:scale-95 active:shadow-sm duration-100 flex justify-center items-center"
+            >
               Log In
-            </button>
+            </Link>
+            
             <button className="group px-4 py-2 bg-blue-700 text-sm text-white font-medium rounded-lg hover:bg-blue-800 transition cursor-pointer active:scale-95 active:shadow-sm duration-100 flex items-center gap-1">
               Get Started <ArrowRightIcon className="h-4 w-4" />
             </button>
@@ -152,9 +157,14 @@ const NavBar = () => {
 
             {/* Buttons bottom */}
             <div className="mt-auto flex flex-col gap-3 pt-6 border-t">
-              <button className="w-full py-2 border border-gray-300 rounded-lg">
+              <Link 
+                to="/login"
+                onClick={() => setIsMenuOpen(false)} // Closes the drawer on click
+                className="w-full py-2 border border-gray-300 rounded-lg text-center text-black font-medium hover:bg-gray-50 transition"
+              >
                 Log In
-              </button>
+              </Link>
+              
               <button className="w-full py-2 bg-blue-700 text-white rounded-lg flex justify-center items-center gap-2">
                 Get Started <ArrowRightIcon className="h-4 w-4" />
               </button>
