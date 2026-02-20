@@ -4,6 +4,8 @@ import About from "./About";
 import Announcement from "./Announcement";
 import Technologies from "./Technologies";
 import Contact from "./Contact";
+import SampleLog from "../SignInSignUp/SampleLog";
+
 // Components
 import NavBar from "../../components/landing/NavBar";
 

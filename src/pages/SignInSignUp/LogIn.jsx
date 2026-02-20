@@ -5,7 +5,7 @@ import LoopLogo from "@/components/landing/LoopLogo";
 // Image
 import GoogleIcon from "../../assets/GoogleIcon.png";
 import IptbmLogo from "../../assets/iptbm-logo-noBG.png"
-import UniversityPhoto from "../../assets/UniversityPhotoSample.jpg";
+import UniversityPhoto from "../../assets/UniversityPhotoSample2.jpg";
 
 // Icon
 import { Award } from "lucide-react";
@@ -64,84 +64,67 @@ const awardCards = [
 const LogIn = () => {
   return(
     <>
-      <main className="flex flex-col xl:flex-row w-full h-auto">
+      <main className="flex flex-col xl:flex-row w-full min-h-screen">
         {/* Display Section */}
-        <section className="relative h-200 xl:h-screen w-full xl:w-[55%] rounded-b-4xl xl:rounded-none">
-          {/* Background Image */}
-          <img src={UniversityPhoto} alt="University Photo" className="w-full h-full object-cover brightness-80 rounded-b-4xl xl:rounded-none" />
-          
-          {/* Logo Container */}
-          <div className="
-            /* Mobile (Default): Center it */
-            absolute top-8 left-1/2 -translate-x-1/2 
-            /* Tablet/Desktop (md and up): Pin to left */
-            md:left-8 md:translate-x-0 
-            
-            flex px-4 py-2 gap-4 items-center w-[90%] md:w-fit 
-            text-sm text-white font-semibold bg-black/5 backdrop-blur-sm 
-            border border-white/20 rounded-2xl shadow-lg z-20"
-          >
+        <section 
+          className="relative flex flex-col justify-between p-8 md:p-8 h-150 md:h-200 xl:h-screen w-full xl:w-[55%] rounded-b-4xl xl:rounded-none bg-cover md:bg-[center_55%] lg:bg-[center_75%] xl:bg-[center_60%] 2xl:bg-[center_80%]"
+          style={{ 
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${UniversityPhoto})` 
+          }}
+        >
+          {/* TOP CONTENT: Logo */}
+          <div className="flex px-4 py-2 gap-4 items-center w-full md:w-fit text-white bg-black/5 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg">
             <img src={IptbmLogo} alt="Iptbm Logo" className="h-12 w-12 md:h-16 md:w-16 flex-shrink-0"/>
-            <h1 className="leading-tight text-xs md:text-sm text-start">
+            <h1 className="leading-tight text-xs md:text-base font-medium">
               Intellectual Property and Technology <br className="hidden md:block"/> Business Management
             </h1>
           </div>
 
-          {/* Blur Content */}
-          <div className="w-[95%] h-[60%] md:w-[85%] xl:w-[80%] 2xl:w-[70%] h-[50%] p-6 bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-6">
-            <h1 className="w-full font-semibold text-white text-4xl text-start">Secure and Manage your Intellectual Proterty Assets</h1>
-            <h2 className="w-[70%] xl:w-[50%] text-white font-thin">IPTBM provides enterprise-grade solutions for protecting, managing, and monetizing intellectual property with cutting-edge technology and compliance frameworks.</h2>
-            
-            {/* Awards */}
-            <div className="w-full ">
-              <h1 className="text-white font-normal text-[clamp(0.9rem,1vw,1rem)]">
-                Awards & Recognitions
+          {/* BOTTOM CONTENT: Text & Awards */}
+          <div className="flex flex-col gap-6 mt-auto"> 
+            <div className="space-y-4">
+              <h1 className="font-medium text-white w-[85%] xl:w-[65%] text-2xl md:text-4xl xl:text-3xl 2xl:text-5xl text-start ">
+                Protect Your Intellectual Property
               </h1>
-    
-              <LoopLogo
-                logos={awardCards}
-                speed={100}
-                direction="left"
-                gap={24}
-                scaleOnHover={false}                
-                useCustomRender={true}
-                ariaLabel="Awards & Recognitions"
-              />
-            </div>         
+              <p className="font-light w-[70%] md:w-[50%] text-white text-xs md:text-base xl:text-sm 2xl:text-lg ">
+                Enterprise-grade tools to protect, manage, and monetize your intellectual property.
+              </p>
+            </div>
           </div>
         </section>
 
 
         {/* Login Section */}
         <section className="h-180 md:h-200 xl:h-screen w-full xl:w-[45%] flex flex-col justify-center items-center">
-          <div className="flex flex-col w-[90%] md:w-[60%] xl:w-[70%] 2xl:w-[60%] gap-8">
+          <div className="flex flex-col w-[85%] md:w-[60%] xl:w-[70%] 2xl:w-[60%] gap-8">
             <section className="flex flex-col gap-4">
-              <h1 className="text-[clamp(2.6rem,5vw,3rem)] font-semibold leading-tight text-blue-700">
-                Hola, <br/> Welcome Back! 
+              <h1 className="text-[clamp(2.6rem,5vw,3rem)] font-semibold leading-tight">
+                <span className="text-lg">Hola,</span> <br/> Welcome Back! 
               </h1>
               <h2 className="text-gray-500 text-[clamp(0.75rem,1vw,0.95rem)]">
                 Please enter your email and password
               </h2>
             </section>
 
+            {/* Forms */}
             <section className="flex flex-col gap-6">
               <form action="" className="flex flex-col gap-2">
-                <input type="email" placeholder="Enter your email" required className="text-sm w-full bg-gray-100 p-4 rounded-md focus:outline-blue-400" />
+                <input type="email" placeholder="Enter your email" required className="text-xs xl:text-sm w-full bg-gray-100 p-4 rounded-md focus:outline-blue-400" />
               </form>
 
               <form action="" className="flex flex-col gap-2">
-                <input type="password" placeholder="Enter your password" required className="text-sm w-full bg-gray-100 p-4 rounded-md focus:outline-blue-400" />
-                <Link to="" className="text-blue-500 text-sm w-full text-end">Forgot Password?</Link>
+                <input type="password" placeholder="Enter your password" required className="text-xs xl:text-sm w-full bg-gray-100 p-4 rounded-md focus:outline-blue-400" />
+                <Link to="" className="text-blue-500 text-xs xl:text-sm w-full text-end">Forgot Password?</Link>
               </form>
 
               <form action="" className="flex gap-2 gap-2">
                 <input type="checkbox" />
-                <label htmlFor="" className="font-medium text-sm">Remember me</label>
+                <label htmlFor="" className="font-medium text-xs xl:text-sm">Remember me</label>
               </form>
             </section>
 
             <section className="flex flex-col gap-4">
-              <button className="shadow-sm transition-all cursor-pointer w-full bg-blue-500 hover:bg-blue-400 active:scale-[0.99] py-3 rounded-lg text-white">
+              <button className="shadow-sm transition-all cursor-pointer w-full bg-blue-500 hover:bg-blue-400 active:scale-[0.99] py-4 rounded-lg text-white text-sm">
                 Sign in
               </button>
 
@@ -153,13 +136,13 @@ const LogIn = () => {
 
               <section className=" shadow-xs w-full flex border py-2  rounded-xl justify-center hover:shadow-sm cursor-pointer transition-all active:scale-[0.99]">
                 <img src={GoogleIcon} alt="Google" className="w-15 h-8" />
-                <button className="text-gray-500 cursor-pointer">Continue with Google </button>
+                <button className="text-gray-500 cursor-pointer text-sm">Continue with Google </button>
               </section>
             </section>
 
             <section>
               <div className="flex gap-2 text-sm justify-center ">
-                <h2>Don't have an account? </h2>
+                <h2 >Don't have an account? </h2>
                 <Link to="" className="text-blue-500">Sign Up</Link>
               </div>
             </section>

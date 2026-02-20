@@ -85,9 +85,12 @@ const NavBar = () => {
               Log In
             </Link>
             
-            <button className="group px-4 py-2 bg-blue-700 text-sm text-white font-medium rounded-lg hover:bg-blue-800 transition cursor-pointer active:scale-95 active:shadow-sm duration-100 flex items-center gap-1">
+            <Link 
+              to="/signup" 
+              className="group px-4 py-2 bg-blue-700 text-sm text-white font-medium rounded-lg hover:bg-blue-800 transition cursor-pointer active:scale-95 active:shadow-sm duration-100 flex items-center gap-1"
+            >
               Get Started <ArrowRightIcon className="h-4 w-4" />
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button (sm, md, lg) */}
@@ -165,9 +168,12 @@ const NavBar = () => {
                 Log In
               </Link>
               
-              <button className="w-full py-2 bg-blue-700 text-white rounded-lg flex justify-center items-center gap-2">
+              <Link 
+                to="/signup" 
+                className="group px-4 py-2 bg-blue-700 text-sm text-white font-medium rounded-lg hover:bg-blue-800 transition cursor-pointer active:scale-95 active:shadow-sm duration-100 flex items-center gap-1"
+              >
                 Get Started <ArrowRightIcon className="h-4 w-4" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
