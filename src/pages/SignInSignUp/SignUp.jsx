@@ -9,7 +9,7 @@ const SignUp = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   // Input styling for consistency
-  const inputClass = "w-full p-4 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none border text-gray-800 font-light placeholder-gray-400 transition-all";
+  const inputClass = "w-full p-4 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-800 font-light placeholder-gray-400 transition-all text-sm bg-gray-100";
   const labelClass = "block text-sm font-medium text-white mb-1";
 
   

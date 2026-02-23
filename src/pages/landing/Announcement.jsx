@@ -7,11 +7,53 @@ import { motion } from "framer-motion";
 
 // Icons
 import { ArrowRight, Bell } from "lucide-react";
+import { Calendar } from "lucide-react"; // Event Icon
+import { Trophy } from "lucide-react"; // Achievement Icon
+import { BrushCleaning } from "lucide-react"; //Maintenance Icon
+import { Handshake } from "lucide-react"; // Partnership Icon
+import { Rss } from "lucide-react"; // Update Icon
+import { Newspaper } from "lucide-react"; // News Icon
 
 // Shadcn
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+
+
+const announcementData = [
+  {
+    Icon: <Calendar />,
+    label: "Event",
+    date: "March 15, 2026",
+    bgColor: "bg-blue-600",
+    title: "Blockchain Security",
+    desc: "Immutable records and tamper-proof documentation for your intellectual property assets using distributed ledger technology.",
+  },
+  {
+    Icon: <Trophy />,
+    label: "Achievement",
+    date: "February 10, 2026",
+    bgColor: "bg-emerald-600",
+    title: "AI-Powered Analysis",
+    desc: "Advanced machine learning algorithms to analyze, categorize, and monitor your IP portfolio for potential infringements.",
+  },
+  {
+    Icon: <BrushCleaning />,
+    label: "Maintenance",
+    date: "February 01, 2026",
+    bgColor: "bg-amber-600",
+    title: "Cloud Infrastructure",
+    desc: "Secure, scalable cloud-based platform ensuring your data is accessible anywhere while maintaining enterprise-grade security.",
+  },
+  {
+    Icon: <Handshake />,
+    label: "Partnership",
+    date: "January 20, 2026",
+    bgColor: "bg-indigo-600",
+    title: "Secure Data Storage",
+    desc: "End-to-end encrypted storage solutions with redundant backups and compliance with international data protection standards.",
+  },
+];
 
 const Announcement = ({id}) => {
   const [pageVisit, setPageVisit] = useState(0);
@@ -93,226 +135,52 @@ const Announcement = ({id}) => {
           xl:max-w-[1536px]
           mx-auto py-8">
           
-          {/* CARD 1 */}
-          <motion.div
-            custom={0}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={cardVariants}
-          >
-            <Card className="group relative overflow-hidden
-              flex justify-center items-center w-full
-              rounded-2xl border border-gray-200
-              bg-gradient-to-b from-white to-blue-50/30
-              shadow-sm
-              transition-all duration-300
-              hover:-translate-y-2 hover:shadow-2xl">
-              <div className="absolute top-0 left-0 w-full h-[3px] 
-                bg-gradient-to-r from-blue-500 to-indigo-500
-                opacity-0 group-hover:opacity-100 transition"/>
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Badge className="bg-blue-700 text-white flex items-center gap-1 px-3 py-1">
-                      <Bell className="w-3 h-3" />
-                      System Update
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="text-blue-700 border-blue-700 bg-blue-50"
-                    >
-                      New
-                    </Badge>
+          {announcementData.map((items, i) => (
+            <motion.div
+              key={i}
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={cardVariants}
+            >
+              <article className="border rounded-xl cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all gap-4 flex flex-col bg-white shadow-sm">
+                <section className={`flex flex-col w-full h-20 rounded-t-xl p-4 min-h-50 ${items.bgColor}`}>
+                  <div className="w-full flex justify-between items-center h-fit">
+                    <span className="h-fit px-4 py-1 rounded-4xl bg-white/90 text-sm font-medium mix-blend-screen">
+                      {items.label}
+                    </span>
+
+                    <span className="text-sm text-white">
+                      {items.date}
+                    </span>
                   </div>
-                  <span className="text-sm text-gray-500">January 25, 2026</span>
-                </div>
 
-                <h3 className="text-lg font-semibold">
-                  New IP Filing System Launch
-                </h3>
+                  <span className="w-full h-full flex justify-center items-center text-white [&_svg]:w-12 [&_svg]:h-12">
+                    {items.Icon}
+                  </span>
+                </section>
 
-                <p className="text-gray-600 leading-relaxed">
-                  We are excited to announce the launch of our new streamlined IP
-                  filing system, making it easier than ever to register and protect
-                  your intellectual property.
-                </p>
+                {/* Text */}
+                <section className="flex flex-col w-full p-4 gap-2">
+                  <span className="font-semibold">
+                    {items.title}
+                  </span>
 
-                <Link
-                  to="/"
-                  className="flex gap-2 underline text-blue-700 font-semibold"
-                >
-                  read more
-                  <ArrowRight className="w-5 h-5" />
+                  <span className="text-gray-600">
+                    {items.desc}
+                  </span>
+                </section>
+
+                {/* Link */}
+
+                <Link to="" className="flex items-center gap-2 p-4 text-blue-700 text-sm hover:underline w-fit">
+                Read More
+                <ArrowRight className="h-4 w-4"/>
                 </Link>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* CARD 2 */}
-          <motion.div
-            custom={1}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={cardVariants}
-          >
-            <Card className="group relative overflow-hidden
-              flex justify-center items-center w-full
-              rounded-2xl border border-gray-200
-              bg-gradient-to-b from-white to-blue-50/30
-              shadow-sm
-              transition-all duration-300
-              hover:-translate-y-2 hover:shadow-2xl">
-              <div className="absolute top-0 left-0 w-full h-[3px] 
-                bg-gradient-to-r from-blue-500 to-indigo-500
-                opacity-0 group-hover:opacity-100 transition"/>
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Badge className="bg-blue-700 text-white flex items-center gap-1 px-3 py-1">
-                      <Bell className="w-3 h-3" />
-                      System Update
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="text-blue-700 border-blue-700 bg-blue-50"
-                    >
-                      New
-                    </Badge>
-                  </div>
-                  <span className="text-sm text-gray-500">January 25, 2026</span>
-                </div>
-
-                <h3 className="text-lg font-semibold">
-                  New IP Filing System Launch
-                </h3>
-
-                <p className="text-gray-600 leading-relaxed">
-                  We are excited to announce the launch of our new streamlined IP
-                  filing system, making it easier than ever to register and protect
-                  your intellectual property.
-                </p>
-
-                <Link
-                  to="/"
-                  className="flex gap-2 underline text-blue-700 font-semibold"
-                >
-                  read more
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* CARD 3 */}
-          <motion.div
-            custom={2}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={cardVariants}
-          >
-            <Card className="group relative overflow-hidden
-              flex justify-center items-center w-full
-              rounded-2xl border border-gray-200
-              bg-gradient-to-b from-white to-blue-50/30
-              shadow-sm
-              transition-all duration-300
-              hover:-translate-y-2 hover:shadow-2xl">
-              <div className="absolute top-0 left-0 w-full h-[3px] 
-                bg-gradient-to-r from-blue-500 to-indigo-500
-                opacity-0 group-hover:opacity-100 transition"/>
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Badge className="bg-blue-700 text-white flex items-center gap-1 px-3 py-1">
-                      <Bell className="w-3 h-3" />
-                      System Update
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="text-blue-700 border-blue-700 bg-blue-50"
-                    >
-                      New
-                    </Badge>
-                  </div>
-                  <span className="text-sm text-gray-500">January 25, 2026</span>
-                </div>
-
-                <h3 className="text-lg font-semibold">
-                  New IP Filing System Launch
-                </h3>
-
-                <p className="text-gray-600 leading-relaxed">
-                  We are excited to announce the launch of our new streamlined IP
-                  filing system, making it easier than ever to register and protect
-                  your intellectual property.
-                </p>
-
-                <Link
-                  to="/"
-                  className="flex gap-2 underline text-blue-700 font-semibold"
-                >
-                  read more
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* CARD 4 */}
-          <motion.div
-            custom={3}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={cardVariants}
-          >
-            <Card className="group relative overflow-hidden
-              flex justify-center items-center w-full
-              rounded-2xl border border-gray-200
-              bg-gradient-to-b from-white to-blue-50/30
-              shadow-sm
-              transition-all duration-300
-              hover:-translate-y-2 hover:shadow-2xl">
-              <div className="absolute top-0 left-0 w-full h-[3px] 
-                bg-gradient-to-r from-blue-500 to-indigo-500
-                opacity-0 group-hover:opacity-100 transition"/>
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Badge className="bg-blue-700 text-white flex items-center gap-1 px-3 py-1">
-                      <Bell className="w-3 h-3" />
-                      System Update
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="text-blue-700 border-blue-700 bg-blue-50"
-                    >
-                      New
-                    </Badge>
-                  </div>
-                  <span className="text-sm text-gray-500">January 25, 2026</span>
-                </div>
-
-                <h3 className="text-lg font-semibold">
-                  New IP Filing System Launch
-                </h3>
-
-                <p className="text-gray-600 leading-relaxed">
-                  We are excited to announce the launch of our new streamlined IP
-                  filing system, making it easier than ever to register and protect
-                  your intellectual property.
-                </p>
-
-                <Link to="/" className="flex gap-2 underline text-blue-700 font-semibold">
-                  read more
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </CardContent>
-            </Card>
-          </motion.div>
+              </article>
+            </motion.div>
+          ))}
         </section>
 
         {/* View All Button */}

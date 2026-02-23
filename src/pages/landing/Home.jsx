@@ -106,9 +106,9 @@ const Home = ({ id }) => {
     >
 
       {/* ================= TEXT SECTION ================= */}
-      <section className="flex flex-col flex-wrap justify-center md:justify-center px-[5%] lg:justify-center items-center lg:px-[5%] xl:p-0
-        w-full xl:w-[50%] 
-        xl:h-screen lg:h-160 md:h-150 h-155
+      <section className="flex flex-col flex-wrap justify-center md:justify-center px-[5%] lg:justify-center items-center lg:px-[5%] xl:p-0 
+        w-full xl:w-[60%] 
+        xl:h-screen lg:h-160 md:h-150 h-150
         gap-16">
 
         {/* Content */}
@@ -125,11 +125,11 @@ const Home = ({ id }) => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex flex-col text-[clamp(2.2rem,5vw,3.75rem)] font-bold"
+              className="flex flex-col text-[clamp(2.2rem,5vw,4.5rem)] font-google font-medium"
             >
-              <span className="text-gray-400">Secure your</span>
+              <span className="text-black">Secure your</span>
               <span className="text-blue-700">Intellectual Property</span>
-              <span className="text-gray-400">assets</span>
+              <span className="text-black">assets</span>
             </motion.h1>
           </div>
 
@@ -138,7 +138,7 @@ const Home = ({ id }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-gray-600 text-sm md:text-md w-[80%] sm:max-w-[70%] text-start"
+            className="text-gray-600 text-sm md:text-md w-[100%] sm:max-w-[70%] text-start"
           >
             IPTBM offers enterprise-grade solutions to protect, manage, and monetize your intellectual property assets with total compliance.
           </motion.p>
@@ -151,16 +151,20 @@ const Home = ({ id }) => {
             className="flex flex-wrap gap-4 justify-start w-full"
           >
             <Link 
-              to="/signup" 
-              className="group px-4 py-3 bg-blue-700 text-white rounded-lg flex items-center gap-2 cursor-pointer active:scale-[0.99] transition-all duration-200"
+              to="/login" 
+              className="group px-4 py-3 bg-blue-600 text-white rounded-lg flex items-center gap-2 cursor-pointer active:scale-[0.99] transition-all duration-200 hover:bg-blue-700 active:bg-blue-800"
             >
               Get Started
               <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            <button className="px-6 py-3 border border-blue-700 bg-white text-blue-700 rounded-lg cursor-pointer active:scale-[0.99]">
+            {/* <button className="px-6 py-3 border border-blue-700 bg-white text-blue-700 rounded-lg cursor-pointer active:scale-[0.99]">
               Learn More
-            </button>
+            </button> */}
+
+            <a href="#about" className="px-6 py-3 border border-blue-600 bg-white text-blue-600 rounded-lg hover:bg-blue-600 active:bg-blue-700 hover:text-white transition-all">
+              Learn More
+            </a>
           </motion.div>
 
           {/* Partnership */}
@@ -168,9 +172,9 @@ const Home = ({ id }) => {
             <h1 className="text-gray-500 text-md">Partnetship:</h1>
             
             <div className="flex gap-8 xl:gap-12 w-full justify-start">
-              <img src={IptbmLogo} alt="" className="w-20 h-20" />
-              <img src={LspuLogo} alt="" className="w-20 h-20" />
-              <img src={CcsLogo} alt="" className="w-20 h-20" />
+              <img src={IptbmLogo} alt="" className="w-15 h-15" />
+              <img src={LspuLogo} alt="" className="w-15 h-15" />
+              <img src={CcsLogo} alt="" className="w-15 h-15" />
             </div>
           </div>
         </div>
@@ -181,23 +185,23 @@ const Home = ({ id }) => {
       <section 
         className="relative flex flex-col justify-between px-8 pt-10 pb-10 xl:pb-30 
         h-150 md:h-200 xl:h-screen 
-        w-full xl:w-[50%] 
+        w-full xl:w-[40%] 
         rounded-b-4xl xl:rounded-none 
-        bg-cover "
+        bg-cover bg-center"
         style={{ 
           backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${UniversityPhoto})` 
         }}
       >
-          <div className="flex px-4 py-2 gap-4 items-center w-full md:w-fit text-white bg-white/10 backdrop-blur-4xl border border-white/20 rounded-2xl shadow-lg">
+          <div className="flex px-4 py-2 gap-4 items-center w-full md:w-fit text-white bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg">
             <img src={IptbmLogo} alt="Iptbm Logo" className="h-12 w-12 md:h-16 md:w-16 flex-shrink-0"/>
-            <h1 className="leading-tight text-xs md:text-base font-medium">
+            <h1 className="leading-tight text-xs md:text-base font-normal">
               Intellectual Property and Technology <br className="hidden md:block"/> Business Management
             </h1>
           </div>
 
           {/* Awards */}
           <div className="w-full">
-            <h1 className="text-white font-medium text-[clamp(0.9rem,1vw,1rem)]">
+            <h1 className="text-white font-normal text-[clamp(0.9rem,1vw,1rem)]">
               Awards & Recognitions
             </h1>
 
