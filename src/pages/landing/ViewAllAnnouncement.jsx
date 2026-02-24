@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // Components
@@ -154,6 +154,15 @@ const ViewAllAnnouncement = () => {
   
   const totalPages = Math.ceil(announcementData.length / itemsPerPage);
 
+  // To scroll up when visits to page and has a change in the page.
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
+
 
   return(
     <>
@@ -237,7 +246,7 @@ const ViewAllAnnouncement = () => {
             <button
               onClick={() => setCurrentPage(p => p - 1)}
               disabled={currentPage === 1}
-              className="px-4 py-1 border rounded hover:bg-black/5"
+              className="px-4 py-3 text-sm border rounded-lg hover:bg-black/5 font-semibold"
             >
               Prev
             </button>
@@ -247,7 +256,7 @@ const ViewAllAnnouncement = () => {
               <button
                 key={i}
                 onClick={() => setCurrentPage(i + 1)}
-                className={`px-4 py-1 border rounded hover:bg-black/5 ${
+                className={`px-4 py-3 text-sm border rounded-lg hover:border-blue-500 font-semibold ${
                   currentPage === i + 1
                     ? "bg-blue-600 text-white"
                     : ""
@@ -261,7 +270,7 @@ const ViewAllAnnouncement = () => {
             <button
               onClick={() => setCurrentPage(p => p + 1)}
               disabled={currentPage === totalPages}
-              className="px-4 py-1 border rounded hover:bg-black/5"
+              className="px-4 py-3 text-sm border rounded-lg hover:bg-black/5 font-semibold"
             >
               Next
             </button>

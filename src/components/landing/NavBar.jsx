@@ -24,6 +24,7 @@ const NavBar = () => {
 
   // Check if current path is landing page or its sections
   const isLandingPage = location.pathname === "/landing" || ["/", "/about", "/announcement", "/technologies", "/contact"].includes(location.pathname);
+  console.log(location)
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -50,7 +51,7 @@ const NavBar = () => {
       // If we're already on landing page, just scroll
       setTimeout(() => {
         scrollToSection(sectionId);
-      }, 300);
+      }, 100);
     } else {
       // If we're on another page (like viewallannouncement), navigate to landing page with hash
       navigate(`/landing#${sectionId}`);

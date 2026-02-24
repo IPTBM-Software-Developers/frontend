@@ -10,8 +10,6 @@ function App() {
       <LandingRoutes />
       <UserRoutes />
     </Router>
-
-    
   );
 }
 
