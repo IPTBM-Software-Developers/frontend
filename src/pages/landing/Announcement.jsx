@@ -25,7 +25,7 @@ const announcementData = [
     Icon: <Calendar />,
     label: "Event",
     date: "March 15, 2026",
-    bgColor: "bg-blue-600",
+    bgColor: "bg-blue-500",
     title: "Blockchain Security",
     desc: "Immutable records and tamper-proof documentation for your intellectual property assets using distributed ledger technology.",
   },
@@ -33,7 +33,7 @@ const announcementData = [
     Icon: <Trophy />,
     label: "Achievement",
     date: "February 10, 2026",
-    bgColor: "bg-emerald-600",
+    bgColor: "bg-emerald-500",
     title: "AI-Powered Analysis",
     desc: "Advanced machine learning algorithms to analyze, categorize, and monitor your IP portfolio for potential infringements.",
   },
@@ -41,7 +41,7 @@ const announcementData = [
     Icon: <BrushCleaning />,
     label: "Maintenance",
     date: "February 01, 2026",
-    bgColor: "bg-amber-600",
+    bgColor: "bg-amber-500",
     title: "Cloud Infrastructure",
     desc: "Secure, scalable cloud-based platform ensuring your data is accessible anywhere while maintaining enterprise-grade security.",
   },
@@ -49,7 +49,7 @@ const announcementData = [
     Icon: <Handshake />,
     label: "Partnership",
     date: "January 20, 2026",
-    bgColor: "bg-indigo-600",
+    bgColor: "bg-indigo-500",
     title: "Secure Data Storage",
     desc: "End-to-end encrypted storage solutions with redundant backups and compliance with international data protection standards.",
   },
@@ -90,7 +90,7 @@ const Announcement = ({id}) => {
 
   return (
     <>
-      <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-16 px-[5%] gap-6 scroll-mt-20">
+      <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-16 gap-6 scroll-mt-20">
         {/* Bell Icon Section */}
         <motion.section 
           initial="hidden"
@@ -128,11 +128,8 @@ const Announcement = ({id}) => {
         {/* GRID */}
         <section className="
           grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2
-          max-w-lg
-          sm:max-w-xl
-          md:max-w-3xl
-          lg:max-w-7xl
-          xl:max-w-[1536px]
+          w-[90%]
+          xl:max-w-[70%]
           mx-auto py-8">
           
           {announcementData.map((items, i) => (

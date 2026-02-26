@@ -6,33 +6,14 @@ import NavBar from "@/components/landing/NavBar";
 import Footer from "@/components/landing/Footer";
 
 // Icons
-import { Search } from "lucide-react";
-import { ArrowRight } from "lucide-react";
-import { X } from "lucide-react";
-import { Bell } from "lucide-react";
-import { Calendar } from "lucide-react"; // Event Icon
-import { Trophy } from "lucide-react"; // Achievement Icon
-import { BrushCleaning } from "lucide-react"; //Maintenance Icon
-import { Handshake } from "lucide-react"; // Partnership Icon
-import { Rss } from "lucide-react"; // Update Icon
-import { Newspaper } from "lucide-react"; // News Icon
-
- 
-// TYPES OF EVENTS
-// Event
-// Achievement
-// Maintenance
-// Partnership
-// Update
-// News
-
+import { Search, ArrowRight, Bell, Calendar, Trophy, BrushCleaning, Handshake, Rss, Newspaper } from "lucide-react";
 
 const announcementData = [
   {
     Icon: <Calendar />,
     label: "Event",
     date: "March 15, 2026",
-    bgColor: "bg-blue-600",
+    bgColor: "bg-blue-500",
     title: "Blockchain Security",
     desc: "Immutable records and tamper-proof documentation for your intellectual property assets using distributed ledger technology.",
   },
@@ -40,7 +21,7 @@ const announcementData = [
     Icon: <Trophy />,
     label: "Achievement",
     date: "February 10, 2026",
-    bgColor: "bg-emerald-600",
+    bgColor: "bg-emerald-500",
     title: "AI-Powered Analysis",
     desc: "Advanced machine learning algorithms to analyze, categorize, and monitor your IP portfolio for potential infringements.",
   },
@@ -48,7 +29,7 @@ const announcementData = [
     Icon: <BrushCleaning />,
     label: "Maintenance",
     date: "February 01, 2026",
-    bgColor: "bg-amber-600",
+    bgColor: "bg-amber-500",
     title: "Cloud Infrastructure",
     desc: "Secure, scalable cloud-based platform ensuring your data is accessible anywhere while maintaining enterprise-grade security.",
   },
@@ -56,7 +37,7 @@ const announcementData = [
     Icon: <Handshake />,
     label: "Partnership",
     date: "January 20, 2026",
-    bgColor: "bg-indigo-600",
+    bgColor: "bg-indigo-500",
     title: "Secure Data Storage",
     desc: "End-to-end encrypted storage solutions with redundant backups and compliance with international data protection standards.",
   },
@@ -64,7 +45,7 @@ const announcementData = [
     Icon: <Rss />,
     label: "Update",
     date: "January 05, 2026",
-    bgColor: "bg-cyan-600",
+    bgColor: "bg-cyan-500",
     title: "Real-Time Monitoring",
     desc: "Continuous monitoring of your IP assets with instant alerts for potential violations or unauthorized usage worldwide.",
   },
@@ -88,7 +69,7 @@ const announcementData = [
     Icon: <Handshake />,
     label: "Partnership",
     date: "November 18, 2025",
-    bgColor: "bg-indigo-600",
+    bgColor: "bg-indigo-500",
     title: "Biometric Authentication",
     desc: "Multi-factor security layers including facial and fingerprint recognition to ensure only authorized personnel access sensitive IP.",
   },
@@ -96,7 +77,7 @@ const announcementData = [
     Icon: <BrushCleaning />,
     label: "Maintenance",
     date: "November 05, 2025",
-    bgColor: "bg-amber-600",
+    bgColor: "bg-amber-500",
     title: "Global Compliance Tracking",
     desc: "Automated updates on international patent laws and regulatory changes to keep your portfolio compliant across all jurisdictions.",
   },
@@ -104,7 +85,7 @@ const announcementData = [
     Icon: <Calendar />,
     label: "Event",
     date: "October 22, 2025",
-    bgColor: "bg-blue-600",
+    bgColor: "bg-blue-500",
     title: "Predictive Analytics",
     desc: "Forecasting market trends and potential IP valuation shifts using historical data and competitive landscape modeling.",
   },
@@ -112,7 +93,7 @@ const announcementData = [
     Icon: <Calendar />,
     label: "Event",
     date: "October 10, 2025",
-    bgColor: "bg-blue-600",
+    bgColor: "bg-blue-500",
     title: "Quantum-Resistant Encryption",
     desc: "Future-proofing your data security with advanced cryptographic protocols designed to withstand next-generation computing threats.",
   },
@@ -120,7 +101,7 @@ const announcementData = [
     Icon: <BrushCleaning />,
     label: "Maintenance",
     date: "September 28, 2025",
-    bgColor: "bg-amber-600",
+    bgColor: "bg-amber-500",
     title: "Collaborative Workspaces",
     desc: "Centralized environments for legal teams and creators to review, annotate, and co-author IP documentation in real-time.",
   },
@@ -128,7 +109,7 @@ const announcementData = [
     Icon: <Rss />,
     label: "Update",
     date: "September 15, 2025",
-    bgColor: "bg-cyan-600",
+    bgColor: "bg-cyan-500",
     title: "Mobile Management Suite",
     desc: "Comprehensive mobile application allowing you to manage filings, approve licenses, and track IP status on the go.",
   },
@@ -136,23 +117,63 @@ const announcementData = [
     Icon: <Rss />,
     label: "Update",
     date: "September 01, 2025",
-    bgColor: "bg-cyan-600",
+    bgColor: "bg-cyan-500",
     title: "Automated Reporting",
     desc: "Customizable reporting tools that generate detailed PDF or Excel summaries of your portfolio's performance and health.",
   },
 ];
 
+const filterButton = [
+  "All", 
+  "Event", 
+  "Achievement", 
+  "Maintenance", 
+  "Partnership", 
+  "Update", 
+  "News",
+];
+
 
 const ViewAllAnnouncement = () => {
+
+  // State for Search Input
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // State for Selected Category
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  // Function to capture the event object
+  const handleSearchQuery = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Filtered Data
+  const filteredData = announcementData.filter((item) => {
+    // For Search Filtering
+    const query = searchQuery.toLowerCase();
+
+    const dataTitle = item.title.toLowerCase().includes(query);
+    const dataDescription = item.desc.toLowerCase().includes(query);
+
+    const searchData = dataTitle || dataDescription; // The Title or Description must Match the User's Input
+
+    // Category Filtering
+    const category = item.label;
+
+    const categoryData = selectedCategory === "All" || selectedCategory === category;
+
+    return searchData && categoryData;
+  });
+
   const itemsPerPage = 6;
 
   const [currentPage, setCurrentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
 
-  const currentCards = announcementData.slice(startIndex, startIndex + itemsPerPage);
+  const currentCards = filteredData.slice(startIndex, startIndex + itemsPerPage);
   
-  const totalPages = Math.ceil(announcementData.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
   // To scroll up when visits to page and has a change in the page.
   useEffect(() => {
@@ -163,14 +184,13 @@ const ViewAllAnnouncement = () => {
     });
   }, [currentPage]);
 
-
   return(
     <>
       <NavBar />
       <main className="w-full min-h-screen py-8 bg-gray-50 flex flex-col items-center gap-4">
 
         {/* Header */}
-        <header className="flex flex-col items-center gap-4 w-[90%] overflow-hidden">
+        <header className="w-[90%] xl:w-[80%] flex flex-col items-center gap-4 overflow-hidden">
           <div className="flex gap-2 items-center">
             <span className="p-2 rounded-lg bg-blue-100">
               <Bell className="text-blue-700"/>
@@ -191,12 +211,33 @@ const ViewAllAnnouncement = () => {
           {/* Search Bar */}
           <div className="flex items-center w-full border border-gray-300 p-4 gap-2 rounded-lg focus-within:border-blue-500">
             <Search className="w-5 h-5 text-gray-500"/>
-            <input type="search" placeholder="Search announcements..." className="w-full focus:outline-none text-sm"/>
+            <input 
+            type="search" 
+            placeholder="Search announcements..."
+            className="w-full focus:outline-none text-sm"
+            onChange={handleSearchQuery}/>
           </div>
-        </header> 
+
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap gap-2 w-full justify-start">
+            {filterButton.map((items) => (
+              <button 
+                key={items}
+                onClick={() => setSelectedCategory(items)}
+                className={`px-4 py-2 border rounded-4xl transition-all cursor-pointer ${
+                  selectedCategory === items 
+                    ? "bg-blue-700 text-white border-blue-700" // Active Styles
+                    : "border-gray-300 text-gray-500 hover:border-blue-700 hover:text-blue-700" // Inactive Styles
+                }`}
+              >
+                {items}
+              </button>
+            ))}
+          </div>
+         </header> 
 
         {/* Pagination Content */}
-        <section className="w-[90%] flex flex-col gap-4">
+        <section className="w-[90%] xl:w-[80%] flex flex-col gap-4">
 
           {/* Contents */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
