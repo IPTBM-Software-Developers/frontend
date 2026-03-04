@@ -26,6 +26,8 @@ const announcementData = [
     label: "Event",
     date: "March 15, 2026",
     bgColor: "bg-blue-500",
+    labelColor: "bg-blue-500/10",
+    labelTextColor: "text-blue-500",
     title: "Blockchain Security",
     desc: "Immutable records and tamper-proof documentation for your intellectual property assets using distributed ledger technology.",
   },
@@ -34,6 +36,8 @@ const announcementData = [
     label: "Achievement",
     date: "February 10, 2026",
     bgColor: "bg-emerald-500",
+    labelColor: "bg-emerald-500/10",
+    labelTextColor: "text-emerald-500",
     title: "AI-Powered Analysis",
     desc: "Advanced machine learning algorithms to analyze, categorize, and monitor your IP portfolio for potential infringements.",
   },
@@ -42,6 +46,8 @@ const announcementData = [
     label: "Maintenance",
     date: "February 01, 2026",
     bgColor: "bg-amber-500",
+    labelColor: "bg-amber-500/10",
+    labelTextColor: "text-amber-500",
     title: "Cloud Infrastructure",
     desc: "Secure, scalable cloud-based platform ensuring your data is accessible anywhere while maintaining enterprise-grade security.",
   },
@@ -50,6 +56,8 @@ const announcementData = [
     label: "Partnership",
     date: "January 20, 2026",
     bgColor: "bg-indigo-500",
+    labelColor: "bg-indigo-500/10",
+    labelTextColor: "text-indigo-500",
     title: "Secure Data Storage",
     desc: "End-to-end encrypted storage solutions with redundant backups and compliance with international data protection standards.",
   },
@@ -141,25 +149,24 @@ const Announcement = ({id}) => {
               viewport={{ once: false, amount: 0.2 }}
               variants={cardVariants}
             >
-              <article className="border rounded-xl cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all gap-4 flex flex-col bg-white shadow-sm">
-                <section className={`flex flex-col w-full h-20 rounded-t-xl p-4 min-h-50 ${items.bgColor}`}>
+              <article className="rounded-xl cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all gap-4 flex flex-col shadow-sm">
+                <section className={`flex flex-col justify-center items-center w-full h-20 rounded-t-xl p-8 min-h-30 ${items.bgColor}`}>
                   <div className="w-full flex justify-between items-center h-fit">
-                    <span className="h-fit px-4 py-1 rounded-4xl bg-white/90 text-sm font-medium mix-blend-screen">
-                      {items.label}
+                    <span className="text-white [&_svg]:w-10 [&_svg]:h-10 rounded-4xl mix-blend-screen">
+                      {items.Icon}
                     </span>
 
-                    <span className="text-sm text-white">
+                    <span className="text-sm text-white font-bold">
                       {items.date}
                     </span>
                   </div>
-
-                  <span className="w-full h-full flex justify-center items-center text-white [&_svg]:w-12 [&_svg]:h-12">
-                    {items.Icon}
-                  </span>
                 </section>
 
                 {/* Text */}
-                <section className="flex flex-col w-full p-4 gap-2">
+                <section className="flex flex-col w-full p-6 gap-2">
+                  <span className={`${items.labelColor} ${items.labelTextColor} w-fit px-4 py-1 rounded-3xl text-sm font-medium`}>
+                    {items.label}
+                  </span>
                   <span className="font-semibold">
                     {items.title}
                   </span>

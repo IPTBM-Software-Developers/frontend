@@ -1,21 +1,12 @@
 import { useState, useEffect } from 'react';
 
 // Components
-import NavBar from "../../components/landing/NavBar";
 import { Card, CardContent } from "@/components/ui/card"
 import StaggeredText from '@/components/landing/StaggeredText';
 import { motion } from "framer-motion";
 
 // Icons
-import { Shield } from "lucide-react";
-import { BriefcaseBusiness } from "lucide-react";
-import { Scale } from "lucide-react";
-import { Globe } from "lucide-react";
-import { Lock } from "lucide-react";
-import { ChartColumnIncreasing } from "lucide-react";
-import { Layers } from "lucide-react";
-import { Quote } from "lucide-react";
-import { UserRound } from "lucide-react";
+import { Shield, BriefcaseBusiness, Scale, Globe, Lock, ChartColumnIncreasing, Layers, Quote, UserRound } from "lucide-react";
 
 
 const About = ({id}) => {
@@ -122,7 +113,7 @@ const About = ({id}) => {
             variants={cardVariants}
             className="group relative"
           >
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
 
               {/* top accent */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
@@ -144,7 +135,7 @@ const About = ({id}) => {
 
           {/* Card 2 */}
           <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -163,7 +154,7 @@ const About = ({id}) => {
 
           {/* Card 3 */}
           <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -182,7 +173,7 @@ const About = ({id}) => {
 
           {/* Card 4 */}
           <motion.div custom={3} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -201,7 +192,7 @@ const About = ({id}) => {
 
           {/* Card 5 */}
           <motion.div custom={4} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -220,7 +211,7 @@ const About = ({id}) => {
 
           {/* Card 6 */}
           <motion.div custom={5} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
