@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // Icons
@@ -12,17 +11,14 @@ import { Zap } from "lucide-react";
 import { Globe } from "lucide-react";
 
 // Components
-import NavBar from "../../components/landing/NavBar";
 import { motion } from "framer-motion";
 
 // Icons
 import { ArrowRight } from "lucide-react";
 
 // Shadcn
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Bell } from "lucide-react"
 
 const Technologies = ({id}) => {
   const [pageVisit, setPageVisit] = useState(0);
@@ -32,7 +28,7 @@ const Technologies = ({id}) => {
   }, []); // increment on mount
 
   // Animation Variants
-  const cardVariants = {
+  const cardVariants = {  
     hidden: { opacity: 0, y: 50 },
     visible: (i) => ({
       opacity: 1,
@@ -82,18 +78,6 @@ const Technologies = ({id}) => {
       desc: "End-to-end encrypted storage solutions with redundant backups and compliance with international data protection standards.",
       badges: ["AES-256 Encryption", "GDPR Compliant", "Auto-Backup"],
     },
-    {
-      icon: <Zap className="w-8 h-8 text-blue-700"/>,
-      title: "Real-Time Monitoring",
-      desc: "Continuous monitoring of your IP assets with instant alerts for potential violations or unauthorized usage worldwide.",
-      badges: ["24/7 Scanning", "Instant Alerts", "Global Coverage"],
-    },
-    {
-      icon: <Globe className="w-8 h-8 text-blue-700"/>,
-      title: "API Integration",
-      desc: "Seamless integration with existing systems through our robust API, enabling automated workflows and data synchronization.",
-      badges: ["RESTful API", "Webhooks", "SDK Available"],
-    },
   ];
 
   return (
@@ -129,13 +113,12 @@ const Technologies = ({id}) => {
 
         {/* Cards Section */}
         <section className="
-          grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
+          grid grid-cols-1 md:grid-cols-2
           max-w-lg
           sm:max-w-xl
           md:max-w-3xl
           lg:max-w-7xl
-          xl:max-w-[1536px]
-          mx-auto py-8"
+          mx-auto py-8 gap-8"
         >
           {cards.map((card, i) => (
             <motion.div
@@ -188,7 +171,7 @@ const Technologies = ({id}) => {
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeUpVariants}
         >
-          <button className="group px-4 py-2 bg-blue-700 text-white text-sm font-medium rounded-sm hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm flex items-center gap-2">
+          <button className="group px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-sm hover:bg-blue-700 transition cursor-pointer active:bg-blue-800 active:shadow-sm flex items-center gap-2">
             Explore Our Platform
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </button>

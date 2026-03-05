@@ -171,7 +171,7 @@ const Home = ({ id }) => {
           <div className="flex flex-col gap-4 xl:w-[90%] 2xl:w-[75%]">
             <h1 className="text-gray-500 text-md">Partnetship:</h1>
             
-            <div className="flex gap-8 xl:gap-12 w-full justify-start">
+            <div className="flex gap-6 xl:gap-12 w-full justify-start">
               <img src={IptbmLogo} alt="" className="w-15 h-15" />
               <img src={LspuLogo} alt="" className="w-15 h-15" />
               <img src={CcsLogo} alt="" className="w-15 h-15" />

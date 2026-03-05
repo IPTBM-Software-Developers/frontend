@@ -99,7 +99,7 @@ const NavBar = () => {
 
   return (
     <header className="sticky top-0 w-full z-50 bg-white shadow-sm py-2">
-      <div className="container mx-auto px-8">
+      <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo Section - Link to landing page */}
           <Link to="/landing" className="flex gap-2 md:gap-4 items-center">
@@ -139,7 +139,7 @@ const NavBar = () => {
               to="/login" 
               className="group px-4 py-2 bg-blue-600 text-sm text-white font-medium rounded-lg hover:bg-blue-700 transition cursor-pointer active:scale-95 active:shadow-sm duration-100 flex items-center gap-1"
             >
-              Get Started <ArrowRightIcon className="h-4 w-4" />
+              Get Started <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-2 transition-all" />
             </Link>
           </div>
 
