@@ -108,7 +108,7 @@ const Home = ({ id }) => {
       {/* ================= TEXT SECTION ================= */}
       <section className="flex flex-col flex-wrap justify-center md:justify-center px-[5%] lg:justify-center items-center lg:px-[5%] xl:p-0 
         w-full xl:w-[60%] 
-        xl:h-screen lg:h-160 md:h-150 h-150
+        xl:h-screen lg:h-160 md:h-130 h-130
         gap-16">
 
         {/* Content */}
@@ -117,7 +117,7 @@ const Home = ({ id }) => {
           {/* ===== TITLE ===== */}
           <div className="flex flex-col leading-none text-start xl:text-start w-full gap-2">
             {/* Trusted badge */}
-            <div className="inline-flex w-fit gap-2 items-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1">
+            <div className="inline-flex w-fit gap-2 items-center justify-center text-[clamp(0.65rem,0.8vw,0.8rem)] font-medium bg-gray-200 rounded-xl px-2 py-1">
               <img src={Shield} alt="" className="w-4 h-4"/>
               <p>Trusted by 500+ Institutions</p>
             </div>
@@ -168,7 +168,7 @@ const Home = ({ id }) => {
           </motion.div>
 
           {/* Partnership */}
-          <div className="flex flex-col gap-4 xl:w-[90%] 2xl:w-[75%]">
+          {/* <div className="flex flex-col gap-4 xl:w-[90%] 2xl:w-[75%]">
             <h1 className="text-gray-500 text-md">Partnetship:</h1>
             
             <div className="flex gap-6 xl:gap-12 w-full justify-start">
@@ -176,7 +176,7 @@ const Home = ({ id }) => {
               <img src={LspuLogo} alt="" className="w-15 h-15" />
               <img src={CcsLogo} alt="" className="w-15 h-15" />
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -189,10 +189,11 @@ const Home = ({ id }) => {
         rounded-b-4xl xl:rounded-none 
         bg-cover bg-center"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${UniversityPhoto})` 
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${UniversityPhoto})`,
+          backgroundPosition: "43% center" 
         }}
       >
-          <div className="flex px-4 py-2 gap-4 items-center w-full md:w-fit text-white bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg">
+          <div className="flex px-4 py-2 gap-4 items-center w-full md:w-fit text-white bg-black/5 backdrop-blur-xs border border-white/20 rounded-2xl shadow-lg">
             <img src={IptbmLogo} alt="Iptbm Logo" className="h-12 w-12 md:h-16 md:w-16 flex-shrink-0"/>
             <h1 className="leading-tight text-xs md:text-base font-normal">
               Intellectual Property and Technology <br className="hidden md:block"/> Business Management

@@ -259,11 +259,11 @@ const About = ({id}) => {
 
           {/* Comments Cards - Now inside blue background with equal heights */}
           <div className="
-            grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
+            grid gap-8 grid-cols-1 xl:grid-cols-3
             max-w-lg
             sm:max-w-xl
-            md:max-w-3xl
-            lg:max-w-7xl
+            md:max-w-lg
+            lg:max-w-xl
             xl:max-w-[1536px]
             mx-auto auto-rows-fr">
             {cards.map((card, i) => (
