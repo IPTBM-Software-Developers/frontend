@@ -81,7 +81,7 @@ const About = ({id}) => {
             duration={0.5}        // duration of each character animation
             staggerDelay={0.03}   // delay between each character
           >
-            Why Choose IPTBM?
+            What is IPTBM?
           </StaggeredText>
 
           <motion.p
