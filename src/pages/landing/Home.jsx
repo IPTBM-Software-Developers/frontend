@@ -152,7 +152,7 @@ const Home = ({ id }) => {
           >
             <Link 
               to="/login" 
-              className="group px-4 py-3 bg-blue-600 text-white rounded-lg flex items-center gap-2 cursor-pointer active:scale-[0.99] transition-all duration-200 hover:bg-blue-700 active:bg-blue-800"
+              className="group px-4 py-3 bg-blue-700 text-white rounded-lg flex items-center gap-2 cursor-pointer active:scale-[0.99] transition-all duration-200 hover:bg-blue-800 active:bg-blue-800"
             >
               Get Started
               <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -162,7 +162,7 @@ const Home = ({ id }) => {
               Learn More
             </button> */}
 
-            <a href="#about" className="px-6 py-3 border border-blue-600 bg-white text-blue-600 rounded-lg hover:bg-blue-600 active:bg-blue-700 hover:text-white transition-all">
+            <a href="#about" className="px-6 py-3 border border-blue-700 bg-white text-blue-700 rounded-lg hover:bg-blue-700 active:bg-blue-800 hover:text-white transition-all">
               Learn More
             </a>
           </motion.div>

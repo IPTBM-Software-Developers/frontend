@@ -11,6 +11,7 @@ import ViewAllAnnouncement from "@/pages/landing/ViewAllAnnouncement";
 
 // Components
 import NavBar from "../components/landing/NavBar";
+import ViewSelectedItem from "@/pages/landing/ViewSelectedItem";
 
 function LandingRoutes() {
   return (
@@ -23,6 +24,7 @@ function LandingRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/landing" element={<Landing />} /> 
         <Route path="/viewallannouncement" element={<ViewAllAnnouncement />} />
+        <Route path="/viewselecteditem/:id" element={<ViewSelectedItem />} />
       </Routes> 
     </>  
   );

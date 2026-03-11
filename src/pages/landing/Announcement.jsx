@@ -1,28 +1,33 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // Components
-import NavBar from "../../components/landing/NavBar";
 import { motion } from "framer-motion";
 
 // Icons
-import { ArrowRight, Bell } from "lucide-react";
-import { Calendar } from "lucide-react"; // Event Icon
-import { Trophy } from "lucide-react"; // Achievement Icon
-import { BrushCleaning } from "lucide-react"; //Maintenance Icon
-import { Handshake } from "lucide-react"; // Partnership Icon
-import { Rss } from "lucide-react"; // Update Icon
-import { Newspaper } from "lucide-react"; // News Icon
+import { ArrowRight, Bell, Calendar, Trophy, BrushCleaning, Handshake, Rss, Newspaper } from "lucide-react";
+
+// Images
+import AnnounceImage1 from "../../assets/AnnounceImage1.jpg" 
+import AnnounceImage2 from "../../assets/AnnounceImage2.jpg"
+import AnnounceImage3 from "../../assets/AnnounceImage3.jpg"
+import AnnounceImage4 from "../../assets/AnnounceImage4.jpg"
+import AnnounceImage5 from "../../assets/AnnounceImage5.jpg"
+import AnnounceImage6 from "../../assets/AnnounceImage6.jpg"
+import AnnounceImage7 from "../../assets/AnnounceImage7.jpg"
 
 // Shadcn
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
+const commonParag = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Pretium tellus duis convallis tempus leo eu aenean. Iaculis massa nisl malesuada lacinia integer nunc posuere. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Nulla molestie mattis scelerisque maximus eget fermentum odio. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ligula congue sollicitudin erat viverra ac tincidunt nam. Velit aliquam imperdiet mollis nullam volutpat porttitor ullamcorper. Dui felis venenatis ultrices proin libero feugiat tristique. Cubilia curae hac habitasse platea dictumst lorem ipsum. Sem placerat in id cursus mi pretium tellus. Fringilla lacus nec metus bibendum egestas iaculis massa. Taciti sociosqu ad litora torquent per conubia nostra. Ridiculus mus donec rhoncus eros lobortis nulla molestie. Mauris pharetra vestibulum fusce dictum risus blandit quis. Finibus facilisis dapibus etiam interdum tortor ligula congue. Justo lectus commodo augue arcu dignissim velit aliquam. Primis vulputate ornare sagittis vehicula praesent dui felis. Senectus netus suscipit auctor curabitur facilisi cubilia curae. Quisque faucibus ex sapien vitae pellentesque sem placerat.";
 
-const announcementData = [
+const Data = [
   {
+    id: 1029384756,
     Icon: <Calendar />,
+    image: AnnounceImage1,
     label: "Event",
     date: "March 15, 2026",
     bgColor: "bg-blue-500",
@@ -30,9 +35,15 @@ const announcementData = [
     labelTextColor: "text-blue-500",
     title: "Blockchain Security",
     desc: "Immutable records and tamper-proof documentation for your intellectual property assets using distributed ledger technology.",
+    parag: commonParag,
+    parag1: commonParag,
+    parag2: commonParag,
+    parag3: commonParag,
   },
   {
+    id: 2193847560,
     Icon: <Trophy />,
+    image: AnnounceImage2,
     label: "Achievement",
     date: "February 10, 2026",
     bgColor: "bg-emerald-500",
@@ -40,9 +51,15 @@ const announcementData = [
     labelTextColor: "text-emerald-500",
     title: "AI-Powered Analysis",
     desc: "Advanced machine learning algorithms to analyze, categorize, and monitor your IP portfolio for potential infringements.",
+    parag: commonParag,
+    parag1: commonParag,
+    parag2: commonParag,
+    parag3: commonParag,
   },
   {
+    id: 3847561029,
     Icon: <BrushCleaning />,
+    image: AnnounceImage3,
     label: "Maintenance",
     date: "February 01, 2026",
     bgColor: "bg-amber-500",
@@ -50,9 +67,15 @@ const announcementData = [
     labelTextColor: "text-amber-500",
     title: "Cloud Infrastructure",
     desc: "Secure, scalable cloud-based platform ensuring your data is accessible anywhere while maintaining enterprise-grade security.",
+    parag: commonParag,
+    parag1: commonParag,
+    parag2: commonParag,
+    parag3: commonParag,
   },
   {
+    id: 4756102938,
     Icon: <Handshake />,
+    image: AnnounceImage4,
     label: "Partnership",
     date: "January 20, 2026",
     bgColor: "bg-indigo-500",
@@ -60,11 +83,17 @@ const announcementData = [
     labelTextColor: "text-indigo-500",
     title: "Secure Data Storage",
     desc: "End-to-end encrypted storage solutions with redundant backups and compliance with international data protection standards.",
+    parag: commonParag,
+    parag1: commonParag,
+    parag2: commonParag,
+    parag3: commonParag,
   },
 ];
 
 const Announcement = ({id}) => {
   const [pageVisit, setPageVisit] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setPageVisit(v => v + 1);
@@ -137,10 +166,10 @@ const Announcement = ({id}) => {
         <section className="
           grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2
           w-[90%]
-          xl:max-w-[70%]
+          xl:max-w-6xl
           mx-auto py-8">
           
-          {announcementData.map((items, i) => (
+          {Data.map((items, i) => (
             <motion.div
               key={i}
               custom={i}
@@ -148,23 +177,18 @@ const Announcement = ({id}) => {
               whileInView="visible"
               viewport={{ once: false, amount: 0.2 }}
               variants={cardVariants}
+              onClick={() => navigate(`/viewselecteditem/${items.id}`)}
             >
-              <article className="rounded-xl cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all gap-4 flex flex-col shadow-sm">
-                <section className={`flex flex-col justify-center items-center w-full h-20 rounded-t-xl p-8 min-h-30 ${items.bgColor}`}>
-                  <div className="w-full flex justify-between items-center h-fit">
-                    <span className="text-white [&_svg]:w-10 [&_svg]:h-10 rounded-4xl mix-blend-screen">
-                      {items.Icon}
-                    </span>
+              <article className="rounded-xl cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all gap-4 flex flex-col shadow-md">
+                <section className={`flex flex-col justify-center items-center w-full h-70 rounded-t-xl p-8 min-h-30 bg-cover bg-center`}
+                  style={{backgroundImage: `url(${items.image})`}}
+                >
 
-                    <span className="text-sm text-white font-bold">
-                      {items.date}
-                    </span>
-                  </div>
                 </section>
 
                 {/* Text */}
                 <section className="flex flex-col w-full p-6 gap-2">
-                  <span className={`${items.labelColor} ${items.labelTextColor} w-fit px-4 py-1 rounded-3xl text-sm font-medium`}>
+                  <span className={`text-gray-600 w-fit rounded-3xl text-sm font-medium`}>
                     {items.label}
                   </span>
                   <span className="font-semibold">
@@ -178,7 +202,7 @@ const Announcement = ({id}) => {
 
                 {/* Link */}
 
-                <Link to="" className="flex items-center gap-2 p-4 text-blue-700 text-sm hover:underline w-fit">
+                <Link to="" className={`flex items-center gap-2 p-4 text-sm hover:underline w-fit cursor-pointer text-blue-600`}>
                 Read More
                 <ArrowRight className="h-4 w-4"/>
                 </Link>
@@ -195,7 +219,7 @@ const Announcement = ({id}) => {
           variants={fadeUpVariants}
         >
           <Link to="/viewallannouncement" className="w-fit py-2 px-4 bg-blue-700 text-white font-medium rounded-lg hover:bg-blue-800 transition cursor-pointer flex items-center justify-center gap-2">
-            view all announcement
+            View All Announcement
             <span>
               <ArrowRight className="w-4 h-4" />
             </span>
