@@ -1,64 +1,10 @@
 import { Link } from "react-router-dom";
-
-import LoopLogo from "@/components/landing/LoopLogo";
   
 // Image
 import GoogleIcon from "../../assets/GoogleIcon.png";
 import IptbmLogo from "../../assets/iptbm-logo-noBG.png"
 import UniversityPhoto from "../../assets/UniversityPhotoSample2.jpg";
 
-// Icon
-import { Award } from "lucide-react";
-
-
-// Awards Data
-const awardCards = [
-  {
-    node: (
-      <div className="flex gap-4 items-center justify-center p-4 bg-black/5 backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg w-full md:w-fit">
-        <div className="p-2 bg-blue-100 rounded-full">
-          <Award className="w-6 h-6 text-blue-700"/>
-        </div>
-        <div>
-          <h1 className="text-white text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-            Research Excellence
-          </h1>
-          <p className="text-white font-extralight text-[clamp(0.7rem,0.8vw,0.75rem)]">2022</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    node: (
-      <div className="flex gap-4 items-center justify-center p-4 bg-black/5 backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg w-full md:w-fit">
-        <div className="p-2 bg-blue-100 rounded-full">
-          <Award className="w-6 h-6 text-blue-700"/>
-        </div>
-        <div>
-          <h1 className="text-white text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-            Academic Partner
-          </h1>
-          <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-white font-extralight">2020</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    node: (
-      <div className="flex gap-4 items-center justify-center p-4 bg-black/5 backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg w-full md:w-fit">
-        <div className="p-2 bg-blue-100 rounded-full">
-          <Award className="w-6 h-6 text-blue-700"/>
-        </div>
-        <div>
-          <h1 className="text-white text-[clamp(0.85rem,0.95vw,0.95rem)] font-semibold">
-            Innovation Award
-          </h1>
-          <p className="text-[clamp(0.7rem,0.8vw,0.75rem)] text-white font-extralight">2026</p>
-        </div>
-      </div>
-    )
-  },
-];
 
 
 const LogIn = () => {
@@ -67,14 +13,16 @@ const LogIn = () => {
       <main className="flex flex-col xl:flex-row w-full min-h-screen">
         {/* Display Section */}
         <section 
-          className="relative flex flex-col justify-between p-8 md:p-8 h-150 md:h-200 xl:h-screen w-full xl:w-[55%] rounded-b-4xl xl:rounded-none bg-cover md:bg-[center_55%] lg:bg-[center_75%] xl:bg-[center_60%] 2xl:bg-[center_80%]"
+          className="hidden relative xl:flex flex-col justify-between p-8 md:p-8 h-150 md:h-200 xl:h-screen w-full xl:w-[55%] rounded-b-4xl xl:rounded-none bg-cover md:bg-[center_55%] lg:bg-[center_75%] xl:bg-[center_60%] 2xl:bg-[center_80%]"
           style={{ 
             backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${UniversityPhoto})` 
           }}
         >
           {/* TOP CONTENT: Logo */}
-          <div className="flex px-4 py-2 gap-4 items-center w-full md:w-fit text-white bg-black/5 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg">
-            <img src={IptbmLogo} alt="Iptbm Logo" className="h-12 w-12 md:h-16 md:w-16 flex-shrink-0"/>
+          <div className="flex px-4 py-2 gap-4 items-center w-full md:w-fit text-white  bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg">
+            <Link to="/landing">
+              <img src={IptbmLogo} alt="Iptbm Logo" className="h-12 w-12 md:h-16 md:w-16 flex-shrink-0" />
+            </Link>
             <h1 className="leading-tight text-xs md:text-base font-medium">
               Intellectual Property and Technology <br className="hidden md:block"/> Business Management
             </h1>
@@ -114,7 +62,7 @@ const LogIn = () => {
 
               <form action="" className="flex flex-col gap-2">
                 <input type="password" placeholder="Enter your password" required className="text-xs xl:text-sm w-full bg-gray-100 p-4 rounded-md focus:outline-blue-400" />
-                <Link to="" className="text-blue-500 text-xs xl:text-sm w-full text-end">Forgot Password?</Link>
+                <Link to="/forgotpassword" className="text-blue-700 text-xs xl:text-sm w-full text-end">Forgot Password?</Link>
               </form>
 
               <form action="" className="flex gap-2 gap-2">
@@ -124,7 +72,7 @@ const LogIn = () => {
             </section>
 
             <section className="flex flex-col gap-4">
-              <button className="shadow-sm transition-all cursor-pointer w-full bg-blue-500 hover:bg-blue-400 active:scale-[0.99] py-4 rounded-lg text-white text-sm">
+              <button className="shadow-sm transition-all cursor-pointer w-full bg-blue-700 hover:bg-blue-800 active:bg-blue-900 py-4 rounded-lg text-white text-sm">
                 Sign in
               </button>
 
@@ -143,7 +91,7 @@ const LogIn = () => {
             <section>
               <div className="flex gap-2 text-sm justify-center ">
                 <h2 >Don't have an account? </h2>
-                <Link to="" className="text-blue-500">Sign Up</Link>
+                <Link to="/signup" className="text-blue-500">Sign Up</Link>
               </div>
             </section>
           </div>

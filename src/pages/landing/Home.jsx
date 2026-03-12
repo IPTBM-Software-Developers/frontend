@@ -102,7 +102,7 @@ const Home = ({ id }) => {
       variants={pageEnter}
       initial="hidden"
       animate="show"
-      className="flex flex-wrap items-center justify-center min-h-screen w-full bg-gray-50 scroll-mt-20"
+      className="flex flex-wrap items-center justify-center min-h-screen w-full bg-white scroll-mt-20"
     >
 
       {/* ================= TEXT SECTION ================= */}
@@ -158,25 +158,10 @@ const Home = ({ id }) => {
               <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            {/* <button className="px-6 py-3 border border-blue-700 bg-white text-blue-700 rounded-lg cursor-pointer active:scale-[0.99]">
-              Learn More
-            </button> */}
-
             <a href="#about" className="px-6 py-3 border border-blue-700 bg-white text-blue-700 rounded-lg hover:bg-blue-700 active:bg-blue-800 hover:text-white transition-all">
               Learn More
             </a>
           </motion.div>
-
-          {/* Partnership */}
-          {/* <div className="flex flex-col gap-4 xl:w-[90%] 2xl:w-[75%]">
-            <h1 className="text-gray-500 text-md">Partnetship:</h1>
-            
-            <div className="flex gap-6 xl:gap-12 w-full justify-start">
-              <img src={IptbmLogo} alt="" className="w-15 h-15" />
-              <img src={LspuLogo} alt="" className="w-15 h-15" />
-              <img src={CcsLogo} alt="" className="w-15 h-15" />
-            </div>
-          </div> */}
         </div>
       </section>
 

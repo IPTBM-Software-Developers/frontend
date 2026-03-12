@@ -82,7 +82,7 @@ const Technologies = ({id}) => {
 
   return (
     <>
-      <main id={id} className="flex flex-col bg-gray-50 min-h-screen w-full justify-center items-center py-16 px-[5%] gap-6 scroll-mt-20">
+      <main id={id} className="flex flex-col bg-white min-h-screen w-full justify-center items-center py-16 px-[5%] gap-6 scroll-mt-20">
         
         {/* Text Section */}
         <motion.section 
@@ -133,7 +133,7 @@ const Technologies = ({id}) => {
                 <CardContent className="p-6 flex flex-col gap-4">
 
                   {/* Icon stays same */}
-                  <div className="inline-flex w-fit p-4 rounded-lg bg-blue-100">
+                  <div className="inline-flex w-fit p-4 rounded-lg bg-blue-50">
                     {card.icon}
                   </div>
 
@@ -171,7 +171,7 @@ const Technologies = ({id}) => {
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeUpVariants}
         >
-          <button className="group px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-sm hover:bg-blue-700 transition cursor-pointer active:bg-blue-800 active:shadow-sm flex items-center gap-2">
+          <button className="group px-4 py-2 bg-blue-700 text-white text-sm font-medium rounded-sm hover:bg-blue-800 transition cursor-pointer active:bg-blue-900 active:shadow-sm flex items-center gap-2">
             Explore Our Platform
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </button>

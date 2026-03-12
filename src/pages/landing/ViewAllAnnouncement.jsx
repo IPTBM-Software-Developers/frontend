@@ -77,7 +77,7 @@ const ViewAllAnnouncement = () => {
   return(
     <>
       <NavBar />
-      <main className="w-full min-h-screen py-8 bg-gray-50 flex flex-col items-center gap-4">
+      <main className="w-full min-h-screen py-8 bg-white flex flex-col items-center gap-4">
 
         {/* Header */}
         <header className="w-[90%] xl:w-[90%] 2xl:w-[80%] flex flex-col items-center gap-4 overflow-hidden">

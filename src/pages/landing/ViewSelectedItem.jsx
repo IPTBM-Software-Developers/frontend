@@ -24,7 +24,7 @@ const ViewSelectedItem = () => {
   return(
     <>
       <NavBar />
-      <main className="w-full min-h-screen flex justify-center py-8 px-5">
+      <main className="w-full min-h-screen flex justify-center py-8 px-5 bg-white">
         <section className="flex flex-col max-w-4xl gap-8 text-justify">
           <header className="flex flex-col gap-2">
             <span className={`w-fit px-4 py-1 rounded-4xl font-semibold text-sm ${selectedData.labelTextColor} ${selectedData.labelColor}`}>

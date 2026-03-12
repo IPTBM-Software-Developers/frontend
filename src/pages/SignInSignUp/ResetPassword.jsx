@@ -11,14 +11,14 @@ import { KeyRound, ArrowLeft } from "lucide-react";
 
 
 
-const SampleLog = () => {
+const ResetPassword = () => {
 
   return(
       <>
         <main className="flex flex-col xl:flex-row w-full min-h-screen">
           {/* Display Section */}
           <section 
-            className="relative flex flex-col justify-between p-8 md:p-8 h-150 md:h-200 xl:h-screen w-full xl:w-[55%] rounded-b-4xl xl:rounded-none bg-cover md:bg-[center_55%] lg:bg-[center_75%] xl:bg-[center_60%] 2xl:bg-[center_80%]"
+            className="hidden relative xl:flex flex-col justify-between p-8 md:p-8 h-150 md:h-200 xl:h-screen w-full xl:w-[55%] rounded-b-4xl xl:rounded-none bg-cover md:bg-[center_55%] lg:bg-[center_75%] xl:bg-[center_60%] 2xl:bg-[center_80%]"
             style={{ 
               backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${UniversityPhoto})` 
             }}
@@ -53,14 +53,10 @@ const SampleLog = () => {
             w-full xl:w-[45%] 
             h-180 md:h-200 xl:h-screen"
           >
-            <section className="w-lg flex flex-col justify-center items-center space-y-8">
-              <div className="p-4 rounded-4xl bg-blue-50">
-                <KeyRound className="text-blue-700"/>
-              </div>
-
-              <span className="w-full text-center space-y-2 ">
-                <h1 className="text-black text-2xl font-semibold">
-                  Set a  new password
+            <section className="w-full max-w-lg flex flex-col justify-center items-center space-y-8 px-8">
+              <span className="w-full text-start space-y-6">
+                <h1 className="text-black  text-3xl xl:text-4xl font-semibold flex flex-col gap-2">
+                  <span className="text-lg xl:text-xl">Hola!</span> Let's set a  new password
                 </h1>
 
                 <p className="text-sm text-gray-400">
@@ -122,4 +118,4 @@ const SampleLog = () => {
 };
 
 
-export default SampleLog;
+export default ResetPassword;

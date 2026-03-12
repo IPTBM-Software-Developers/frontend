@@ -46,7 +46,7 @@ const About = ({id}) => {
   const cards = [
     {
       iconA: <Quote className="w-8 h-8 text-gray-400"/>,
-      iconB: <UserRound className="w-8 h-8 text-blue-400"/>,
+      iconB: <UserRound className="w-8 h-8 text-blue-700"/>,
       comment: "IPTBM has transformed how we manage our research patents. The platform is intuitive and the support team is exceptional.",
       name: "Dr. Maria Santos",
       position: "Research Director",
@@ -54,7 +54,7 @@ const About = ({id}) => {
     },
     {
       iconA: <Quote className="w-8 h-8 text-gray-400"/>,
-      iconB: <UserRound className="w-8 h-8 text-blue-400"/>,
+      iconB: <UserRound className="w-8 h-8 text-blue-700"/>,
       comment: "The compliance tools have saved us countless hours of manual work. Highly recommended for any institution dealing with IP management.",
       name: "Prof. Juan dela Cruz",
       position: "IP Office Head",
@@ -62,7 +62,7 @@ const About = ({id}) => {
     },
     {
      iconA: <Quote className="w-8 h-8 text-gray-400"/>,
-      iconB: <UserRound className="w-8 h-8 text-blue-400"/>,
+      iconB: <UserRound className="w-8 h-8 text-blue-700"/>,
       comment: "Finally, a platform that understands the unique needs of academic institutions. The analytics features are particularly valuable.",
       name: "Dr. Ana Reyes",
       position: "Technology Transfer Officer",
@@ -72,7 +72,7 @@ const About = ({id}) => {
 
   return (
     <>
-      <main id={id} className="flex flex-col gap-8 justify-center items-center bg-gray-50 h-auto w-full py-16 px-[5%] scroll-mt-20">
+      <main id={id} className="flex flex-col gap-8 justify-center items-center bg-white h-auto w-full py-16 px-[5%] scroll-mt-20">
         {/* Text */}
         <section className="flex flex-col gap-4 items-center text-center">
           <StaggeredText 
@@ -113,7 +113,7 @@ const About = ({id}) => {
             variants={cardVariants}
             className="group relative"
           >
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden">
 
               {/* top accent */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
@@ -135,7 +135,7 @@ const About = ({id}) => {
 
           {/* Card 2 */}
           <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -154,7 +154,7 @@ const About = ({id}) => {
 
           {/* Card 3 */}
           <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -173,7 +173,7 @@ const About = ({id}) => {
 
           {/* Card 4 */}
           <motion.div custom={3} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -192,7 +192,7 @@ const About = ({id}) => {
 
           {/* Card 5 */}
           <motion.div custom={4} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -211,7 +211,7 @@ const About = ({id}) => {
 
           {/* Card 6 */}
           <motion.div custom={5} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={cardVariants} className="group relative">
-            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden cursor-pointer">
+            <div className="relative h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-xs transition-all duration-300 hover:shadow-lg overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition"/>
 
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
@@ -257,7 +257,7 @@ const About = ({id}) => {
             </motion.p>
           </div>
 
-          {/* Comments Cards - Now inside blue background with equal heights */}
+          {/* Comments Cards */}
           <div className="
             grid gap-8 grid-cols-1 xl:grid-cols-3
             max-w-lg
@@ -293,7 +293,7 @@ const About = ({id}) => {
 
                       {/* Profile - pushed to bottom with margin-top auto */}
                       <div className="flex items-center gap-4 mt-auto">
-                        <figure className="p-2 bg-blue-100 rounded-full flex-shrink-0">
+                        <figure className="p-2 bg-blue-50 rounded-full flex-shrink-0">
                           {card.iconB}
                         </figure>
                         <div className="flex flex-col leading-tight">

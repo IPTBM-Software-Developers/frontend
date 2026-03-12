@@ -65,7 +65,7 @@ const Contact = ({id}) => {
 
   return (
     <>
-      <main id={id} className="bg-gray-50 h-auto w-full scroll-mt-20">
+      <main id={id} className="bg-white h-auto w-full scroll-mt-20">
         
         {/* Stats Section */}
         <motion.section 

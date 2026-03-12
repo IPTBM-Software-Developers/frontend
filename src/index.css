@@ -137,7 +137,7 @@ main.flex-cols {
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  /* Overwrite Tailwind Default Blue with your Custom Blue Scale */
+  /* Secondary Color - Blue */
   --color-blue-50:  #ecebff;
   --color-blue-100: #c9c6ff;
   --color-blue-200: #a6a1ff;
