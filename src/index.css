@@ -148,6 +148,10 @@ main.flex-cols {
   --color-blue-700: #12099f;
   --color-blue-800: #0c066f;
   --color-blue-900: #06033f;
+  /* For Line Graph */
+  --color-solar: var(--color-indigo-500);
+  --color-inverter: var(--color-cyan-400);
+  /* For Line Graph */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

@@ -1,33 +1,37 @@
 import { useState } from "react";
 
-import { Menu, PanelRightOpen, LayoutDashboard, Cpu, Megaphone, Trophy, Settings, CircleUserRound, UserRoundPen, Key, Lock, ChevronsUpDown } from "lucide-react";
+import { ChevronsLeftRight, LayoutDashboard, Cpu, Megaphone, Trophy, Settings, CircleUserRound, UserRoundPen, Key, Lock, ChevronsUpDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import IptbmLogo from "../../assets/iptbm-logo-noBG.png";
 
 const SideBarAdmin = () => {
-  const [sideBar, setSideBar] = useState(false);
+  const [sideBar, setSideBar] = useState(false); // True(Hidden), False(Flex)
 
   const [viewProfile, setViewProfile] = useState(true);
 
   const navLinks = [
     {
       link: "Dashboard",
+      path: "/admin",
       icon: <LayoutDashboard size={20} />,
 
     },
     {
       link: "Technologies",
+      path: "/admin/technologies",
       icon: <Cpu size={20}/>,
 
     },
     {
       link: "Announcements",
+      path: "/admin/announcement",
       icon: <Megaphone size={20}/>,
 
     },
     {
       link: "Awards",
+      path: "/admin/awards",
       icon: <Trophy size={20}/>,
 
     },
@@ -57,40 +61,33 @@ const SideBarAdmin = () => {
 
   return(
     <>
-      <main className="relative flex flex-col xl:flex-row w-full h-screen">
+      {/* <section className="relative flex w-full h-screen bg-gray-50"> */}
+        {/* The parent element should have a position relative */}
+        <button
+          className={`absolute cursor-pointer rounded-3xl p-1 bg-gray-100 hover:bg-gray-200 transition-all duration-300 ${sideBar ? "top-5 left-5 xl:top-20 xl:left-16" : "top-5 xl:top-20 left-71"}`}
+          onClick={() => {
+            setSideBar(!sideBar);
+            setViewProfile(true);
+          }}          
+        >
+          <ChevronsLeftRight size={22} className="text-gray-500"/>
+        </button>
 
-        {/* <button
-          className="absolute top-10 left-4 text-white cursor-pointer rounded-sm p-2 text-blue-700 text-sm font-medium hover:bg-blue-50 transition-all duration-300"
-          onClick={() => setSideBar(!sideBar)}          
-        >
-          <Menu className="text-gray-700"/>
-        </button> */}
-        
         <aside
-          className={`flex justify-center bg-white border-r transition-all duration-200 overflow-hidden py-8 ${sideBar ? "w-0 xl:w-[80px] h-full" : "w-[300px] h-full"}`}
+          className={`flex justify-center bg-white border-r transition-all duration-200 overflow-hidden py-8 ${sideBar ? "w-0 xl:w-[80px] h-full" : "w-full xl:w-[300px] h-full"}`}
         >
+          
           <nav className="w-[300px] h-full flex flex-col justify-between">
-            <section className="flex flex-col gap-8 px-4">
+            <section className="flex flex-col gap-6 px-4">
               <header
                 className="w-full space-y-8"
-              >
-                <div
-                  className={`flex items-center w-full ${sideBar ? "justify-center" : "justify-start"}`}
-                >
-                  <button
-                    className="cursor-pointer rounded-sm p-2 text-blue-700 text-sm font-medium hover:bg-blue-50 transition-all duration-300"
-                    onClick={() => setSideBar(!sideBar)} 
-                  >
-                    <PanelRightOpen size={16} className="text-gray-700"/>
-                  </button>
-                </div>
-
+              >              
                 {/* Logo */}
                 <div
                   className={`flex w-full items-center ${sideBar ? "justify-center" : "gap-2"}`}
                 >
                   <span 
-                    className="block w-16 h-12 bg-no-repeat bg-contain bg-center" 
+                    className="block w-14 h-10 bg-no-repeat bg-contain bg-center" 
                     style={{ backgroundImage: `url(${IptbmLogo})` }}
                     role="img" 
                     aria-label="Logo"
@@ -101,17 +98,21 @@ const SideBarAdmin = () => {
                   <span
                     className={`w-full ${sideBar ? "hidden" : "block"}`}
                   >
-                    <h1 className="text-base font-medium leading-none">Intelectual Property</h1>
-                    <span className="text-xs text-gray-600">LSPU-IPTBM</span>
+                    <h1 className="text-sm font-semibold leading-none">Intelectual Property</h1>
+                    <span className="text-xs font-medium text-gray-400">LSPU-IPTBM</span>
                   </span>
                 </div>
               </header>
 
               {/* Divider */}
-              <span
-                className={`flex border-t px-4 w-full ${sideBar ? "opacity-0" : "opacity-100"}`}
+              <div
+                className="flex justify-center items-center w-full"
               >
-              </span>
+                <span
+                  className={`flex border-t-2 rounded-xl items-center px-4 ${sideBar ? "w-[70%]" : "w-[95%]"}`}
+                >
+                </span>
+              </div>
 
               <ul 
                 className="space-y-4"
@@ -122,7 +123,7 @@ const SideBarAdmin = () => {
                     className=""
                   >
                     <Link 
-                      to=""
+                      to={item.path}
                       className={`flex w-full items-center py-2 text-gray-600 rounded-lg hover:bg-gray-100 hover:text-black transition-all whitespace-nowrap text-sm
                       ${sideBar ? "justify-center" : "gap-4 pl-2 pr-8"}`}
                     >
@@ -138,10 +139,10 @@ const SideBarAdmin = () => {
               </ul>
             </section>
 
-            <div className="pl-6 pr-4 space-y-4">
+            <div className="px-4 space-y-4">
               <Link 
                 to=""
-                className={`flex w-full items-center text-gray-600 rounded-lg hover:bg-gray-100 hover:text-black transition-all whitespace-nowrap text-sm
+                className={`flex w-full items-center py-2 text-gray-600 rounded-lg hover:bg-gray-100 hover:text-black transition-all whitespace-nowrap text-sm
                 ${sideBar ? "justify-center" : "gap-4 pl-2 pr-8 py-2"}`}
               >
                 <Settings size={20}/>
@@ -152,21 +153,28 @@ const SideBarAdmin = () => {
                 </span>
               </Link>
 
-              <span
-                className={`flex border-t w-full ${sideBar ? "opacity-0" : "opacity-100"}`}
+              {/* Divider */}
+              <div
+                className="flex justify-center items-center w-full"
               >
-              </span>
+                <span
+                  className={`flex border-t-2 rounded-xl items-center px-4 ${sideBar ? "w-[70%]" : "w-[95%]"}`}
+                >
+                </span>
+              </div>
               
               {/* Profile */}
               
               {viewProfile ? 
                 <div
-                  className={`flex items-center w-full rounded-lg hover:bg-gray-100 cursor-pointer transition-all 
-                  ${sideBar ? "justify-center" : "gap-2 pl-1 pr-8 py-2"}`}
-                  onClick={() => setViewProfile(!viewProfile)}
+                  className={`flex items-center py-2 w-full rounded-lg hover:bg-gray-100 cursor-pointer transition-all 
+                  ${sideBar ? "justify-center" : "gap-2 pl-2 pr-8 py-2"}`}
+                  onClick={() => {
+                    setViewProfile(false);
+                    setSideBar(false);
+                  }}
                 >
                   <span>
-                    {/* <img src="" alt="Profile" /> */}
                     <CircleUserRound size={20} className="text-gray-700"/>
                   </span>
 
@@ -190,12 +198,10 @@ const SideBarAdmin = () => {
                       className={`text-gray-700 ml-[12px] ${sideBar ? "hidden" : "block"}`} 
                       />
                   </span>
-
-                  
                 </div>
                 : <div
                     className="flex flex-col w-full border rounded-lg p-4 "
-                    onClick={() => setViewProfile(!viewProfile)}
+                    // onClick={() => setViewProfile(!viewProfile)}
                   >
                     {profileOptions.map((item, index) => (
                       <ul
@@ -228,7 +234,7 @@ const SideBarAdmin = () => {
         </aside>
 
         
-      </main>
+      {/* </section> */}
       
     </>
   );
