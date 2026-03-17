@@ -9,6 +9,9 @@ const chartData = [
   { type: "Patent", count: 120 },
   { type: "Utility Model", count: 80 },
   { type: "Trademark", count: 250 },
+  { type: "Patent", count: 120 },
+  { type: "Utility Model", count: 80 },
+  { type: "Trademark", count: 250 },
   
 ]
 

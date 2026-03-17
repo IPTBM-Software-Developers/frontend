@@ -3,12 +3,10 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-  ChartLegend,
-  ChartLegendContent,
 } from "../../components/ui/chart"
 
 const chartData = [
-  { agency: "ipophil", visitors: 450, fill: "var(--color-ipophil)" },
+  { agency: "ipophil", visitors: 750, fill: "var(--color-ipophil)" },
   { agency: "library", visitors: 350, fill: "var(--color-library)" },
 ]
 
@@ -27,44 +25,64 @@ export default function DonutChartAdmin() {
   const totalTechnologies = chartData.reduce((acc, curr) => acc + curr.visitors, 0)
 
   return (
-    <ChartContainer 
-      config={chartConfig} 
-      className="mx-auto aspect-square w-full max-h-[250px]"
-    >
-      <PieChart>
-        <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-        <Pie
-          data={chartData}
-          dataKey="visitors"
-          nameKey="agency"
-          innerRadius={80}     // Adjust based on how thick you want the ring
-          outerRadius={100}
-          paddingAngle={4}    // Creates the "broken" gap between segments
-          cornerRadius={40}    // Rounds the ends of the segments like your reference
-          stroke="none"        // Removes the default white border
-        >
-          <Label
-            content={({ viewBox }) => {
-              if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                return (
-                  <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                    <tspan x={viewBox.cx} y={viewBox.cy} className="fill-foreground text-4xl font-bold">
-                      {totalTechnologies.toLocaleString()}
-                    </tspan>
-                    <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 28} className="fill-muted-foreground text-sm font-medium">
-                      Technologies
-                    </tspan>
-                  </text>
-                )
-              }
-            }}
-          />
-        </Pie>
-        <ChartLegend 
-          content={<ChartLegendContent />} 
-          className="mt-4 flex-wrap gap-4" 
-        />
-      </PieChart>
-    </ChartContainer>
+    <div className="w-full">
+      <ChartContainer 
+        config={chartConfig} 
+        className="mx-auto aspect-square w-full max-h-[250px]"
+      >
+        <PieChart>
+          <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+          <Pie
+            data={chartData}
+            dataKey="visitors"
+            nameKey="agency"
+            innerRadius={80}
+            outerRadius={100}
+            paddingAngle={5}
+            cornerRadius={10}
+            stroke="none"
+          >
+            <Label
+              content={({ viewBox }) => {
+                if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                  return (
+                    <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
+                      <tspan x={viewBox.cx} y={viewBox.cy} className="fill-foreground text-3xl font-bold">
+                        {totalTechnologies.toLocaleString()}
+                      </tspan>
+                      <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 28} className="fill-muted-foreground text-xs font-medium">
+                        Technologies
+                      </tspan>
+                    </text>
+                  )
+                }
+              }}
+            />
+          </Pie>
+        </PieChart>
+      </ChartContainer>
+
+      {/* --- CUSTOM LIST DESIGN --- */}
+      <div className="mt-6 space-y-3 px-2">
+        {chartData.map((item) => (
+          <div key={item.agency} className="flex items-center justify-between border-b border-dashed border-gray-100 pb-2 last:border-0">
+            <div className="flex items-center gap-2">
+              {/* Colored Dot */}
+              <div 
+                className="h-4 w-4 rounded-full" 
+                style={{ backgroundColor: chartConfig[item.agency].color }}
+              />
+              <span className="text-sm font-medium text-gray-500">
+                {chartConfig[item.agency].label}
+              </span>
+            </div>
+            {/* Total on the Right */}
+            <span className="text-sm font-semibold text-gray-500">
+              {item.visitors.toLocaleString()}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
