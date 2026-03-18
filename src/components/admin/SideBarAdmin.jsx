@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { sileo, Toaster } from "sileo";
+
 import { ChevronsLeftRight, LayoutDashboard, Cpu, Megaphone, Trophy, Settings, CircleUserRound, UserRoundPen, Key, Lock, ChevronsUpDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -141,7 +143,7 @@ const SideBarAdmin = () => {
 
             <div className="px-4 space-y-4">
               <Link 
-                to=""
+                to="/admin/adminsettings"
                 className={`flex w-full items-center py-2 text-gray-600 rounded-lg hover:bg-gray-100 hover:text-black transition-all whitespace-nowrap text-sm
                 ${sideBar ? "justify-center" : "gap-4 pl-2 pr-8 py-2"}`}
               >
@@ -222,7 +224,17 @@ const SideBarAdmin = () => {
                       className="mt-5"
                     >
                       <button
-                        className="w-full py-2 rounded-lg bg-red-700 text-white text-sm hover:bg-red-800 active:bg-red-900 cursor-pointer"
+                        className="w-full py-2 rounded-lg bg-red-700 text-white text-sm hover:bg-red-800 active:bg-red-900 cursor-pointer transition-all"
+                        onClick={() => {
+                          sileo.warning({
+                            title: "Log Out",
+                            description: "Are you sure you want to log out?",
+                            button: {
+                              title: "Log Out",
+                              onClick: () => console.log("Logged out")
+                            }
+                          });
+                        }}
                       >
                         Log Out
                       </button>
