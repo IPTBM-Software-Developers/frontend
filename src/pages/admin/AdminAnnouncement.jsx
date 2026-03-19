@@ -352,7 +352,7 @@ const AdminAnnouncement = () => {
 
         {/* Content */}
         {visible ? 
-          <section className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl h-[670px] bg-black/2 border rounded-4xl overflow-hidden">
+          <section className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl h-[670px] bg-gray-50 border rounded-4xl overflow-hidden">
             <table className="flex flex-col overflow-y-auto border-collapse">
               <thead className="w-full text-left sticky top-0 z-10 bg-white border-b text-gray-800 text-sm">
                 <tr className="flex px-8 py-6">

@@ -229,6 +229,10 @@ const SideBarAdmin = () => {
                           sileo.warning({
                             title: "Log Out",
                             description: "Are you sure you want to log out?",
+                            autopilot: {
+                              expand: 100,
+                              collapse: 7000,
+                            },
                             button: {
                               title: "Log Out",
                               onClick: () => console.log("Logged out")
