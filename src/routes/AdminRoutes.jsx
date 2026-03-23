@@ -11,7 +11,7 @@ import AdminSettingsLayout from "@/pages/admin/AdminSetingsLayout";
 import AdminSettingsSidebar from "@/components/admin/AdminSettingsSidebar";
 import AdminSettingsProfile from "@/pages/admin/AdminSettingsProfile";
 import AdminSettingsDisplay from "@/pages/admin/AdminSettingsDisplay";
-import AdminSettingsContacts from "@/pages/admin/AdminSettingsContacts";
+import AdminSettingsContacts from "@/pages/admin/AdminSettingsTestimonials";
 import AdminSettingsDatamanagement from "@/pages/admin/AdminSettingsDatamanagement";
 
 

@@ -1,8 +1,12 @@
 import { UserRound } from "lucide-react";
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const AdminSettingsProfile = () => {
+
+  const [enabled, setEnabled] = useState(false);
+
   return(
     <>
       <main
@@ -91,6 +95,46 @@ const AdminSettingsProfile = () => {
             </div>
 
             <span className="w-full border-t border-gray-300"></span>
+          </div>
+
+          {/* Security */}
+          <div className="w-full flex items-center justify-between">
+            <span className="space-y-1">
+              <h1 className="text-lg font-medium text-black">
+                2-Step Verifications
+              </h1>
+
+              <p className="text-xs text-gray-600">Add an additional layer of security to your account during login.</p>
+            </span>
+
+            <button
+              onClick={() => setEnabled(!enabled)}
+              className={`relative w-12 h-7 rounded-full transition-colors duration-300 cursor-pointer ${
+                enabled ? "bg-green-500" : "bg-gray-300"
+              }`}
+            >
+              <span
+                className={`absolute top-1 left-1 w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+                  enabled ? "translate-x-5" : ""
+                }`}
+              />
+            </button>
+          </div>
+
+          {/* Change Password */}
+          <div className="w-full flex items-center justify-between">
+            <span className="space-y-1">
+              <h1 className="text-lg font-medium text-black">
+                Change Password
+              </h1>
+
+              <p className="text-xs text-gray-600">Click the button to change the password.</p>
+            </span>
+              
+            <Link to="/resetpassword" className="text-sm px-4 py-2 rounded-lg bg-blue-700 text-white curso-pointer hover:opacity-90 active:opacity-80 shadow-sm transition-all">
+                Change Password
+            </Link>
+            
           </div>
         </section>
       </main>

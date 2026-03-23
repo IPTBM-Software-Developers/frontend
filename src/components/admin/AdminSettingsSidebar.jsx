@@ -24,17 +24,17 @@ const AdminSettingsSidebar = () => {
 
     },
     {
-      link: "Contacts",
+      link: "Testimonials",
       path: "/admin/adminsettings/contacts",
       icon: <Megaphone size={20}/>,
 
     },
-    {
-      link: "Data Management",
-      path: "/admin/adminsettings/datamanagement",
-      icon: <Trophy size={20}/>,
+    // {
+    //   link: "Data Management",
+    //   path: "/admin/adminsettings/datamanagement",
+    //   icon: <Trophy size={20}/>,
 
-    },
+    // },
   ];
 
   const profileName = [

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { sileo, Toaster } from "sileo";
+import { sileo } from "sileo";
 
 import { ChevronsLeftRight, LayoutDashboard, Cpu, Megaphone, Trophy, Settings, CircleUserRound, UserRoundPen, Key, Lock, ChevronsUpDown } from "lucide-react";
 import { Link } from "react-router-dom";
