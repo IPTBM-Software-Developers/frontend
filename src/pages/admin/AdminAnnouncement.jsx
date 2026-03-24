@@ -373,7 +373,7 @@ const AdminAnnouncement = () => {
                     </td>
 
                     <td className="flex items-center flex-1">
-                      <span className={`border px-3 py-1 rounded-full text-sm font-normal ${data.statusBg} ${data.statusBorder} ${data.statusText}`}>{data.status}</span>
+                      <span className={`border px-2 py-1 rounded-sm text-sm font-normal ${data.statusBg} ${data.statusBorder} ${data.statusText}`}>{data.status}</span>
                     </td>
 
                     <td className="flex-1 items-center flex text-gray-600 font-normal">

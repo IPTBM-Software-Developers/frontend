@@ -1,29 +1,9 @@
-import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
-import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-import { HeadingNode, QuoteNode } from "@lexical/rich-text";
-import { ListNode, ListItemNode } from "@lexical/list";
-import { LinkNode, AutoLinkNode } from "@lexical/link";
-import { ListPlugin } from "@lexical/react/LexicalListPlugin";
-import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
-import { AutoLinkPlugin } from "@lexical/react/LexicalAutoLinkPlugin";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { FORMAT_TEXT_COMMAND, $getSelection, $isRangeSelection } from "lexical";
-import { $setBlocksType } from "@lexical/selection";
-import { $createHeadingNode } from "@lexical/rich-text";
-import { INSERT_UNORDERED_LIST_COMMAND, INSERT_ORDERED_LIST_COMMAND } from "@lexical/list";
-import { Bold, Italic, Underline, List, ListOrdered, Heading1, Heading2 } from "lucide-react";
-import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import { $getRoot } from "lexical"
+import {LayersPlus,Trash2, Pencil, ImagePlus } from "lucide-react";
 
-import { Dot, SquareChartGantt, LayersPlus,Trash2, Pencil, ImagePlus, Paperclip } from "lucide-react";
-
-import NavBar from "../../components/landing/NavBar";
 import { useState } from "react";
 
 import { sileo } from "sileo";
+
 const announcementData = [
   {
     name: "Dr. Aris Thorne",
@@ -87,118 +67,12 @@ const announcementData = [
   },
 ];
 
-// URL Matcher for AutoLink
-const URL_REGEX = /((https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}))/;
-
-const MATCHERS = [
-  (text) => {
-    const match = URL_REGEX.exec(text);
-    if (match === null) return null;
-    const fullMatch = match[0];
-    return {
-      index: match.index,
-      length: fullMatch.length,
-      text: fullMatch,
-      url: fullMatch.startsWith('http') ? fullMatch : `https://${fullMatch}`,
-    };
-  },
-];
-
-const theme = {
-  paragraph: "mb-2 text-gray-700 leading-relaxed",
-  heading: {
-    h1: "text-3xl font-bold mb-4 text-black",
-    h2: "text-2xl font-bold mb-3 text-black",
-  },
-  list: {
-    ul: "list-disc ml-5 mb-2",
-    ol: "list-decimal ml-5 mb-2",
-    listitem: "mb-1",
-  },
-  link: "text-blue-600 underline cursor-pointer",
-  text: {
-    bold: "font-bold",
-    italic: "italic",
-    underline: "underline",
-  },
-};
-
-const initialConfig = {
-    namespace: "AnnouncementEditor",
-    theme,
-    onError: (error) => console.error(error),
-    nodes: [
-      HeadingNode,
-      ListNode,
-      ListItemNode,
-      QuoteNode,
-      LinkNode,
-      AutoLinkNode
-    ]
-  };
-
-  const ToolbarPlugin = () => {
-    const [editor] = useLexicalComposerContext();
-
-    const formatHeading = (level) => {
-      editor.update(() => {
-        const selection = $getSelection();
-        if ($isRangeSelection(selection)) {
-          $setBlocksType(selection, () => $createHeadingNode(level));
-        }
-      });
-    };
-
-    return (
-      <div className="flex items-center gap-1 p-2 border-b bg-gray-50/50 flex-wrap">
-        {/* Formatting */}
-        <button onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold")} className="p-2 hover:bg-gray-200 rounded transition-colors" title="Bold"><Bold size={18} /></button>
-        <button onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "italic")} className="p-2 hover:bg-gray-200 rounded transition-colors" title="Italic"><Italic size={18} /></button>
-        <button onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "underline")} className="p-2 hover:bg-gray-200 rounded transition-colors" title="Underline"><Underline size={18} /></button>
-        
-        <div className="w-[1px] h-6 bg-gray-300 mx-1" />
-
-        {/* Headings */}
-        <button onClick={() => formatHeading("h1")} className="p-2 hover:bg-gray-200 rounded transition-colors" title="H1"><Heading1 size={18} /></button>
-        <button onClick={() => formatHeading("h2")} className="p-2 hover:bg-gray-200 rounded transition-colors" title="H2"><Heading2 size={18} /></button>
-
-        <div className="w-[1px] h-6 bg-gray-300 mx-1" />
-
-        {/* Lists */}
-        <button onClick={() => editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined)} className="p-2 hover:bg-gray-200 rounded transition-colors" title="Bullet List"><List size={18} /></button>
-        <button onClick={() => editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined)} className="p-2 hover:bg-gray-200 rounded transition-colors" title="Numbered List"><ListOrdered size={18} /></button>
-      </div>
-    );
-  };
-
-  const button = [
-    {
-      label: "Manage Testimonials",
-      icon: <SquareChartGantt size={22} />
-    },
-    {
-      label: "Create New",
-      icon: <LayersPlus size={22}/>
-    },
-  ];
 
 
 const AdminSettingsTestimonials = () => {
-  const [editorContent, setEditorContent] = useState("");
   
-    // This function runs every time the user types
-    const handleEditorChange = (editorState) => {
-      editorState.read(() => {
-        const root = $getRoot();
-        const text = root.getTextContent();
-        setEditorContent(text); // Or use JSON.stringify(editorState) for rich text
-      });
-    };
-  
-    const [visible, isVisible] = useState(true); 
-  
-    const [selectedCategory, setSelectedCategory] = useState("Event");
-  
+  const [visible, isVisible] = useState(true); 
+    
   
   
     return (
