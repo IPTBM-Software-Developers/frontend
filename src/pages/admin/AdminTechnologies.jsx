@@ -1,7 +1,11 @@
-import {LayersPlus,Trash2, Pencil, ImagePlus, X, Globe, LockKeyhole, CircleEllipsis, Ungroup, Users, UsersRound, Landmark, History, Info } from "lucide-react";
+import {LayersPlus,Trash2, Pencil, ImagePlus, X, Globe, LockKeyhole, CircleEllipsis, Ungroup, Users, UsersRound, Landmark, History, Info, Plus } from "lucide-react";
 import { useState } from "react";
 import { sileo } from "sileo";
 import Certificate from "../../assets/certificate.png";
+
+import { motion, AnimatePresence } from "framer-motion";
+
+import AnimatedSection from "@/components/admin/AnimatedSection";
 
 const announcementData = [
   {
@@ -393,12 +397,12 @@ const AdminTechnologies = () => {
   const [certificatePreview, setCertificatePreview] = useState(null);
 
   const handleCertificateChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const imageUrl = URL.createObjectURL(file);
-    setCertificatePreview(imageUrl);
-  }
-};
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setCertificatePreview(imageUrl);
+    }
+  };
 
   return(
     <>
@@ -424,14 +428,17 @@ const AdminTechnologies = () => {
                 className="w-fit flex gap-2 items-center pl-4 pr-5 py-2 rounded-lg cursor-pointer border text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 transition-all"
                 onClick={() => isVisible(!visible)}
               >
-                <LayersPlus size={22}/>
-                {visible ? "Create New " : "Manage Technologies"}
+                {visible ? (<><Plus /> Create</>) : (<><LayersPlus /> Manage</>)}
               </button>
             </section>
           </header>
 
-          {visible ? 
-            <section className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl h-[670px] bg-gray-50 border rounded-4xl overflow-hidden">
+          <AnimatePresence>
+            {visible ? 
+            <AnimatedSection 
+              key="Table"
+              className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl h-[670px] bg-gray-50 border rounded-4xl overflow-hidden"
+            >
               <table className="flex flex-col overflow-y-auto border-collapse">
                 <thead className="w-full text-left sticky top-0 z-10 bg-white border-b text-gray-800 text-sm">
                   <tr className="flex px-8 py-6">
@@ -495,9 +502,12 @@ const AdminTechnologies = () => {
                   ))}
                 </tbody>
               </table>
-            </section> 
+            </AnimatedSection> 
             // Create Technologies
-          : <section className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl h-[670px] bg-white border rounded-4xl overflow-hidden p-8 overflow-y-auto">
+          : <AnimatedSection 
+              key="Form"
+              className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl h-[670px] bg-white border rounded-4xl overflow-hidden p-8 overflow-y-auto"
+            >
               <form 
                 action="" 
                 className="w-full flex flex-col gap-8"
@@ -655,161 +665,175 @@ const AdminTechnologies = () => {
 
                 </div>
               </form>
-            </section>}
+            </AnimatedSection>}
+          </AnimatePresence>
       </main>
-
+    <AnimatePresence>
       {popup && selectedData && (
-      <section className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-        
-        {/* Modal Content */}
-        <div className="flex flex-col w-4xl h-[90%] bg-white relative rounded-lg">
-          <header className="w-full px-8 py-16 bg-blue-800 text-white space-y-4 overflow-y-auto rounded-t-lg">
-            <h1 className="font-semibold text-4xl">
-              {selectedData.title}
-            </h1>
-
-            <div className="w-full flex gap-3">
-              <span className="border w-fit flex items-center gap-1 pl-2 pr-3 py-1 rounded-full text-sm">
-                {selectedData.visibilityIcon}
-                {selectedData.visibility}
-              </span>
-
-              <span className="border w-fit flex items-center gap-1 pl-2 pr-3 py-1 rounded-full text-sm">
-                <CircleEllipsis size={18}/>
-                {selectedData.status}
-              </span>
-
-               <span className="border w-fit flex items-center gap-1 pl-2 pr-3 py-1 rounded-full text-sm">
-                <Ungroup size={18}/>
-                {selectedData.ipType}
-              </span>
-            </div>
-          </header>
-
-          <button
-            className="absolute top-6 right-6 text-gray-300 hover:text-gray-500 text-xl cursor-pointer"
-            onClick={() => setPopup(false)}
+        <section
+          className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center"
+        >
+          
+          {/* Modal Content */}
+          <motion.div 
+            className="flex flex-col w-4xl h-[90%] bg-white relative rounded-lg"
+            initial={{scale: 0, opacity: 0}}
+            animate={{scale: 1, opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{
+              type: "tween",
+              duration: 0.3,
+              ease: "easeOut"
+            }}
           >
-            <X />
-          </button>
+            <header className="w-full px-8 py-16 bg-blue-800 text-white space-y-4 overflow-y-auto rounded-t-lg">
+              <h1 className="font-semibold text-4xl">
+                {selectedData.title}
+              </h1>
 
-          {/* Content */}
-          <section className="w-full h-full flex flex-col p-8 gap-12 overflow-y-auto">            
-            <div className="w-full flex justify-center items-center">
-              <img src={Certificate} alt="" className=" rounded-xl w-[70%]"/>
-
-            </div>
-
-            {/* Abstract */}
-            <div className="flex flex-col gap-2">
-              <h2 className="text-sm text-gray-500 font-semibold">ABSTRACT</h2>
-              <p className="text-gray-500 text-justify">{selectedData.abstract}</p>
-            </div>
-
-            {/* Other Details */}
-            <div className="flex flex-col gap-2">
-              <h2 className="text-sm text-gray-500 font-semibold">ADDITIONAL DETAILS</h2>
-              <p className="text-gray-500 text-justify">{selectedData.otherDetails}</p>
-            </div>
-
-            <div className="w-full grid grid-cols-2 gap-4">
-              <div className="flex flex-col gap-8 flex-1 rounded-lg p-8 flex flex-col">
-                <span className="flex flex-col gap-4">
-                  <h2 className="flex gap-2 items-center text-sm text-blue-800 font-semibold"> <Users size={20}/> INVENTORS</h2>
-                    <ul className="list-disc list-inside">
-                      {selectedData.inventors.split(', ').map((name, index) => (
-                        <li key={index} className="text-gray-500 text-sm">
-                          {name}
-                        </li>
-                      ))}
-                    </ul>
+              <div className="w-full flex gap-3">
+                <span className="border w-fit flex items-center gap-1 pl-2 pr-3 py-1 rounded-full text-sm">
+                  {selectedData.visibilityIcon}
+                  {selectedData.visibility}
                 </span>
 
-                <span className="flex flex-col gap-4">
-                  <h2 className="flex gap-2 items-center text-sm text-blue-800 font-semibold"> <UsersRound size={20} /> AGENTS</h2>
-                    <ul className="list-disc list-inside">
-                      {selectedData.agents.split(', ').map((name, index) => (
-                        <li key={index} className="text-gray-500 text-sm">
-                          {name}
-                        </li>
-                      ))}
-                    </ul>
+                <span className="border w-fit flex items-center gap-1 pl-2 pr-3 py-1 rounded-full text-sm">
+                  <CircleEllipsis size={18}/>
+                  {selectedData.status}
+                </span>
+
+                <span className="border w-fit flex items-center gap-1 pl-2 pr-3 py-1 rounded-full text-sm">
+                  <Ungroup size={18}/>
+                  {selectedData.ipType}
                 </span>
               </div>
+            </header>
 
-              <div className="flex flex-col gap-8 flex-1 rounded-lg p-8 flex flex-col">
-                <span className="flex flex-col gap-4">
-                  <h2 className="flex gap-2 items-center text-sm text-blue-800 font-semibold"> <Landmark size={20}/> INSTITUTIONS</h2>
-                    <ul className="list-disc list-inside">
-                      {selectedData.campus.split(', ').map((name, index) => (
-                        <li key={index} className="text-gray-500 text-sm">
-                          {name}
-                        </li>
-                      ))}
-                    </ul>
-                </span>
+            <button
+              className="absolute top-6 right-6 text-gray-300 hover:text-gray-500 text-xl cursor-pointer"
+              onClick={() => setPopup(false)}
+            >
+              <X />
+            </button>
 
-                <span className="flex flex-col gap-4">
-                  <h2 className="flex gap-2 items-center text-sm text-blue-800 font-semibold"> <UsersRound size={20} /> AGENCY</h2>
-                    <ul className="list-disc list-inside">
-                      {selectedData.agency.split(', ').map((name, index) => (
-                        <li key={index} className="text-gray-500 text-sm">
-                          {name}
-                        </li>
-                      ))}
-                    </ul>
-                </span>
+            {/* Content */}
+            <section className="w-full h-full flex flex-col p-8 gap-12 overflow-y-auto">            
+              <div className="w-full flex justify-center items-center">
+                <img src={Certificate} alt="" className=" rounded-xl w-[70%]"/>
+
               </div>
-            </div>
+
+              {/* Abstract */}
+              <div className="flex flex-col gap-2">
+                <h2 className="text-sm text-gray-500 font-semibold">ABSTRACT</h2>
+                <p className="text-gray-500 text-justify">{selectedData.abstract}</p>
+              </div>
+
+              {/* Other Details */}
+              <div className="flex flex-col gap-2">
+                <h2 className="text-sm text-gray-500 font-semibold">ADDITIONAL DETAILS</h2>
+                <p className="text-gray-500 text-justify">{selectedData.otherDetails}</p>
+              </div>
+
+              <div className="w-full grid grid-cols-2 gap-4">
+                <div className="flex flex-col gap-8 flex-1 rounded-lg p-8 flex flex-col">
+                  <span className="flex flex-col gap-4">
+                    <h2 className="flex gap-2 items-center text-sm text-blue-800 font-semibold"> <Users size={20}/> INVENTORS</h2>
+                      <ul className="list-disc list-inside">
+                        {selectedData.inventors.split(', ').map((name, index) => (
+                          <li key={index} className="text-gray-500 text-sm">
+                            {name}
+                          </li>
+                        ))}
+                      </ul>
+                  </span>
+
+                  <span className="flex flex-col gap-4">
+                    <h2 className="flex gap-2 items-center text-sm text-blue-800 font-semibold"> <UsersRound size={20} /> AGENTS</h2>
+                      <ul className="list-disc list-inside">
+                        {selectedData.agents.split(', ').map((name, index) => (
+                          <li key={index} className="text-gray-500 text-sm">
+                            {name}
+                          </li>
+                        ))}
+                      </ul>
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-8 flex-1 rounded-lg p-8 flex flex-col">
+                  <span className="flex flex-col gap-4">
+                    <h2 className="flex gap-2 items-center text-sm text-blue-800 font-semibold"> <Landmark size={20}/> INSTITUTIONS</h2>
+                      <ul className="list-disc list-inside">
+                        {selectedData.campus.split(', ').map((name, index) => (
+                          <li key={index} className="text-gray-500 text-sm">
+                            {name}
+                          </li>
+                        ))}
+                      </ul>
+                  </span>
+
+                  <span className="flex flex-col gap-4">
+                    <h2 className="flex gap-2 items-center text-sm text-blue-800 font-semibold"> <UsersRound size={20} /> AGENCY</h2>
+                      <ul className="list-disc list-inside">
+                        {selectedData.agency.split(', ').map((name, index) => (
+                          <li key={index} className="text-gray-500 text-sm">
+                            {name}
+                          </li>
+                        ))}
+                      </ul>
+                  </span>
+                </div>
+              </div>
+              
+              {/* Timeline */}
+              <div className="w-full flex flex-col gap-2">
+                <span>
+                  <h1 className="flex gap-2 items-center text-sm text-blue-700 font-semibold"> <History /> TIMELINE</h1>
+                </span>
+
+                <div className="w-full grid grid-cols-2 px-2">
+                  <span className="w-full flex flex-col gap-2 py-2">
+                    <h1 className="text-sm text-gray-500 font-semibold">APPLICATION DATE</h1>
+                    <p className="text-sm font-normal text-gray-500">{selectedData.applicationDate}</p>
+                  </span>
+
+                  <span className="w-full flex flex-col gap-2 py-2">
+                    <h1 className="text-sm text-gray-500 font-semibold">REGISTRATION DATE</h1>
+                    <p className="text-sm font-normal text-gray-500">{selectedData.registrationDate}</p>
+                  </span>
+
+                  <span className="w-full flex flex-col gap-2 py-2">
+                    <h1 className="text-sm text-gray-500 font-semibold">EXPIRATION DATE</h1>
+                    <p className="text-sm font-normal text-gray-500">{selectedData.expirationDate}</p>
+                  </span>
+                </div>
+              </div>
+
+              {/* App & Reg Information */}
+              <div className="w-full flex flex-col gap-2">
+                <span>
+                  <h1 className="flex gap-2 items-center text-sm text-blue-700 font-semibold"> <Info /> APPLICATION & REGISTRATION DETAILS</h1>
+                </span>
+
+                <div className="w-full grid grid-cols-2 px-2">
+                  <span className="w-full flex flex-col gap-2 py-2">
+                    <h1 className="text-sm text-gray-500 font-semibold">APPLICATION NUMBER</h1>
+                    <p className="text-sm font-normal text-gray-500">{selectedData.applicationNo}</p>
+                  </span>
+
+                  <span className="w-full flex flex-col gap-2 py-2">
+                    <h1 className="text-sm text-gray-500 font-semibold">REGISTRATION NUMBER</h1>
+                    <p className="text-sm font-normal text-gray-500">{selectedData.registrationNo}</p>
+                  </span>
+                </div>
+              </div>
             
-            {/* Timeline */}
-            <div className="w-full flex flex-col gap-2">
-              <span>
-                <h1 className="flex gap-2 items-center text-sm text-blue-700 font-semibold"> <History /> TIMELINE</h1>
-              </span>
+            </section>
 
-              <div className="w-full grid grid-cols-2 px-2">
-                <span className="w-full flex flex-col gap-2 py-2">
-                  <h1 className="text-sm text-gray-500 font-semibold">APPLICATION DATE</h1>
-                  <p className="text-sm font-normal text-gray-500">{selectedData.applicationDate}</p>
-                </span>
-
-                <span className="w-full flex flex-col gap-2 py-2">
-                  <h1 className="text-sm text-gray-500 font-semibold">REGISTRATION DATE</h1>
-                  <p className="text-sm font-normal text-gray-500">{selectedData.registrationDate}</p>
-                </span>
-
-                <span className="w-full flex flex-col gap-2 py-2">
-                  <h1 className="text-sm text-gray-500 font-semibold">EXPIRATION DATE</h1>
-                  <p className="text-sm font-normal text-gray-500">{selectedData.expirationDate}</p>
-                </span>
-              </div>
-            </div>
-
-            {/* App & Reg Information */}
-            <div className="w-full flex flex-col gap-2">
-              <span>
-                <h1 className="flex gap-2 items-center text-sm text-blue-700 font-semibold"> <Info /> APPLICATION & REGISTRATION DETAILS</h1>
-              </span>
-
-              <div className="w-full grid grid-cols-2 px-2">
-                <span className="w-full flex flex-col gap-2 py-2">
-                  <h1 className="text-sm text-gray-500 font-semibold">APPLICATION NUMBER</h1>
-                  <p className="text-sm font-normal text-gray-500">{selectedData.applicationNo}</p>
-                </span>
-
-                <span className="w-full flex flex-col gap-2 py-2">
-                  <h1 className="text-sm text-gray-500 font-semibold">REGISTRATION NUMBER</h1>
-                  <p className="text-sm font-normal text-gray-500">{selectedData.registrationNo}</p>
-                </span>
-              </div>
-            </div>
-           
-          </section>
-
-        </div>
-      </section>
-    )}
+          </motion.div>
+        </section>
+      )}
+    </AnimatePresence>
     </>
   );
 };

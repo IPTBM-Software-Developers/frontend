@@ -14,7 +14,7 @@ import { FORMAT_TEXT_COMMAND, $getSelection, $isRangeSelection } from "lexical";
 import { $setBlocksType } from "@lexical/selection";
 import { $createHeadingNode } from "@lexical/rich-text";
 import { INSERT_UNORDERED_LIST_COMMAND, INSERT_ORDERED_LIST_COMMAND } from "@lexical/list";
-import { Bold, Italic, Underline, List, ListOrdered, Heading1, Heading2 } from "lucide-react";
+import { Bold, Italic, Underline, List, ListOrdered, Heading1, Heading2, Plus } from "lucide-react";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { $getRoot } from "lexical"
 
@@ -22,7 +22,8 @@ import { Dot, SquareChartGantt, LayersPlus,Trash2, Pencil, ImagePlus, Paperclip 
 
 import NavBar from "../../components/landing/NavBar";
 import { useState } from "react";
-
+import AnimatedSection from "@/components/admin/AnimatedSection";
+import { AnimatePresence } from "framer-motion";
 const announcementData = [
   {
     label: "Event",
@@ -247,159 +248,160 @@ const AdminAwards = () => {
                className="w-fit flex gap-2 items-center pl-4 pr-5 py-2 rounded-lg cursor-pointer border text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 transition-all"
                onClick={() => isVisible(!visible)}
              >
-               <LayersPlus size={22}/>
-               {visible ? "Create New " : "Manage Awards"}
+               {visible ? (<><Plus /> Create</>) : (<><LayersPlus /> Manage</>)}
              </button>
            </section>
          </header>
  
          {/* Content */}
-         {visible ? 
-           <section className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl h-[670px] bg-black/2 border rounded-4xl overflow-hidden">
-             <table className="flex flex-col overflow-y-auto border-collapse">
-               <thead className="w-full text-left sticky top-0 z-10 bg-white border-b text-gray-800 text-sm">
-                 <tr className="flex px-8 py-6">
-                   <th className="flex-2 font-semibold ">TITLE</th>
-                   <th className="flex-1 font-semibold">AWARD FROM</th>
-                   <th className="flex-1 font-semibold">EVENT</th>
-                   <th className="flex-1 font-semibold" >DATE</th>
-                   <th className="flex-1 font-semibold">ACTIONS</th>
-                 </tr>
-               </thead>
- 
-               <tbody className="w-full bg-white">
-                 {announcementData.map((data, index) => (
-                   <tr key={index} className="flex text-left px-8 py-6 text-sm font-semibold border-b cursor-pointer hover:bg-gray-50 transition-all">
-                     <td className="flex-2 flex flex-col gap-2">
-                       <span className="font-semibold">{data.title}</span>
-                       <span className="text-gray-600 text-sm font-normal">{data.desc.substring(0, 35)}...</span>
-                     </td>
- 
-                     <td className="flex items-center flex-1">
-                       <span className={`text-gray-600 text-sm font-normal`}>{data.awardfrom}</span>
-                     </td>                    
- 
-                     <td className="flex-1 items-center flex">
-                       <span className="flex-1 items-center flex text-gray-600 font-normal">{data.label}</span>
-                     </td>
+         <AnimatePresence>
+            {visible ? 
+            <AnimatedSection key="Table" className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl h-[670px] bg-black/2 border rounded-4xl overflow-hidden">
+              <table className="flex flex-col overflow-y-auto border-collapse">
+                <thead className="w-full text-left sticky top-0 z-10 bg-white border-b text-gray-800 text-sm">
+                  <tr className="flex px-8 py-6">
+                    <th className="flex-2 font-semibold ">TITLE</th>
+                    <th className="flex-1 font-semibold">AWARD FROM</th>
+                    <th className="flex-1 font-semibold">EVENT</th>
+                    <th className="flex-1 font-semibold" >DATE</th>
+                    <th className="flex-1 font-semibold">ACTIONS</th>
+                  </tr>
+                </thead>
+  
+                <tbody className="w-full bg-white">
+                  {announcementData.map((data, index) => (
+                    <tr key={index} className="flex text-left px-8 py-6 text-sm font-semibold border-b cursor-pointer hover:bg-gray-50 transition-all">
+                      <td className="flex-2 flex flex-col gap-2">
+                        <span className="font-semibold">{data.title}</span>
+                        <span className="text-gray-600 text-sm font-normal">{data.desc.substring(0, 35)}...</span>
+                      </td>
+  
+                      <td className="flex items-center flex-1">
+                        <span className={`text-gray-600 text-sm font-normal`}>{data.awardfrom}</span>
+                      </td>                    
+  
+                      <td className="flex-1 items-center flex">
+                        <span className="flex-1 items-center flex text-gray-600 font-normal">{data.label}</span>
+                      </td>
 
-                     <td className="flex-1 items-center flex text-gray-600 font-normal">
-                       {data.date}
-                     </td>
- 
-                     <td className="flex-1 items-center flex gap-1 text-xs">
-                       <button className="flex gap-2 p-2 p-2 rounded-md cursor-pointer text-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 transition-all">
-                         {<Pencil size={20}/>}
-                       </button>
- 
-                       <button className="flex gap-2 p-2 items-center p-2 rounded-md cursor-pointer text-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 transition-all">
-                         {<Trash2 size={20}/>}
-                       </button>
-                     </td>
-                   </tr>
-                 ))}
-               </tbody>
-             </table>
-           </section> 
- 
-           // Create Announcement Section
-           : <section className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl bg-white border rounded-2xl shadow-sm overflow-hidden p-8 gap-8">
-               <div className="flex flex-col gap-8">
-                 <header className="flex flex-col gap-2 border-b py-4">
-                   <h1 className="text-4xl font-semibold text-gray-700">
-                     Create Awards
-                   </h1>
- 
-                   <p className="text-gray-500">
-                     Fill in the details below to create a new awards for your platform.
-                   </p>
-                 </header>
- 
-                 <label className="flex flex-col justify-center items-center text-center border-2 border-dashed rounded-lg p-10 flex flex-col items-center cursor-pointer w-full h-[200px] hover:border-blue-600 hover:bg-blue-50 transition-all">
-                   <input 
-                     type="file" 
-                     accept="image/png, image/jpeg"
-                     className="hidden"
-                   />
-                   
-                   <ImagePlus className="text-gray-500"/>
-                   <p className="text-gray-700">Click to upload banner image</p>
-                   <span className="text-sm text-gray-400 font-medium">PNG, JPG up to 10MB</span>
-                 </label>
- 
-                 <form action="" className="flex flex-col gap-8">
-                   {/* Title */}
-                   <aside>
-                     <label htmlFor="#Announcement-Title" className="font-medium"> Announcement Title</label>
-                     <input id="#Announcement-Title" type="text" className="border w-full px-4 py-4 rounded-lg text-sm font-medium mt-2" placeholder="eg., New Security Released" />
-                   </aside>
- 
-                   <aside className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {/* Category */}
-                     <div className="flex flex-col w-full w-fit gap-2">
-                       <label className="font-medium">Event Name</label>
-                       <div className="border px-4 py-2 rounded-lg">
-                         <select 
-                           value={selectedCategory}
-                           onChange={(e) => setSelectedCategory(e.target.value)}
-                           className="w-full pr-4 text-sm font-medium text-gray-600 outline-none"
-                         >
-                           <option>Event</option>
-                           <option>Achievement</option>
-                           <option>Maintenance</option>
-                           <option>Partnership</option>
-                           <option>Update</option>
-                           <option>News</option>
-                         </select>
-                       </div>
-                     </div>
- 
-                     {/* Status */}
-                     <div className="flex flex-col w-full w-fit gap-2">
-                       <label className="font-medium">Award From</label> 
-                       <input type="text" className="w-full h-full rounded-lg border px-4 text-sm" placeholder="Enter name" />
-                     </div>
- 
-                     {/* Audience */}
-                     <div className="flex flex-col w-full w-fit gap-2">
-                       <label className="font-medium">Audience</label>
-                       <input type="date" className="w-full h-full rounded-lg border px-4 text-sm" />
-                     </div>
-                   </aside>
- 
-                   {/* Moved Lexical Composer inside the form tag */}
-                   <div className="w-full border rounded-lg overflow-hidden">
-                     <LexicalComposer initialConfig={initialConfig}>
-                       <ToolbarPlugin />
-                       <div className="relative">
-                         <RichTextPlugin
-                           contentEditable={
-                             <ContentEditable className="min-h-[400px] p-8 outline-none text-gray-800" />
-                           }
-                           placeholder={
-                             <div className="absolute top-8 left-8 text-gray-400 pointer-events-none">
-                               Enter the announcement details here...
-                             </div>
-                           }
-                           ErrorBoundary={LexicalErrorBoundary}
-                         />
-                         <HistoryPlugin />
-                         <ListPlugin />
-                         <LinkPlugin />
-                         <AutoLinkPlugin matchers={MATCHERS} />
- 
-                         <OnChangePlugin onChange={handleEditorChange} />
-                       </div>
-                     </LexicalComposer>
-                   </div>
- 
-                   <aside className="w-full flex justify-end">
-                     <input type="submit" className="border border-blue-600 rounded-lg text-white bg-blue-600 font-medium text-sm shadow-lg hover:bg-blue-700 active:bg-blue-800 cursor-pointer transition-all px-4 py-2" />
-                   </aside>
-                 </form>
-               </div>
-           </section>
-         }
+                      <td className="flex-1 items-center flex text-gray-600 font-normal">
+                        {data.date}
+                      </td>
+  
+                      <td className="flex-1 items-center flex gap-1 text-xs">
+                        <button className="flex gap-2 p-2 p-2 rounded-md cursor-pointer text-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 transition-all">
+                          {<Pencil size={20}/>}
+                        </button>
+  
+                        <button className="flex gap-2 p-2 items-center p-2 rounded-md cursor-pointer text-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 transition-all">
+                          {<Trash2 size={20}/>}
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </AnimatedSection> 
+  
+            // Create Announcement Section
+            : <AnimatedSection key="Form" className="flex flex-col w-full md:max-w-2xl xl:max-w-7xl bg-white border rounded-2xl shadow-sm overflow-hidden p-8 gap-8">
+                <div className="flex flex-col gap-8">
+                  <header className="flex flex-col gap-2 border-b py-4">
+                    <h1 className="text-4xl font-semibold text-gray-700">
+                      Create Awards
+                    </h1>
+  
+                    <p className="text-gray-500">
+                      Fill in the details below to create a new awards for your platform.
+                    </p>
+                  </header>
+  
+                  <label className="flex flex-col justify-center items-center text-center border-2 border-dashed rounded-lg p-10 flex flex-col items-center cursor-pointer w-full h-[200px] hover:border-blue-600 hover:bg-blue-50 transition-all">
+                    <input 
+                      type="file" 
+                      accept="image/png, image/jpeg"
+                      className="hidden"
+                    />
+                    
+                    <ImagePlus className="text-gray-500"/>
+                    <p className="text-gray-700">Click to upload banner image</p>
+                    <span className="text-sm text-gray-400 font-medium">PNG, JPG up to 10MB</span>
+                  </label>
+  
+                  <form action="" className="flex flex-col gap-8">
+                    {/* Title */}
+                    <aside>
+                      <label htmlFor="#Announcement-Title" className="font-medium"> Announcement Title</label>
+                      <input id="#Announcement-Title" type="text" className="border w-full px-4 py-4 rounded-lg text-sm font-medium mt-2" placeholder="eg., New Security Released" />
+                    </aside>
+  
+                    <aside className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {/* Category */}
+                      <div className="flex flex-col w-full w-fit gap-2">
+                        <label className="font-medium">Event Name</label>
+                        <div className="border px-4 py-2 rounded-lg">
+                          <select 
+                            value={selectedCategory}
+                            onChange={(e) => setSelectedCategory(e.target.value)}
+                            className="w-full pr-4 text-sm font-medium text-gray-600 outline-none"
+                          >
+                            <option>Event</option>
+                            <option>Achievement</option>
+                            <option>Maintenance</option>
+                            <option>Partnership</option>
+                            <option>Update</option>
+                            <option>News</option>
+                          </select>
+                        </div>
+                      </div>
+  
+                      {/* Status */}
+                      <div className="flex flex-col w-full w-fit gap-2">
+                        <label className="font-medium">Award From</label> 
+                        <input type="text" className="w-full h-full rounded-lg border px-4 text-sm" placeholder="Enter name" />
+                      </div>
+  
+                      {/* Audience */}
+                      <div className="flex flex-col w-full w-fit gap-2">
+                        <label className="font-medium">Audience</label>
+                        <input type="date" className="w-full h-full rounded-lg border px-4 text-sm" />
+                      </div>
+                    </aside>
+  
+                    {/* Moved Lexical Composer inside the form tag */}
+                    <div className="w-full border rounded-lg overflow-hidden">
+                      <LexicalComposer initialConfig={initialConfig}>
+                        <ToolbarPlugin />
+                        <div className="relative">
+                          <RichTextPlugin
+                            contentEditable={
+                              <ContentEditable className="min-h-[400px] p-8 outline-none text-gray-800" />
+                            }
+                            placeholder={
+                              <div className="absolute top-8 left-8 text-gray-400 pointer-events-none">
+                                Enter the announcement details here...
+                              </div>
+                            }
+                            ErrorBoundary={LexicalErrorBoundary}
+                          />
+                          <HistoryPlugin />
+                          <ListPlugin />
+                          <LinkPlugin />
+                          <AutoLinkPlugin matchers={MATCHERS} />
+  
+                          <OnChangePlugin onChange={handleEditorChange} />
+                        </div>
+                      </LexicalComposer>
+                    </div>
+  
+                    <aside className="w-full flex justify-end">
+                      <input type="submit" className="border border-blue-600 rounded-lg text-white bg-blue-600 font-medium text-sm shadow-lg hover:bg-blue-700 active:bg-blue-800 cursor-pointer transition-all px-4 py-2" />
+                    </aside>
+                  </form>
+                </div>
+            </AnimatedSection>
+          }
+         </AnimatePresence>
        </main>
      </>
    );

@@ -4,7 +4,7 @@ import { Plus, Grid2X2Check } from "lucide-react";
 
 
 
-const SampleLog = () => {
+const AdminFormButton = () => {
   const [isClicked, setIsClicked ] = useState(false);
 
   return(
@@ -38,4 +38,4 @@ const SampleLog = () => {
 };
 
 
-export default SampleLog;
+export default AdminFormButton;
