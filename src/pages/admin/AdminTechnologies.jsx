@@ -677,9 +677,9 @@ const AdminTechnologies = () => {
           {/* Modal Content */}
           <motion.div 
             className="flex flex-col w-4xl h-[90%] bg-white relative rounded-lg"
-            initial={{scale: 0, opacity: 0}}
+            initial={{scale: 0.9, opacity: 0}}
             animate={{scale: 1, opacity: 1}}
-            exit={{opacity: 0}}
+            exit={{scale: 0.9, opacity: 0}}
             transition={{
               type: "tween",
               duration: 0.3,
