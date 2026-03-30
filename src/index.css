@@ -100,6 +100,7 @@ html {
   justify-content: center !important;
 }
 
+
 /* Ensure proper centering for mobile */
 @media (max-width: 639px) {
   .swiper-slide {
@@ -184,6 +185,8 @@ main.flex-cols {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  /* Font Instrument */
+  --font-instrument:  'Instrument Serif', serif;
 }
 
 /*---break---*/
